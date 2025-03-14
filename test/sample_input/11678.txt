@@ -1,0 +1,70 @@
+Request: 11678;
+
+Format: humanized scFv-CH3 dimer monoclonal antibody;
+Note: humanized by CDR grafting;
+ID: IAB22M2C;
+
+Fusion: 1 2 3 4;
+Antigen[1,2]: human T-cell surface glycoprotein CD8 alpha chain, T-lymphocyte differentiation antigen T8/Leu-2, CD8a (CD8A);
+Domains[1,2]: VL VH;
+Domains[3]: hinge;
+Domains[4]: CH3;
+
+CDRSource[1,2]: Mus musculus;
+AbML: VL(1:3)-L(2)-VH(3:1)-H*(4:10){3}[MOD:REMCYS][NOTE: Nter 5aa extension Cter 2aa extension]-L(5)-CH3(6:12)|VL(7:9)-L(8)-VH(9:7)-H(10:4){3}[MOD:REMCYS][NOTE: Nter 5aa extension Cter 2aa extension]-L(11)-CH3(12:6);
+
+ChainLength[1,2,3,4]: 376;
+
+Type[1]: Fv-kappa scFv;
+LightChainClass[1]: kappa;
+LightPotentialNGlycos[1]: NONE;
+LightConfirmedNGlycos[1]: NONE;
+LightCysPositions[1]: 23 88;
+LightDisulfidesIntra[1]: 23-88;
+LVGermline[1]: Homo sapiens IGKV1-27*01;
+LJGermline[1]: Homo sapiens IGKJ4*01;
+VLRange[1]: 1-107;
+CDRKabatL1[1]: RTSRSISQYLA (24-34);
+CDRKabatL2[1]: SGSTLQS (50-56);
+CDRKabatL3[1]: QQHNENPLT (89-97);
+
+Linker[1,2]: 108-125;
+
+Type[2]: Fv-heavy scFv;
+HeavyPotentialNGlycos[2]: NONE;
+HeavyConfirmedNGlycos[2]: NONE;
+HeavyCysPositions[2]: 147 221;
+HeavyDisulfidesIntra[2]: 147-221;
+VHRange[2]: 126-243;
+HVGermline[2]: Homo sapiens IGHV3-66*01;
+HJGermline[2]: Homo sapiens IGHJ1*01;
+CDRKabatH1[2]: DTYIH (156-160);
+CDRKabatH2[2]: RIDPANDNTLYASKFQG (175-191);
+CDRKabatH3[2]: GYGYYVFDH (224-232);
+
+Type[3]: hinge;
+Note[3]: The hinge sequence also contains 5aa from CH1 (EPKSS) and an additional 2aa at the end (PC);
+HeavyCysPositions[3]: 254 257 260; 
+DisulfidesInterH1H2[3,3]: 254-254 257-257 260-260;
+HingeRange[3]: 244-260 (C248S ins259P ins260C);
+
+Linker[3,4]: 261-270;
+
+Type[4]: CH3-Gamma1;
+HeavyChainClass[4]: Gamma1;
+HeavyCysPositions[4]: 297 355;
+HeavyDisulfidesIntra[4]: 297-355;
+HCGermline[4]: Homo sapiens IGHG1*03;
+CH3Range[4]: 271-375;
+CHSRange[4]: 376-376 (K377del);
+
+Chain[1,2,3,4]:
+DVQITQSPSS LSASVGDRVT ITCRTSRSIS QYLAWYQQKP GKVPKLLIYS  50
+GSTLQSGVPS RFSGSGSGTD FTLTISSLQP EDVATYYCQQ HNENPLTFGG 100
+GTKVEIKGST SGGGSGGGSG GGGSSEVQLV ESGGGLVQPG GSLRLSCAAS 150
+GFNIKDTYIH FVRQAPGKGL EWIGRIDPAN DNTLYASKFQ GKATISADTS 200
+KNTAYLQMNS LRAEDTAVYY CGRGYGYYVF DHWGQGTLVT VSSEPKSSDK 250
+THTCPPCPPC GGGSSGGGSG GQPREPQVYT LPPSREEMTK NQVSLTCLVK 300
+GFYPSDIAVE WESNGQPENN YKTTPPVLDS DGSFFLYSKL TVDKSRWQQG 350
+NVFSCSVMHE ALHNHYTQKS LSLSPG                           376
+//

@@ -1,0 +1,127 @@
+Request: 12198
+
+Format: bispecific human/humanized monoclonal Fab-Fc-scFv antibody;
+ID: SI-B003, SI-3X35, SI-3;
+CDRSource[1]: Homo sapiens;
+Note[1]: transgenic mouse with human genes;
+CDRSource[2,3]: Oryctolagus cuniculus;
+Note[2,3]: humanized by CDR grafting onto closest germline;
+
+AbML: VH.a(1:19)-CH1(2:20){1}-H(3:12){2}-CH2*(4:13)-CH3(5:14)-L(6)-VH.b(7:9)-L(8)-VL.b(9:7)|VH.a(10:21)-CH1(11:22){1}-H(12:3){2}-CH2*(13:4)-CH3(14:5)-L(15)-VH.b(16:18)-L(17)-VL.b(18:16)|VL.a(19:1)-CL(20:2){1}|VL.a(21:10)-CL(22:11){1};
+
+Fusion: 1 2 3;
+Domains[1]: VH CH1 CH2 CH3;
+Domains[2]: VH;
+Domains[3]: VL;
+Domains[4]: VL CL;
+
+Type[1,4]: IgG1-kappa;
+Type[2]: Fv-heavy scFv;
+Type[3]: Fv-kappa scFv;
+
+Antigen[1,4]: human Cytotoxic T-lymphocyte protein 4, cytotoxic T lymphocyte-associated protein 4, CTLA-4, CD152 (CTLA4);
+Antigen[2,3]: human Programmed cell death receptor-1, Programmed cell death protein 1, PD-1, PD1, CD279 (PDCD1);
+
+ChainLength[1,2,3]: 701;
+
+HeavyChainClass[1]: Gamma1;
+HeavyPotentialNGlycos[1]: 298;
+HeavyConfirmedNGlycos[1]: 298;
+HeavyCysPositions[1]: 22 96 145 201 221 227 230 262 322 368 426;
+HeavyDisulfidesIntra[1]: 22-96 145-201 262-322 368-426;
+HVGermline[1]: Homo sapiens IGHV3-30-3*01;
+HJGermline[1]: Homo sapiens IGHJ4*01;
+HCGermline[1]: Homo sapiens IGHG1*01;
+VHRange[1]: 1-118;
+CH1Range[1]: 119-216 (K215R);
+Note[1]: K215R matches IGHG1*03;
+HingeRange[1]: 217-231;
+CH2Range[1]: 232-341 (L235A L236A G238A K323A);
+CH3Range[1]: 342-446;
+CHSRange[1]: 447-447 (K448del);
+MutationH[1]: L235A L236A G238A (Reduce FcGammaR binding);
+MutationH[1]: K323A (Reduce C1q binding);
+HeavyConfirmedPTM[1]: nterpca 1;
+HeavyConfirmedPTM[1]: deamidation 56 57 316 362;
+HeavyConfirmedPTM[1]: isomerization 281;
+HeavyConfirmedPTM[1]: oxidation 83 101 253 429;
+
+CDRKabatH1[1]: SYTMH (31-35);
+CDRKabatH2[1]: FISYDGNNKYYADSVKG (50-66);
+CDRKabatH3[1]: TGWLGPFDY (99-107);
+
+Linker[1,2]: 448-457;
+
+HeavyPotentialNGlycos[2]: NONE;
+HeavyConfirmedNGlycos[2]: NONE;
+HeavyCysPositions[2]: 479 552;
+HeavyDisulfidesIntra[2]: 479-552;
+HVGermline[2]: Homo sapiens IGHV3-64*04;
+HJGermline[2]: Homo sapiens IGHJ4*01;
+VHRange[2]: 458-572;
+CDRKabatH1[2]: SYAMS (488-492);
+CDRKabatH2[2]: YIGYIGDTTGIAYASWANG (504-522);
+CDRKabatH3[2]: GWSYLDI (555-561);
+HeavyConfirmedPTM[2]: deamidation 521;
+HeavyConfirmedPTM[1]: oxidation 491 539;
+
+Linker[2,3]: 573-592;
+
+LightChainClass[3]: kappa;
+LightPotentialNGlycos[3]: NONE;
+LightConfirmedNGlycos[3]: NONE;
+LightCysPositions[3]: 615 680;
+LightDisulfidesIntra[3]: 615-680;
+LVGermline[3]: Homo sapiens IGKV1-27*01;
+LJGermline[3]: Homo sapiens IGKJ4*01;
+VLRange[3]: 593-701;
+CDRKabatL1[3]: QASQNIYSNLA (616-626);
+CDRKabatL2[3]: QASTLAS (642-648);
+CDRKabatL3[3]: QGGYYSAALNT (681-691);
+
+DisulfidesInterL1H1[1,4]: 215-221;
+DisulfidesInterH1H2[1,1]: 227-227 230-230;
+
+LightChainClass[4]: kappa;
+LightChainLength[4]: 215;
+LightPotentialNGlycos[4]: NONE;
+LightConfirmedNGlycos[4]: NONE;
+LightCysPositions[4]: 23 89 135 195 215;
+LightDisulfidesIntra[4]: 23-89 135-195;
+
+LVGermline[4]: Homo sapiens IGKV3-20*01;
+LJGermline[4]: Homo sapiens IGKJ1*01;
+LCGermline[4]: Homo sapiens IGKC*01;
+VLRange[4]: 1-108;
+CLRange[4]: 109-215;
+LightConfirmedPTM[4]: deamidation 138;
+
+CDRKabatL1[4]: RASQSVGSSYLA (24-35);
+CDRKabatL2[4]: GAFSRAT (51-57);
+CDRKabatL3[4]: QQYGSSPWT (90-98);
+
+Chain[1-2-3]:
+QVQLVESGGG VVQPGRSLRL SCAASGFTFS SYTMHWVRQA PGKGLEWVTF  50
+ISYDGNNKYY ADSVKGRFTI SRDNSKNTLY LQMNSLRAED TAIYYCARTG 100
+WLGPFDYWGQ GTLVTVSSAS TKGPSVFPLA PSSKSTSGGT AALGCLVKDY 150
+FPEPVTVSWN SGALTSGVHT FPAVLQSSGL YSLSSVVTVP SSSLGTQTYI 200
+CNVNHKPSNT KVDKRVEPKS CDKTHTCPPC PAPEAAGAPS VFLFPPKPKD 250
+TLMISRTPEV TCVVVDVSHE DPEVKFNWYV DGVEVHNAKT KPREEQYNST 300
+YRVVSVLTVL HQDWLNGKEY KCAVSNKALP APIEKTISKA KGQPREPQVY 350
+TLPPSRDELT KNQVSLTCLV KGFYPSDIAV EWESNGQPEN NYKTTPPVLD 400
+SDGSFFLYSK LTVDKSRWQQ GNVFSCSVMH EALHNHYTQK SLSLSPGGGG 450
+GSGGGGSEVQ LVESGGGLVQ PGGSLRLSCT ASGFSLSSYA MSWVRQAPGK 500
+GLEYIGYIGD TTGIAYASWA NGRFTISKDN TKNTVDLQMN SLRAEDTAVY 550
+YCARGWSYLD IWGQGTLVTV SSGGGGSGGG GSGGGGSGGG GSALVMTQSP 600
+SSLSASVGDR VTITCQASQN IYSNLAWYQQ KPGKVPKLLI YQASTLASGV 650
+PSRFSGSGYG TDFTLTISSL QPEDVATYYC QGGYYSAALN TFGGGTKVEI 700
+K                                                      701
+//
+
+Light Chain[4]:
+EIVLTQSPGT LSLSPGERAT LSCRASQSVG SSYLAWYQQK PGQAPRLLIY  50
+GAFSRATGIP DRFSGSGSGT DFTLTISRLE PEDFAVYYCQ QYGSSPWTFG 100
+QGTKVEIKRT VAAPSVFIFP PSDEQLKSGT ASVVCLLNNF YPREAKVQWK 150
+VDNALQSGNS QESVTEQDSK DSTYSLSSTL TLSKADYEKH KVYACEVTHQ 200
+GLSSPVTKSF NRGEC                                       215
+//
