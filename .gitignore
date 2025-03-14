@@ -1,0 +1,12 @@
+# Python cache directories
+__pycache__/
+
+# IDE configuration files
+.idea/
+
+# logs and reports
+*.xml
+*.log
+
+# private files
+git_workflow.txt
