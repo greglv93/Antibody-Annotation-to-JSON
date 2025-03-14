@@ -7,7 +7,7 @@ class AntibodyToJSON:
 
     def __init__(self, path):
         """
-        Set the main attributes: the folder with the annotation files(samples),
+        Set the main attributes: the folder with the annotation files(sample_input),
         the antibody annotation text files list(self.files) to work with,
         the data records from the current annotation file(self.current_record),
         the main dictionary being constructed (self.antibody_ann_dict). This

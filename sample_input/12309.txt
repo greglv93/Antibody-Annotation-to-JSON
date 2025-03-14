@@ -1,0 +1,72 @@
+Request: 12309
+
+Format: human monoclonal antibody;
+Note: Generated from a transgenic rat platform with human genes;
+Type: IgG4-lambda;
+Antigen: human Interleukin-5, IL-5, B-cell differentiation factor I, Eosinophil differentiation factor, T-cell replacing factor (IL5);
+ID: TEV-53275;
+AbML: VL(1:3)-CL(2:4){1}|VH(3:1)-CH1(4:2){1}-H*(5:12){2}-CH2*(6:13)-CH3(7:14)|VL(8:10)-CL(9:11){1}|VH(10:8)-CH1(11:9){1}-H*(12:5){2}-CH2*(13:6)-CH3(14:7);
+HeavyChainClass: Gamma4;
+HeavyChainLength: 443;
+LightChainClass: lambda;
+LightChainLength: 214;
+HeavyPotentialNGlycos: 294;
+HeavyConfirmedNGlycos: 294;
+LightPotentialNGlycos: NONE;
+LightConfirmedNGlycos: NONE;
+HeavyCysPositions: 22 97 131 144 200 223 226 258 318 364 422;
+HeavyDisulfidesIntra: 22-97 144-200 258-318 364-422;
+LightCysPositions: 22 87 136 195 213;
+LightDisulfidesIntra: 22-87 136-195;
+DisulfidesInterH1H2: 223-223 226-226;
+DisulfidesInterL1H1: 213-131;
+DisulfidesInterL2H2: 213-131;
+HVGermline: Homo sapiens IGHV4-31*02;
+HJGermline: Homo sapiens IGHJ5*01;
+HCGermline: Homo sapiens IGHG4*01;
+VHRange: 1-117;
+CH1Range: 118-215;
+HingeRange: 216-227 (S225P);
+CH2Range: 228-337 (M249Y S251T T253E);
+CH3Range: 338-442;
+CHSRange: 443-443 (K444del);
+MutationH: S225P (hinge stabilization);
+MutationH: M249Y S251T T253E (enhance FcRn binding);
+HeavyConfirmedPTM: nterpca 1;
+HeavyConfirmedPTM: deamidation 31 322 (partial);
+HeavyConfirmedPTM: oxidation 425 (rare);
+LVGermline: Homo sapiens IGLV3-21*02;
+LJGermline: Homo sapiens IGLJ2*01;
+LCGermline: Homo sapiens IGLC2*01;
+VLRange: 1-108;
+CLRange: 109-214;
+LightConfirmedPTM: deamidation 25 (rare);
+LightConfirmedPTM: deamidation 171 (partial);
+LightConfirmedPTM: isomerization 49 50 52 (rare);
+LightConfirmedPTM: isomerization 81 84 91 95 (rare);
+CDRKabatH1: NGGYYWS (31-37);
+CDRKabatH2: YIYYSGSTYYNPSLKS (52-67);
+CDRKabatH3: LGNWFDY (100-106);
+CDRKabatL1: GGNNIGSKNVY (23-33);
+CDRKabatL2: DDSDRPS (49-55);
+CDRKabatL3: QVWDSSSDHVV (88-98);
+
+Heavy Chain:
+QVQLQESGPG LVKPSQTLSL TCTVSGGSIS NGGYYWSWIR QHPGKGLEWI  50
+GYIYYSGSTY YNPSLKSRVT ISVDTSKNQF SLKLSSVTAA DTAVYYCASL 100
+GNWFDYWGQG TLVTVSSAST KGPSVFPLAP CSRSTSESTA ALGCLVKDYF 150
+PEPVTVSWNS GALTSGVHTF PAVLQSSGLY SLSSVVTVPS SSLGTKTYTC 200
+NVDHKPSNTK VDKRVESKYG PPCPPCPAPE FLGGPSVFLF PPKPKDTLYI 250
+TREPEVTCVV VDVSQEDPEV QFNWYVDGVE VHNAKTKPRE EQFNSTYRVV 300
+SVLTVLHQDW LNGKEYKCKV SNKGLPSSIE KTISKAKGQP REPQVYTLPP 350
+SQEEMTKNQV SLTCLVKGFY PSDIAVEWES NGQPENNYKT TPPVLDSDGS 400
+FFLYSRLTVD KSRWQEGNVF SCSVMHEALH NHYTQKSLSL SLG        443
+//
+
+Light Chain:
+SYVLTQPPSV SVAPGQTARI TCGGNNIGSK NVYWYQQKPG QAPVLVVHDD  50
+SDRPSGIPER FSGSNSGNTA TLTISRVEVG DEADYSCQVW DSSSDHVVFG 100
+GGTKLTVLGQ PKAAPSVTLF PPSSEELQAN KATLVCLISD FYPGAVTVAW 150
+KADSSPVKAG VETTTPSKQS NNKYAASSYL SLTPEQWKSH RSYSCQVTHE 200
+GSTVEKTVAP TECS                                        214
+//

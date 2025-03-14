@@ -1,0 +1,182 @@
+Request: 12120
+
+Format: bispecific human/humanized monoclonal Fab-Fc/Fab-Fc-Fab antibody;
+Note: [1,2] Homo sapiens synthetic phage display library;
+Note: [3,2] Homo sapiens synthetic phage display library;
+Note: [4,6] humanized by Kabat CDR grafting;
+CDRSource[4,6]: Oryctolagus cuniculus;
+
+AbML: VH.a(1:16)-CH1_(2:17){1}-H(3:8){2}-CH2(4:9)-CH3*@(5:10)|VH.a(6:18)-CH1_(7:19){1}-H(8:3){2}-CH2(9:4)-CH3*>(10:5)-L(11)-VH.b(12:14)-CL*(13:15){1}|VL.b(14:12)-CH1(15:13){1}|VL.a(16:1)-CL+(17:2){1}|VL.a(18:6)-CL+(19:7){1};
+
+Domains[1]: VH CH1 CH2 CH3;
+Domains[2]: VL CL;
+Fusion: 3 4 5;
+Domains[3]: VH CH1 CH2 CH3;
+Domains[4,5]: VH CL;
+Fusion: 6 7;
+Domains[6,7]: VL CH1;
+
+Type[1,2]: IgG1-kappa;
+Type[3,2]: IgG1-kappa;
+Type[4,6]: IgG1-kappa Fab;
+
+Antigen[1,2]: human Amyloid-beta peptide 1-40/42, Amyloid-beta protein 42, Abeta42, Beta-APP42 [Amyloid-beta precursor protein residues 688-713], Amyloid-beta protein 40, Abeta40, Beta-APP40 [Amyloid-beta precursor protein residues 688-711] (APP); 
+Antigen[3,2]: human Amyloid-beta peptide 1-40/42, Amyloid-beta protein 42, Abeta42, Beta-APP42 [Amyloid-beta precursor protein residues 688-713], Amyloid-beta protein 40, Abeta40, Beta-APP40 [Amyloid-beta precursor protein residues 688-711] (APP);
+Antigen[4,6]: human Transferrin receptor protein 1, TR, TfR, TfR1, Trfr, T9, p90, CD71 (TFRC);
+
+HeavyChainLength[1]: 456;
+HeavyChainClass[1]: Gamma1;
+HeavyPotentialNGlycos[1]: 52 306;
+HeavyConfirmedNGlycos[1]: 52 (partial);
+HeavyConfirmedNGlycos[1]: 306;
+HeavyCysPositions[1]: 22 96 153 209 229 235 238 270 330 358 376 434;
+HeavyDisulfidesIntra[1]: 22-96 153-209 270-330 376-434;
+HVGermline[1]: Homo sapiens IGHV3-23*04;
+HJGermline[1]: Homo sapiens IGHJ4*01;
+HCGermline[1]: Homo sapiens IGHG1*01;
+VHRange[1]: 1-126;
+CH1Range[1]: 127-224 (K156E K222E);
+HingeRange[1]: 225-239;
+CH2Range[1]: 240-349;
+CH3Range[1]: 350-454 (Y358C T375S L377A Y416V);
+CHSRange[1]: 455-456;
+MutationH[1]: K156E K222E (Enforce pairing);
+MutationH[1]: Y358C (disulfide);
+MutationH[1]: T375S L377A Y416V (heterodimer formation hole);
+
+CDRKabatH1[1]: SYAMS (31-35);
+CDRKabatH2[1]: AINASGTRTYYADSVKG (50-66);
+CDRKabatH3[1]: GKGNTHKPYGYVRYFDV (99-115);
+
+DisulfidesInterH1H2[1,3]: 235-235 238-238 358-363;
+DisulfidesInterL1H1[2,1]: 215-229;
+DisulfidesInterL2H2[2,3]: 215-229;
+DisulfidesInter[5,7]: 702-215;
+
+LightChainLength[2]: 215;
+LightChainClass[2]: kappa;
+LightPotentialNGlycos[2]: NONE;
+LightConfirmedNGlycos[2]: NONE;
+LightCysPositions[2]: 23 89 135 195 215;
+LightDisulfidesIntra[2]: 23-89 135-195;
+LVGermline[2]: Homo sapiens IGKV3D-7*01;
+LJGermline[2]: Homo sapiens IGKJ1*01;
+LCGermline[2]: Homo sapiens IGKC*01;
+VLRange[2]: 1-108;
+CLRange[2]: 109-215 (E124R Q125K);
+MutationL[2]: E124R Q125K (Enforce pairing);
+CDRKabatL1[2]: RASQSVSSSYLA (24-35);
+CDRKabatL2[2]: GASSRAT (51-57);
+CDRKabatL3[2]: LQIYNMPIT (90-98);
+
+ChainLength[3,4,5]: 702;
+HeavyChainClass[3]: Gamma1;
+HeavyPotentialNGlycos[3]: 52 306;
+HeavyConfirmedNGlycos[3]: 306;
+HeavyCysPositions[3]: 22 96 153 209 229 235 238 270 330 363 376 434;
+HeavyDisulfidesIntra[3]: 22-96 153-209 270-330 376-434;
+HVGermline[3]: Homo sapiens IGHV3-23*04;
+HJGermline[3]: Homo sapiens IGHJ4*01;
+HCGermline[3]: Homo sapiens IGHG1*01;
+VHRange[3]: 1-126;
+CH1Range[3]: 127-224 (K156E K222E);
+HingeRange[3]: 225-239;
+CH2Range[3]: 240-349;
+CH3Range[3]: 350-454 (S363C T375W);
+CHSRange[3]: 455-455 (K456del);
+MutationH[3]: K156E K222E (Enforce pairing);
+MutationH[3]: S363C (disulfide);
+MutationH[3]: T375W (heterodimer formation knob);
+MutationH[3]: G455del K456del (remove CHS);
+CDRKabatH1[3]: SYAMS (31-35);
+CDRKabatH2[3]: AINASGTRTYYADSVKG (50-66);
+CDRKabatH3[3]: GKGNTHKPYGYVRYFDV (99-115);
+
+Linker[3,4]: 456-473;
+
+HeavyPotentialNGlycos[4]: NONE;
+HeavyConfirmedNGlycos[4]: NONE;
+HeavyCysPositions[4]: 494 565;
+HeavyDisulfidesIntra[4]: 494-565;
+HVGermline[4]: Homo sapiens IGHV4-4*08;
+HJGermline[4]: Homo sapiens IGHJ5*02;
+VHRange[4]: 474-595;
+CDRKabatH1[4]: SYAMS (503-507);
+CDRKabatH2[4]: YIWSGGSTDYASWAKS (522-537);
+CDRKabatH3[4]: RYGTSYPDYGDASGFDP (568-584);
+
+LightCysPositions[5]: 622 682 702;
+LightDisulfidesIntra[5]: 622-682;
+LCGermline[5]: Homo sapiens IGKC*01;
+CLRange[5]: 596-702 (R596A T597S);
+MutationL[5]: R596A T597S (Enforce pairing);
+
+ChainLength[6,7]: 215;
+LightChainClass[6]: kappa;
+LightPotentialNGlycos[6]: NONE;
+LightConfirmedNGlycos[6]: NONE;
+LightCysPositions[6]: 23 88;
+LightDisulfidesIntra[6]: 23-88;
+LVGermline[6]: Homo sapiens IGKV1D-13*01;
+LJGermline[6]: Homo sapiens IGKJ4*01;
+VLRange[6]: 1-110;
+CDRKabatL1[6]: RASQSISSYLA (24-34);
+CDRKabatL2[6]: RASTLAS (50-56);
+CDRKabatL3[6]: QQNYASSNVDNT (89-100);
+
+Linker[6,7]: 111-112;
+
+HeavyChainClass[7]: Gamma1;
+HeavyPotentialNGlycos[7]: NONE;
+HeavyConfirmedNGlycos[7]: NONE;
+HeavyCysPositions[7]: 139 195 215;
+HeavyDisulfidesIntra[7]: 139-195;
+HCGermline[7]: Homo sapiens IGHG1*01;
+CH1Range[7]: 113-215;
+
+Heavy Chain[1]:
+QVELVESGGG LVQPGGSLRL SCAASGFTFS SYAMSWVRQA PGKGLEWVSA  50
+INASGTRTYY ADSVKGRFTI SRDNSKNTLY LQMNSLRAED TAVYYCARGK 100
+GNTHKPYGYV RYFDVWGQGT LVTVSSASTK GPSVFPLAPS SKSTSGGTAA 150
+LGCLVEDYFP EPVTVSWNSG ALTSGVHTFP AVLQSSGLYS LSSVVTVPSS 200
+SLGTQTYICN VNHKPSNTKV DEKVEPKSCD KTHTCPPCPA PELLGGPSVF 250
+LFPPKPKDTL MISRTPEVTC VVVDVSHEDP EVKFNWYVDG VEVHNAKTKP 300
+REEQYNSTYR VVSVLTVLHQ DWLNGKEYKC KVSNKALPAP IEKTISKAKG 350
+QPREPQVCTL PPSRDELTKN QVSLSCAVKG FYPSDIAVEW ESNGQPENNY 400
+KTTPPVLDSD GSFFLVSKLT VDKSRWQQGN VFSCSVMHEA LHNHYTQKSL 450
+SLSPGK                                                 456
+//
+
+Light Chain[2]:
+DIVLTQSPAT LSLSPGERAT LSCRASQSVS SSYLAWYQQK PGQAPRLLIY  50
+GASSRATGVP ARFSGSGSGT DFTLTISSLE PEDFATYYCL QIYNMPITFG 100
+QGTKVEIKRT VAAPSVFIFP PSDRKLKSGT ASVVCLLNNF YPREAKVQWK 150
+VDNALQSGNS QESVTEQDSK DSTYSLSSTL TLSKADYEKH KVYACEVTHQ 200
+GLSSPVTKSF NRGEC                                       215
+//
+
+Chain[3-4-5]:
+QVELVESGGG LVQPGGSLRL SCAASGFTFS SYAMSWVRQA PGKGLEWVSA  50
+INASGTRTYY ADSVKGRFTI SRDNSKNTLY LQMNSLRAED TAVYYCARGK 100
+GNTHKPYGYV RYFDVWGQGT LVTVSSASTK GPSVFPLAPS SKSTSGGTAA 150
+LGCLVEDYFP EPVTVSWNSG ALTSGVHTFP AVLQSSGLYS LSSVVTVPSS 200
+SLGTQTYICN VNHKPSNTKV DEKVEPKSCD KTHTCPPCPA PELLGGPSVF 250
+LFPPKPKDTL MISRTPEVTC VVVDVSHEDP EVKFNWYVDG VEVHNAKTKP 300
+REEQYNSTYR VVSVLTVLHQ DWLNGKEYKC KVSNKALPAP IEKTISKAKG 350
+QPREPQVYTL PPCRDELTKN QVSLWCLVKG FYPSDIAVEW ESNGQPENNY 400
+KTTPPVLDSD GSFFLYSKLT VDKSRWQQGN VFSCSVMHEA LHNHYTQKSL 450
+SLSPGGGSGG GGSGGGGSGG GGSQSMQESG PGLVKPSQTL SLTCTVSGFS 500
+LSSYAMSWIR QHPGKGLEWI GYIWSGGSTD YASWAKSRVT ISKTSTTVSL 550
+KLSSVTAADT AVYYCARRYG TSYPDYGDAS GFDPWGQGTL VTVSSASVAA 600
+PSVFIFPPSD EQLKSGTASV VCLLNNFYPR EAKVQWKVDN ALQSGNSQES 650
+VTEQDSKDST YSLSSTLTLS KADYEKHKVY ACEVTHQGLS SPVTKSFNRG 700
+EC                                                     702
+//
+
+Chain[6-7]:
+AIQLTQSPSS LSASVGDRVT ITCRASQSIS SYLAWYQQKP GKAPKLLIYR  50
+ASTLASGVPS RFSGSGSGTD FTLTISSLQP EDFATYYCQQ NYASSNVDNT 100
+FGGGTKVEIK SSASTKGPSV FPLAPSSKST SGGTAALGCL VKDYFPEPVT 150
+VSWNSGALTS GVHTFPAVLQ SSGLYSLSSV VTVPSSSLGT QTYICNVNHK 200
+PSNTKVDKKV EPKSC                                       215
+//

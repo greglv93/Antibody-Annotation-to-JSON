@@ -29,7 +29,7 @@ class AntibodyAnnRunner:
 
 def main():
     # Run main Script
-    runner = AntibodyAnnRunner("samples")
+    runner = AntibodyAnnRunner("sample_input")
     runner.directory_json_files()
     runner.run()
 

@@ -1,0 +1,39 @@
+Request: 12381
+
+Format: human monoclonal antibody;
+Type: Gamma1-hcAb;
+Antigen: human Cytotoxic T-lymphocyte protein 4, cytotoxic T lymphocyte-associated protein 4, CTLA-4, CD152 (CTLA4);
+Note: transgenic mouse with human genes plus mutations;
+ID: HBM4003, PR000218;
+AbML: VHH(1)-H(2:6){3}-CH2*(3:7)-CH3(4:8)|VHH(5)-H(6:2){3}-CH2*(7:3)-CH3(8:4);
+HeavyChainClass: Gamma1;
+HeavyChainLength: 351;
+HeavyPotentialNGlycos: 201;
+HeavyConfirmedNGlycos: 201;
+HeavyCysPositions: 22 95 124 130 133 165 225 271 329;
+HeavyDisulfidesIntra: 22-95 165-225 271-329;
+DisulfidesInterH1H2: 124-124 130-130 133-133;
+HVGermline: Homo sapiens IGHV3-53*01;
+HJGermline: Homo sapiens IGHJ3*02;
+HCGermline: Homo sapiens IGHG1*03;
+VHRange: 1-119;
+HingeRange: 120-134;
+CH2Range: 135-244 (S143D I236E);
+CH3Range: 245-349;
+CHSRange: 350-351;
+MutationH: S143D I236E (enhancing CD16A binding);
+HeavyConfirmedPTM: cterclip 351;
+CDRKabatH1: KNYMS (31-35);
+CDRKabatH2: VVYSGGSKTYADSVKG (50-65);
+CDRKabatH3: AVPHSPSSFDI (98-108);
+
+Heavy Chain:
+EVQLVESGGG LIQPGGSLRL SCAVSGFTVS KNYMSWVRQA PGKGLEWVSV  50
+VYSGGSKTYA DSVKGRFTIS RDNSKNTLYL QMNSLRAEDT AVYYCARAVP 100
+HSPSSFDIWG QGTMVTVSSE PKSCDKTHTC PPCPAPELLG GPDVFLFPPK 150
+PKDTLMISRT PEVTCVVVDV SHEDPEVKFN WYVDGVEVHN AKTKPREEQY 200
+NSTYRVVSVL TVLHQDWLNG KEYKCKVSNK ALPAPEEKTI SKAKGQPREP 250
+QVYTLPPSRE EMTKNQVSLT CLVKGFYPSD IAVEWESNGQ PENNYKTTPP 300
+VLDSDGSFFL YSKLTVDKSR WQQGNVFSCS VMHEALHNHY TQKSLSLSPG 350
+K                                                      351
+//
