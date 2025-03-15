@@ -10,3 +10,7 @@ __pycache__/
 
 # private files
 git_workflow.txt
+
+# data files that don't need version control (avoids cluttering list of tracked files)
+sample_input/*.txt
+test/sample_input/*.txt
