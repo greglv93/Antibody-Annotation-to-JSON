@@ -1,16 +1,21 @@
-# Python cache directories
+# Cache directories
 __pycache__/
+.ruff_cache/
+
+# Temp files
+*.swp
 
 # IDE configuration files
 .idea/
 
-# logs and reports
-*.xml
-*.log
+# Virtual environments
+venv/
+.venv/
 
-# private files
-git_workflow.txt
+# Personal files e.g. notes, reminders, ideas, code experiments
+.personal/
+test/test_ideas.txt
 
-# data files that don't need version control (avoids cluttering list of tracked files)
-sample_input/*.txt
-test/sample_input/*.txt
+# See also: '/input_data/.gitignore' and '/json_files/.gitignore'
+# These are empty directories for local runs of the program
+# Note that '/test/input_data/' and '/test/json_files/' are not ignored
