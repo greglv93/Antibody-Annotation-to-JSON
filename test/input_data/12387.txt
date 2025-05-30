@@ -1,0 +1,140 @@
+Request: 12387
+
+Format: bispecific humanized/human monoclonal antibody;
+Note[1]: humanized by CDR grafting;
+Note[2]: human naive phage display library;
+ID: AZD2936;
+AbML: VH.a(1:6)-CH1(2:7){1}-H(3:10){2}-CH2*(4:11)-CH3>*(5:12){1}|VL.a(6:1)-CL(7:2){1}|VH.b(8:13)-CH1*(9:14){1}-H*(10:3){2}-CH2*(11:4)-CH3@*(12:5){1}|VL.b(13:8)-CL*(14:9){1};
+
+CDRSource[1]: Mus musculus;
+Type[1]: IgG1-kappa;
+Antigen[1]: human Programmed cell death receptor-1, Programmed cell death protein 1, PD-1, PD1, CD279 (PDCD1);
+HeavyChainClass[1]: Gamma1;
+HeavyChainLength[1]: 452;
+LightChainClass[1]: kappa;
+LightChainLength[1]: 219;
+HeavyPotentialNGlycos[1]: 302;
+HeavyConfirmedNGlycos[1]: 302;
+LightPotentialNGlycos[1]: NONE;
+LightConfirmedNGlycos[1]: NONE;
+HeavyCysPositions[1]: 22 96 149 205 225 231 234 266 326 354 372 430;
+HeavyDisulfidesIntra[1]: 22-96 149-205 266-326 372-430;
+LightCysPositions[1]: 23 93 139 199 219;
+LightDisulfidesIntra[1]: 23-93 139-199;
+DisulfidesInterL1H1[1]: 219-225;
+HVGermline[1]: Homo sapiens IGHV3-48*01;
+HJGermline[1]: Homo sapiens IGHJ4*01;
+HCGermline[1]: Homo sapiens IGHG1*03;
+VHRange[1]: 1-122;
+CH1Range[1]: 123-220;
+HingeRange[1]: 221-235;
+CH2Range[1]: 236-345 (L239F L240E P336S);
+CH3Range[1]: 346-450 (Y354C T371S L373A Y412V);
+CHSRange[1]: 451-452;
+MutationH[1]: T371S L373A Y412V (heterodimer formation hole);
+MutationH[1]: Y354C (disulfide with H[2]);
+MutationH[1]: L239F L240E P336S (reduce ADCC, CDC and ADCP);
+HeavyConfirmedPTM[1]: cterclip 452;
+LVGermline[1]: Homo sapiens IGKV3-11*01;
+LJGermline[1]: Homo sapiens IGKJ2*02;
+LCGermline[1]: Homo sapiens IGKC*01;
+VLRange[1]: 1-112;
+CLRange[1]: 113-219;
+LightConfirmedPTM[1]: nterpca 1;
+CDRKabatH1[1]: DYGMH (31-35);
+CDRKabatH2[1]: YISSGSYTIYSADSVKG (50-66);
+CDRKabatH3[1]: RAPNSFYEYYFDY (99-111);
+CDRKabatL1[1]: SASSKHTNLYWSRHMY (24-39);
+CDRKabatL2[1]: LTSNRAT (55-61);
+CDRKabatL3[1]: QQWSSNPFT (94-102);
+
+DisulfidesInterH1H2[1,2]: 231-230 234-233 354-358;
+
+Type[2]: IgG1-lambda;
+Antigen[2]: human T-cell immunoreceptor with Ig and ITIM domains, V-set and immunoglobulin domain-containing protein 9, V-set and transmembrane domain-containing protein 3, T cell immunoglobulin and immunoreceptor tyrosine-based inhibitory motif (TIGIT);
+HeavyChainClass[2]: Gamma1;
+HeavyChainLength[2]: 451;
+LightChainClass[2]: lambda;
+LightChainLength[2]: 216;
+HeavyPotentialNGlycos[2]: 301;
+HeavyConfirmedNGlycos[2]: 301;
+LightPotentialNGlycos[2]: NONE;
+LightConfirmedNGlycos[2]: NONE;
+HeavyCysPositions[2]: 22 96 130 148 204 230 233 265 325 358 371 429;
+HeavyDisulfidesIntra[2]: 22-96 148-204 265-325 371-429;
+LightCysPositions[2]: 22 89 125 138 197;
+LightDisulfidesIntra[2]: 22-89 138-197;
+DisulfidesInterL2H2[2]: 125-130;
+HVGermline[2]: Homo sapiens IGHV3-30*01;
+HJGermline[2]: Homo sapiens IGHJ6*01;
+HCGermline[2]: Homo sapiens IGHG1*03;
+VHRange[2]: 1-121;
+CH1Range[2]: 122-219 (F130C);
+HingeRange[2]: 220-234 (C224V);
+CH2Range[2]: 235-344 (L238F L239E P335S);
+CH3Range[2]: 345-449 (S358C T370W);
+CHSRange[2]: 450-451;
+MutationH[2]: F130C (disulphide with L[2]);
+MutationH[2]: C224V (remove disulphide);
+MutationH[2]: T370W (heterodimer formation knob);
+MutationH[2]: T358C (disulfide with H[1]);
+MutationH[2]: L238F L239E P335S (reduce ADCC, CDC and ADCP);
+HeavyConfirmedPTM[2]: nterpca 1;
+HeavyConfirmedPTM[2]: cterclip 451;
+LVGermline[2]: Homo sapiens IGLV1-44*01;
+LJGermline[2]: Homo sapiens IGLJ7*01;
+LCGermline[2]: Homo sapiens IGLC2*01;
+VLRange[2]: 1-110;
+CLRange[2]: 111-216 (S125C C215V);
+MutationL[2]: S125C (disulphide);
+MutationL[2]: C215V (remove disulphide);
+LightConfirmedPTM[2]: nterpca 1;
+CDRKabatH1[2]: SYAMH (31-35);
+CDRKabatH2[2]: VISYAGEVKYYADSVKG (50-66);
+CDRKabatH3[2]: DPLPLHYYGMDV (99-110);
+CDRKabatL1[2]: SGSSSNIGRRPVN (23-35);
+CDRKabatL2[2]: SQNQRPS (51-57);
+CDRKabatL3[2]: AVWDDIGRVLQ (90-100);
+
+
+Heavy Chain[1]:
+EVQLVESGGG LVQPGGSLRL SCAASGFTFS DYGMHWVRQA PGKGLEWVAY  50
+ISSGSYTIYS ADSVKGRFTI SRDNAKNSLY LQMNSLRAED TAVYYCARRA 100
+PNSFYEYYFD YWGQGTTVTV SSASTKGPSV FPLAPSSKST SGGTAALGCL 150
+VKDYFPEPVT VSWNSGALTS GVHTFPAVLQ SSGLYSLSSV VTVPSSSLGT 200
+QTYICNVNHK PSNTKVDKRV EPKSCDKTHT CPPCPAPEFE GGPSVFLFPP 250
+KPKDTLMISR TPEVTCVVVD VSHEDPEVKF NWYVDGVEVH NAKTKPREEQ 300
+YNSTYRVVSV LTVLHQDWLN GKEYKCKVSN KALPASIEKT ISKAKGQPRE 350
+PQVCTLPPSR EEMTKNQVSL SCAVKGFYPS DIAVEWESNG QPENNYKTTP 400
+PVLDSDGSFF LVSKLTVDKS RWQQGNVFSC SVMHEALHNH YTQKSLSLSP 450
+GK                                                     452
+//
+
+Light Chain[1]:
+QIVLTQSPAT LSLSPGERAT LSCSASSKHT NLYWSRHMYW YQQKPGQAPR  50
+LLIYLTSNRA TGIPARFSGS GSGTDFTLTI SSLEPEDFAV YYCQQWSSNP 100
+FTFGQGTKLE IKRTVAAPSV FIFPPSDEQL KSGTASVVCL LNNFYPREAK 150
+VQWKVDNALQ SGNSQESVTE QDSKDSTYSL SSTLTLSKAD YEKHKVYACE 200
+VTHQGLSSPV TKSFNRGEC                                   219
+//
+
+Heavy Chain[2]:
+QVQLVESGGG VVQPGRSLRL SCAASGFTFS SYAMHWVRQA PGKGLEWVAV  50
+ISYAGEVKYY ADSVKGRFTI SRDNSKNTLY LQMNSLRAED TAVYYCARDP 100
+LPLHYYGMDV WGQGTTVTVS SASTKGPSVC PLAPSSKSTS GGTAALGCLV 150
+KDYFPEPVTV SWNSGALTSG VHTFPAVLQS SGLYSLSSVV TVPSSSLGTQ 200
+TYICNVNHKP SNTKVDKRVE PKSVDKTHTC PPCPAPEFEG GPSVFLFPPK 250
+PKDTLMISRT PEVTCVVVDV SHEDPEVKFN WYVDGVEVHN AKTKPREEQY 300
+NSTYRVVSVL TVLHQDWLNG KEYKCKVSNK ALPASIEKTI SKAKGQPREP 350
+QVYTLPPCRE EMTKNQVSLW CLVKGFYPSD IAVEWESNGQ PENNYKTTPP 400
+VLDSDGSFFL YSKLTVDKSR WQQGNVFSCS VMHEALHNHY TQKSLSLSPG 450
+K                                                      451
+//
+
+Light Chain[2]:
+QSVLTQPPSA SGTPGQRVTI SCSGSSSNIG RRPVNWYQQL PGTAPKLLIY  50
+SQNQRPSGVP DRFSGSQSGT SASLAISGLQ SEDEADYFCA VWDDIGRVLQ 100
+LGGGTQLTVL GQPKAAPSVT LFPPCSEELQ ANKATLVCLI SDFYPGAVTV 150
+AWKADSSPVK AGVETTTPSK QSNNKYAASS YLSLTPEQWK SHRSYSCQVT 200
+HEGSTVEKTV APTEVS                                      216
+//

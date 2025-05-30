@@ -1,0 +1,160 @@
+Request: 12318
+
+Format: humanized/human bispecific domain-swapped monoclonal antibody;
+Note[1,3]: humanized by Kabat CDR grafting;
+Note[5,6]: transgenic rabbit with human genes;
+
+AbML: VH.a(1:3)-CL(2:4){1}|VL.a(3:1)-CH1(4:2){1}-H(5:10){2}-CH2*(6:11)-CH3>(7:12){1}|VH.b(8:13)-CH1_(9:14){1}-H(10:5){2}-CH2*(11:6)-CH3@(12:7){1}|VL.b(13:8)-CL+(14:9){1};
+ID: RG6139, RO7247669;
+
+Type[1,3]: IgG1-kappa;
+Antigen[1,3]: human Programmed cell death receptor-1, Programmed cell death protein 1, PD-1, PD1, CD279 (PDCD1);
+CDRSource[1,3]: Mus musculus;
+
+Type[5,6]: IgG1-kappa;
+Antigen[5,6]: human Lymphocyte activation gene 3 protein, LAG-3, Protein FDC, CD223 (LAG3);
+
+Fusion: 1 2;
+Fusion: 3 4;
+Domains[1]: VL;
+Domains[2]: CH1 CH2 CH3;
+Domains[3]: VH;
+Domains[4]: CL;
+Domains[5]: VH CH1 CH2 CH3;
+Domains[6]: VL CL;
+
+ChainLength[1,2]: 443;
+PotentialNGlycos[1,2]: 293;
+ConfirmedNGlycos[1,2]: 293;
+
+CysPositions[1,2]: 23 92 140 196 216 222 225 257 317 350 363 421;
+
+LightChainClass[1]: kappa;
+LightDisulfidesIntra[1]: 23-92;
+LVGermline[1]: Homo sapiens IGKV4-1*01;
+LJGermline[1]: Homo sapiens IGKJ1*01;
+VLRange[1]: 1-113 (ins112S ins113S);
+MutationH[1]: ins112S ins113S (match last 2 residues VH);
+CDRKabatL1[1]: KASESVDTSDNSFIH (24-38);
+CDRKabatL2[1]: RSSTLES (54-60);
+CDRKabatL3[1]: QQNYDVPWT (93-101);
+
+HCGermline[2]: Homo sapiens IGHG1*01;
+HeavyChainClass[2]: Gamma1;
+HeavyDisulfidesIntra[2]: 140-196 257-317 363-421;
+
+CH1Range[2]: 114-211;
+HingeRange[2]: 212-226;
+CH2Range[2]: 227-336 (L230A L231A P325G);
+CH3Range[2]: 337-441 (S350C T362W);
+CHSRange[2]: 442-443;
+MutationH[2]: L230A L231A P325G (Reduce ADCC and CDC);
+MutationH[2]: S350C (disulfide);
+MutationH[2]: T362W (heterodimer formation knob);
+HeavyConfirmedPTM[2]: cterclip 443;
+
+DisulfidesInterL1H1[4,2]: 227-216;
+
+ChainLength[3,4]: 227;
+PotentialNGlycos[3,4]: NONE;
+ConfirmedNGlycos[3,4]: NONE;
+
+CysPositions[3,4]: 22 96 147 207 227;
+HeavyDisulfidesIntra[3]: 22-96;
+LightDisulfidesIntra[4]: 147-207;
+
+HVGermline[3]: Homo sapiens IGHV3-23*01;
+HJGermline[3]: Homo sapiens IGHJ5*01;
+VHRange[3]: 1-120;
+CDRKabatH1[3]: SYTMS (31-35);
+CDRKabatH2[3]: TISGGGRDIYYPDSVKG (50-66);
+CDRKabatH3[3]: LTGRVYFALDS (99-109);
+LCGermline[4]: Homo sapiens IGKC*01;
+CLRange[4]: 121-227 (R121A T122S);
+MutationL[4]: R121A T122S (match first 2 residues of CH1 IGHG1*01);
+
+DisulfidesInterH1H2[2,5]: 222-230 225-233 350-353;
+
+HeavyChainClass[5]: Gamma1;
+HeavyChainLength[5]: 451;
+HeavyPotentialNGlycos[5]: 301;
+HeavyConfirmedNGlycos[5]: 301;
+HeavyCysPositions[5]: 22 96 148 204 224 230 233 265 325 353 371 429;
+HeavyDisulfidesIntra[5]: 22-96 148-204 265-325 371-429;
+HVGermline[5]: Homo sapiens IGHV3-23*01;
+HJGermline[5]: Homo sapiens IGHJ4*01;
+HCGermline[5]: Homo sapiens IGHG1*01;
+VHRange[5]: 1-121;
+CH1Range[5]: 122-219 (K151E K217E);
+HingeRange[5]: 220-234;
+CH2Range[5]: 235-344 (L238A L239A P333G);
+CH3Range[5]: 345-449 (Y353C T370S L372A Y411V);
+CHSRange[5]: 450-451;
+MutationH[5]: K151E K217E (bispecific formation);
+MutationH[5]: L238A L239A P333G (Reduce ADCC and CDC);
+MutationH[5]: Y353C (disulfide);
+MutationH[5]: T370S L372A Y411V (heterodimer formation hole);
+HeavyConfirmedPTM[5]: cterclip 451;
+CDRKabatH1[5]: DYTMN (31-35);
+CDRKabatH2[5]: VISWDGGGTYYTDSVKG (50-66);
+CDRKabatH3[5]: GLTDTTLYGSDY (99-110);
+
+DisulfidesInterL2H2[6,5]: 214-224;
+
+LightChainClass[6]: kappa;
+LightChainLength[6]: 214;
+LightPotentialNGlycos[6]: NONE;
+LightConfirmedNGlycos[6]: NONE;
+
+LightCysPositions[6]: 23 88 134 194 214;
+LightDisulfidesIntra[6]: 23-88 134-194;
+LVGermline[6]: Homo sapiens IGKV1-39*01;
+LJGermline[6]: Homo sapiens IGKJ4*01;
+LCGermline[6]: Homo sapiens IGKC*01;
+VLRange[6]: 1-107;
+CLRange[6]: 108-214 (E123R Q124K);
+MutationL[6]: E123R Q124K (bispecific formation);
+CDRKabatL1[6]: RASQSISSYLN (24-34);
+CDRKabatL2[6]: AASTLQS (50-56);
+CDRKabatL3[6]: QQTYSSPLT (89-97);
+
+Chain[1,2]:
+DIVMTQSPDS LAVSLGERAT INCKASESVD TSDNSFIHWY QQKPGQSPKL  50
+LIYRSSTLES GVPDRFSGSG SGTDFTLTIS SLQAEDVAVY YCQQNYDVPW 100
+TFGQGTKVEI KSSASTKGPS VFPLAPSSKS TSGGTAALGC LVKDYFPEPV 150
+TVSWNSGALT SGVHTFPAVL QSSGLYSLSS VVTVPSSSLG TQTYICNVNH 200
+KPSNTKVDKK VEPKSCDKTH TCPPCPAPEA AGGPSVFLFP PKPKDTLMIS 250
+RTPEVTCVVV DVSHEDPEVK FNWYVDGVEV HNAKTKPREE QYNSTYRVVS 300
+VLTVLHQDWL NGKEYKCKVS NKALGAPIEK TISKAKGQPR EPQVYTLPPC 350
+RDELTKNQVS LWCLVKGFYP SDIAVEWESN GQPENNYKTT PPVLDSDGSF 400
+FLYSKLTVDK SRWQQGNVFS CSVMHEALHN HYTQKSLSLS PGK        443
+//
+
+Chain[3,4]:
+EVQLLESGGG LVQPGGSLRL SCAASGFSFS SYTMSWVRQA PGKGLEWVAT  50
+ISGGGRDIYY PDSVKGRFTI SRDNSKNTLY LQMNSLRAED TAVYYCVLLT 100
+GRVYFALDSW GQGTLVTVSS ASVAAPSVFI FPPSDEQLKS GTASVVCLLN 150
+NFYPREAKVQ WKVDNALQSG NSQESVTEQD SKDSTYSLSS TLTLSKADYE 200
+KHKVYACEVT HQGLSSPVTK SFNRGEC                          227
+//
+
+Heavy Chain[5]:
+EVQLLESGGG LVQPGGSLRL SCAASGFIFD DYTMNWVRQA PGKGLEWVAV  50
+ISWDGGGTYY TDSVKGRFTI SRDDFKNTLY LQMNSLRAED TAVYYCAKGL 100
+TDTTLYGSDY WGQGTLVTVS SASTKGPSVF PLAPSSKSTS GGTAALGCLV 150
+EDYFPEPVTV SWNSGALTSG VHTFPAVLQS SGLYSLSSVV TVPSSSLGTQ 200
+TYICNVNHKP SNTKVDEKVE PKSCDKTHTC PPCPAPEAAG GPSVFLFPPK 250
+PKDTLMISRT PEVTCVVVDV SHEDPEVKFN WYVDGVEVHN AKTKPREEQY 300
+NSTYRVVSVL TVLHQDWLNG KEYKCKVSNK ALGAPIEKTI SKAKGQPREP 350
+QVCTLPPSRD ELTKNQVSLS CAVKGFYPSD IAVEWESNGQ PENNYKTTPP 400
+VLDSDGSFFL VSKLTVDKSR WQQGNVFSCS VMHEALHNHY TQKSLSLSPG 450
+K                                                      451
+//
+
+Light Chain[6]:
+DIQMTQSPSS LSASVGDRVT ITCRASQSIS SYLNWYQQKP GKAPKLLIYA  50
+ASTLQSGVPS RFSGSGSGTD FTLTISSLQP EDFATYYCQQ TYSSPLTFGG 100
+GTKVEIKRTV AAPSVFIFPP SDRKLKSGTA SVVCLLNNFY PREAKVQWKV 150
+DNALQSGNSQ ESVTEQDSKD STYSLSSTLT LSKADYEKHK VYACEVTHQG 200
+LSSPVTKSFN RGEC                                        214
+//

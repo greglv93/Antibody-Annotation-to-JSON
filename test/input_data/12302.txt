@@ -1,0 +1,66 @@
+Request: 12302
+
+Format: humanized monoclonal antibody;
+Type: IgG1-kappa;
+Antigen: human Disintegrin and metalloproteinase domain-containing protein 9, EC:3.4.24.-, ADAM 9, Cellular disintegrin-related protein, Meltrin-gamma, Metalloprotease/disintegrin/cysteine-rich protein 9, Myeloma cell metalloproteinase (ADAM9);
+ID: MGA021;
+CDRSource: Mus musculus;
+AbML: VL(1:3)-CL(2:4){1}|VH(3:1)-CH1(4:2){1}-H(5:12){2}-CH2*(6:13)-CH3^(7:14)|VL(8:10)-CL(9:11){1}|VH(10:8)-CH1(11:9){1}-H(12:5){2}-CH2*(13:6)-CH3^(14:7);
+HeavyChainClass: Gamma1;
+HeavyChainLength: 452;
+LightChainClass: kappa;
+LightChainLength: 218;
+HeavyPotentialNGlycos: 303;
+HeavyConfirmedNGlycos: 303;
+LightPotentialNGlycos: NONE;
+LightConfirmedNGlycos: NONE;
+HeavyCysPositions: 22 96 150 206 226 232 235 267 327 373 431 448;
+HeavyDisulfidesIntra: 22-96 150-206 267-327 373-431;
+LightCysPositions: 23 92 138 198 218;
+LightDisulfidesIntra: 23-92 138-198;
+DisulfidesInterH1H2: 232-232 235-235;
+DisulfidesInterL1H1: 218-226;
+DisulfidesInterL2H2: 218-226;
+HVGermline: Homo sapiens IGHV3-64*01;
+HJGermline: Homo sapiens IGHJ4*01;
+HCGermline: Homo sapiens IGHG1*03;
+VHRange: 1-123;
+CH1Range: 124-221;
+HingeRange: 222-236;
+CH2Range: 237-346 (M258Y S260T T262E);
+CH3Range: 347-451 (S448C);
+CHSRange: 452-452 (K453del);
+MutationH: M258Y S260T T262E (enhance FcRn binding);
+MutationH: S448C (conjugation site);
+LVGermline: Homo sapiens IGKV4-1*01;
+LJGermline: Homo sapiens IGKJ2*02;
+LCGermline: Homo sapiens IGKC*01;
+VLRange: 1-111;
+CLRange: 112-218;
+CDRKabatH1: SYWMH (31-35);
+CDRKabatH2: EIIPIFGHTNYNEKFKS (50-66);
+CDRKabatH3: GGYYYYPRQGFLDY (99-112);
+CDRKabatL1: KASQSVDYSGDSYMN (24-38);
+CDRKabatL2: AASDLES (54-60);
+CDRKabatL3: QQSHEDPFT (93-101);
+
+Heavy Chain:
+EVQLVESGGG LVKPGGSLRL SCAASGFTFS SYWMHWVRQA PGKGLEWVGE  50
+IIPIFGHTNY NEKFKSRFTI SLDNSKNTLY LQMGSLRAED TAVYYCARGG 100
+YYYYPRQGFL DYWGQGTTVT VSSASTKGPS VFPLAPSSKS TSGGTAALGC 150
+LVKDYFPEPV TVSWNSGALT SGVHTFPAVL QSSGLYSLSS VVTVPSSSLG 200
+TQTYICNVNH KPSNTKVDKR VEPKSCDKTH TCPPCPAPEL LGGPSVFLFP 250
+PKPKDTLYIT REPEVTCVVV DVSHEDPEVK FNWYVDGVEV HNAKTKPREE 300
+QYNSTYRVVS VLTVLHQDWL NGKEYKCKVS NKALPAPIEK TISKAKGQPR 350
+EPQVYTLPPS REEMTKNQVS LTCLVKGFYP SDIAVEWESN GQPENNYKTT 400
+PPVLDSDGSF FLYSKLTVDK SRWQQGNVFS CSVMHEALHN HYTQKSLCLS 450
+PG                                                     452
+//
+
+Light Chain:
+DIVMTQSPDS LAVSLGERAT ISCKASQSVD YSGDSYMNWY QQKPGQPPKL  50
+LIYAASDLES GIPARFSGSG SGTDFTLTIS SLEPEDFATY YCQQSHEDPF 100
+TFGQGTKLEI KRTVAAPSVF IFPPSDEQLK SGTASVVCLL NNFYPREAKV 150
+QWKVDNALQS GNSQESVTEQ DSKDSTYSLS STLTLSKADY EKHKVYACEV 200
+THQGLSSPVT KSFNRGEC                                    218
+//

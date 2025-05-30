@@ -1,0 +1,47 @@
+Request: 12264
+
+Format: human monoclonal antibody Fc fusion with human TACI fragment;
+ID: ALPN-303;
+AbML: X(1)-L(2)-H*(3:8){2}-CH2(4:9)-CH3(5:10)|X(6)-L(7)-H*(8:3){2}-CH2(9:4)-CH3(10:5);
+
+Fusion: 1 2;
+Domains[1]: OTHER;
+Domains[2]: CH2 CH3;
+
+ChainLength[1,2]: 281;
+
+Type[1]: OTHER; 
+FusionProtein[1]: 1-43;
+Note[1]: human TACI residues 68 to 110;
+PotentialNGlycos[1]: NONE;
+ConfirmedNGlycos[1]: NONE;
+CysPositions[1]: 4 19 22 26 33 37;
+DisulfidesIntra[1]: 4-19 22-33 26-37;
+Mutation[1]: K10E F11Y Y35D (enhance affinity);
+
+Linker[1,2]: 44-60;
+
+Type[2]: Fc;
+HeavyChainClass[2]: Gamma1;
+HeavyPotentialNGlycos[2]: 132; 
+HeavyConfirmedNGlycos[2]: 132;
+HeavyCysPositions[2]: 61 64 96 156 202 260;
+HeavyDisulfidesIntra[2]: 96-156 202-260;
+HCGermline[2]: Homo sapiens IGHG1*01;
+HingeRange[2]: 51-65 (C55S);
+CH2Range[2]: 66-175 (L69A L70E G72A);
+CH3Range[2]: 176-280;
+CHSRange[2]: 281-281 (K282del);
+MutationH[2]: C55S (remove disulfide);
+MutationH[2]: L69A L70E G72A (reduce FcGammaR and C1q binding);
+
+DisulfidesInterH1H2[2]: 61-61 64-64;
+
+Chain[1-2]:
+SLSCRKEQGE YYDHLLRDCI SCASICGQHP KQCADFCENK LRSGSGGGGS  50
+EPKSSDKTHT CPPCPAPEAE GAPSVFLFPP KPKDTLMISR TPEVTCVVVD 100
+VSHEDPEVKF NWYVDGVEVH NAKTKPREEQ YNSTYRVVSV LTVLHQDWLN 150
+GKEYKCKVSN KALPAPIEKT ISKAKGQPRE PQVYTLPPSR DELTKNQVSL 200
+TCLVKGFYPS DIAVEWESNG QPENNYKTTP PVLDSDGSFF LYSKLTVDKS 250
+RWQQGNVFSC SVMHEALHNH YTQKSLSLSP G                     281
+//
