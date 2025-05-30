@@ -665,35 +665,21 @@
 			"$comment": "TODO: check if linker regions can have disulfides; if not, this property will only ever refer to single instances, so it can be aggregated with `#/patternProperties/^(Heavy|Light)DisulfidesIntra|FusionProtein(Heavy|Light)?Disulfides$`"
 		},
 		"DisulfidesInterH1H2": {
-			"$ref": "#/$defs/uniqueNonemptyArray",
-			"items": {
-				"type": "object",
-				"required": [
-					"InstanceX",
-					"InstanceY",
-					"Positions"
-				],
-				"unevaluatedProperties": false,
-				"properties": {
-					"InstanceX": {
-						"type": "integer",
-						"minimum": 0,
-						"description": "The first instance (chain or single-origin portion of a fused chain) of a pair of chains with inter-chain disulfides"
-					},
-					"InstanceY": {
-						"type": "integer",
-						"minimum": 0,
-						"description": "The second instance (chain or single-origin portion of a fused chain) of a pair of chains with inter-chain disulfides"
-					},
-					"Isoform": { "$ref": "#/$defs/isoform" },
-					"Positions": {
-						"$ref": "#/$defs/disulfidesInterPositionsXY",
-						"not": { "type": "null" },
-						"$comment": "TODO: check if null is in fact a valid type here (if the heavy chains can be linked/stabilised with compensatory modifications?)"
-					},
-					"Note": { "$ref": "#/$defs/note" }
+			"allOf": [
+				{
+					"$ref": "#/$defs/disulfidesInterXY"
+				},
+				{
+					"items": {
+						"properties": {
+							"Positions": {
+								"not": { "type": "null" },
+								"$comment": "TODO: check if null is in fact a valid type here (if the heavy chains can be linked/stabilised with compensatory modifications?)"
+							}
+						}
+					}
 				}
-			},
+			],
 			"description": "Lists residue pairs involved in inter-chain disulfides between the two heavy chains (which often have the same instance number, as in standard formats - which are homodimers - but this isn't the case for many other formats). Uses sequential numbering as observed in the final protein. Separate items are used in cases of multiple disulfide isoforms, and these are indicated in the optional `Isoform` subproperty at the root level of the items (not within the `Positions` items). In most cases, this property will have only one item (if there are no isoforms) with between two and four disulfide pairs.",
 			"examples": [
 				[
@@ -732,31 +718,7 @@
 			"$comment": "TODO: check if it's theoretically possible to have a DisulfidesInterH3H4 annotation, in which case that could be included in a pattern property. We could also consider aggregating all of the DisulfidesInter* properties (in the data itself) by moving the chain pair suffix out of the property name and into an item subproperty."
 		},
 		"DisulfidesInter": {
-			"$ref": "#/$defs/uniqueNonemptyArray",
-			"items": {
-				"type": "object",
-				"required": [
-					"InstanceX",
-					"InstanceY",
-					"Positions"
-				],
-				"unevaluatedProperties": false,
-				"properties": {
-					"InstanceX": {
-						"type": "integer",
-						"minimum": 0,
-						"description": "The first instance (chain or single-origin portion of a fused chain) of a pair of chains with inter-chain disulfides"
-					},
-					"InstanceY": {
-						"type": "integer",
-						"minimum": 0,
-						"description": "The second instance (chain or single-origin portion of a fused chain) of a pair of chains with inter-chain disulfides"
-					},
-					"Isoform": { "$ref": "#/$defs/isoform" },
-					"Positions": { "$ref": "#/$defs/disulfidesInterPositionsXY" },
-					"Note": { "$ref": "#/$defs/note" }
-				}
-			},
+			"$ref": "#/$defs/disulfidesInterXY",
 			"description": "Lists residue pairs involved in inter-chain disulfides between chains that cannot be assigned as predominantly heavy or light, or in cases where the same instance light chain interacts with multiple instances of heavy chains (or vice versa). Uses sequential numbering as observed in the final protein. Separate items are used in cases of multiple disulfide isoforms, and these are indicated in the optional `Isoform` subproperty at the root level of the items (not within the `Positions` items).",
 			"examples": [
 				[
@@ -772,26 +734,24 @@
 					}
 				]
 			],
-			"$comment": "This subschema is identical to that of `#/properties/DisulfidesInterH1H2`, except that here null is left as a valid option for the `Positions` item subproperty"
+			"$comment": "This subschema is identical to that of `#/properties/DisulfidesInterH1H2`, except that null is left as a valid option for the `Positions` item subproperty"
 		},
 		"HCGermline": {
-			"$ref": "#/$defs/uniqueNonemptyArray",
-			"items": {
-				"type": "object",
-				"required": [
-					"Instance",
-					"Species",
-					"GeneID"
-				],
-				"unevaluatedProperties": false,
-				"properties": {
-					"Instance": { "$ref": "#/$defs/singleInstance" },
-					"Domains": { "$ref": "#/$defs/heavyDomains" },
-					"Species": { "$ref": "#/$defs/speciesBinomial" },
-					"GeneID": { "$ref": "#/$defs/imgtGeneID" },
-					"Note": { "$ref": "#/$defs/note" }
+			"allOf": [
+				{
+					"$ref": "#/$defs/germline"
+				},
+				{
+					"items": {
+						"not": {
+							"required": [
+								"Domain"
+							]
+						}
+					},
+					"$comment": "The `Domains` item subproperty from the def is allowed, but `Domain` (singular) is only allowed in `#/properties/LCGermline`"
 				}
-			},
+			],
 			"description": "The IMGT germline assignment (including species name) for the heavy chain constant fragment of each heavy chain instance. Where the constant domains of a single instance come from different germlines, each domain or group of domains is recorded in a separate item and the optional `Domains` subproperty is used.",
 			"examples": [
 				[
@@ -821,31 +781,24 @@
 					}
 				]
 			],
-			"$comment": "See also: `#/properties/LCGermline` and `#/patternProperties/^(HV|HJ|LV|LJ)Germline$`, which have the same the same subschema as here, except for differences in the optional `Domain` or `Domains` item subproperties."
+			"$comment": "See also: `#/properties/LCGermline` and `#/patternProperties/^(HV|HJ|LV|LJ)Germline$`, which use the same ref to `#/$defs/germline`"
 		},
 		"LCGermline": {
-			"$ref": "#/$defs/uniqueNonemptyArray",
-			"items": {
-				"type": "object",
-				"required": [
-					"Instance",
-					"Species",
-					"GeneID"
-				],
-				"unevaluatedProperties": false,
-				"properties": {
-					"Instance": { "$ref": "#/$defs/singleInstance" },
-					"Domain": {
-						"type": "string",
-						"const": "CL",
-						"description": "An optional indicator of the domain, for cases when the variable and constant domains come from different germline loci",
-						"$comment": "`#/$defs/lightDomain` is not used because in this case `VL` is not a valid value"
+			"allOf": [
+				{
+					"$ref": "#/$defs/germline"
+				},
+				{
+					"items": {
+						"not": {
+							"required": [
+								"Domains"
+							]
+						}
 					},
-					"Species": { "$ref": "#/$defs/speciesBinomial" },
-					"GeneID": { "$ref": "#/$defs/imgtGeneID" },
-					"Note": { "$ref": "#/$defs/note" }
+					"$comment": "The `Domain` item subproperty from the def is allowed, but `Domains` (plural) is only allowed in `#/properties/HCGermline`"
 				}
-			},
+			],
 			"description": "The IMGT germline assignment (including species name) for the light chain constant fragment of each light chain instance. Where the CL and VL domains come from different germlines (or in formats like Crossmabs), this is indicated with `CL` in the optional item subproperty `Domain`.",
 			"examples": [
 				[
@@ -857,7 +810,7 @@
 					}
 				]
 			],
-			"$comment": "See also: `#/properties/HCGermline` and `#/patternProperties/^(HV|HJ|LV|LJ)Germline$`, which have the same the same subschema as here, except for differences in the optional `Domain` or `Domains` item subproperties."
+			"$comment": "See also: `#/properties/HCGermline` and `#/patternProperties/^(HV|HJ|LV|LJ)Germline$`"
 		},
 		"CHSRange": {
 			"$ref": "#/$defs/uniqueNonemptyArray",
@@ -1526,22 +1479,22 @@
 			"$comment": "TODO: We could consider aggregating all of the DisulfidesInter* properties by moving the chain pair suffix out of the property name and into an item subproperty"
 		},
 		"^(HV|HJ|LV|LJ)Germline$": {
-			"$ref": "#/$defs/uniqueNonemptyArray",
-			"items": {
-				"type": "object",
-				"required": [
-					"Instance",
-					"Species",
-					"GeneID"
-				],
-				"unevaluatedProperties": false,
-				"properties": {
-					"Instance": { "$ref": "#/$defs/singleInstance" },
-					"Species": { "$ref": "#/$defs/speciesBinomial" },
-					"GeneID": { "$ref": "#/$defs/imgtGeneID" },
-					"Note": { "$ref": "#/$defs/note" }
+			"allOf": [
+				{
+					"$ref": "#/$defs/germline"
+				},
+				{
+					"items": {
+						"not": {
+							"required": [
+								"Domain",
+								"Domains"
+							]
+						}
+					},
+					"$comment": "Domain indicators are disallowed here because these properties only apply to one domain (VH or VL) which is already implied in the property name"
 				}
-			},
+			],
 			"description": "The IMGT germline assignment (including species name) for the heavy or light chain variable or joining fragment for each instance. A separate property is used for each type of germline fragment. (For Ctrl+F searches) Properties covered by this pattern: HVGermline, HJGermline, LVGermline, LJGermline.",
 			"examples": [
 				[
@@ -1589,7 +1542,7 @@
 					}
 				]
 			],
-			"$comment": "See also: `#/properties/HCGermline` and `#/properties/LCGermline`. These subschemas are identical to this one, except for the optional `Domains` or `Domain` item subproperties, which are not valid here because these properties always relate to only one domain (VH or VL), which is already implied in the property name."
+			"$comment": "See also: `#/properties/HCGermline` and `#/properties/LCGermline`"
 		},
 		"^(VH|VL)Range$": {
 			"$ref": "#/$defs/uniqueNonemptyArray",
@@ -2118,6 +2071,34 @@
 			"description": "Each item (if not null) describes one disulfide-linked residue pair with a chain indicator name and residue position value for each of the two residues. Uses sequential numbering as observed in the final protein. null is also valid (instead of a `Positions` array).",
 			"$comment": "The same as `#/$defs/disulfidesInterPositionsLH`, except that the chain indicators X and Y are used instead of L and H"
 		},
+		"disulfidesInterXY": {
+			"$ref": "#/$defs/uniqueNonemptyArray",
+			"items": {
+				"type": "object",
+				"required": [
+					"InstanceX",
+					"InstanceY",
+					"Positions"
+				],
+				"unevaluatedProperties": false,
+				"properties": {
+					"InstanceX": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "The first instance (chain or single-origin portion of a fused chain) of a pair of chains with inter-chain disulfides"								
+					},
+					"InstanceY": {
+						"type": "integer",
+						"minimum": 0,
+						"description": "The second instance (chain or single-origin portion of a fused chain) of a pair of chains with inter-chain disulfides"								
+					},
+					"Isoform": { "$ref": "#/$defs/isoform" },
+					"Positions": { "$ref": "#/$defs/disulfidesInterPositionsXY" },
+					"Note": { "$ref": "#/$defs/note" }
+				}
+			},
+			"$comment": "Used in `#/properties/DisulfidesInter` and `#/properties/DisulfidesInterH1H2`"
+		},
 		"disulfidesInterPositionsLH": {
 			"anyOf": [
 				{
@@ -2162,6 +2143,32 @@
 				"IGLJ7*01"
 			],
 			"$comment": "TODO: consider a simpler pattern (e.g. `^IG[HKL][GCVJ][0-9D-]*\\*0[1-9]$`), or more specific validation - a different GeneID pattern for each of the six *Germline records"
+		},
+		"germline": {
+			"$ref": "#/$defs/uniqueNonemptyArray",
+			"items": {
+				"type": "object",
+				"required": [
+					"Instance",
+					"Species",
+					"GeneID"
+				],
+				"unevaluatedProperties": false,
+				"properties": {
+					"Instance": { "$ref": "#/$defs/singleInstance" },
+					"Domain": {
+						"type": "string",
+						"const": "CL",
+						"description": "An optional indicator of the domain, for cases when the variable and constant domains come from different germline loci",
+						"$comment": "`#/$defs/lightDomain` is not used because in this case `VL` is not a valid value"
+					},
+					"Domains": { "$ref": "#/$defs/heavyDomains" },
+					"Species": { "$ref": "#/$defs/speciesBinomial" },
+					"GeneID": { "$ref": "#/$defs/imgtGeneID" },
+					"Note": { "$ref": "#/$defs/note" }
+				}
+			},
+			"$comment": "Referenced in `#/properties/HCGermline`, `#/properties/LCGermline`, and `#/patternProperties/^(HV|HJ|LV|LJ)Germline$`. The superset of item properties defined in this def is pruned (to disallow one or both of Domain/Domains) in each of the referencing locations."
 		},
 		"mutationsAllTypes": {
 			"$ref": "#/$defs/uniqueNonemptyArray",
@@ -2251,5 +2258,7 @@
 			]
 		}
 	},
+	"TODO:": "reconsider some of the abstraction (e.g. disulfidesInter and germline) - at least save another copy of the schema which has the more explicit (less abstracted) versions",
+	"TODO:": "Another refactor: remove all patternProps, instead listing all 80  props explicitly, with unique descriptions/examples but shared defs; this is primarily because the html schema generated by the python package json-schema-for-humans doesn't seem to include patternProps; apart from the refactor, other options would be to find a way to display patternProps - either with json-schema-for-humans or another tool; The other main reason for removing patternProps is that a table is needed for reference if someone wants to find the pattern that covers a particular property they want to see (& edit) the schema for.",
 	"$comment": "camelCase is used for $defs names, as per the most common JSON/JSON Schema convention, but the properties names and patternProperties names are in PascalCase, for consistency with the original INN Antibody Annotation Format"
 }

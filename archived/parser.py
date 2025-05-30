@@ -118,8 +118,8 @@ if __name__ == "__main__":
 # - If no output directory is specified, JSON files will be saved in the default 'json/' directory.
 #
 # Examples:
-# - python parser.py -f sample_input/example.txt
-# - python parser.py -d sample_input/ -o output_json
+# - python parser.py -f input_data/example.txt
+# - python parser.py -d input_data/ -o output_json
 
 
 # (DONE) TODO: flags/options for different types of user input: file path (one or many) vs directory path
