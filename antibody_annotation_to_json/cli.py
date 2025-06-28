@@ -1,4 +1,4 @@
-import antibody_ann_to_json
+from antibody_annotation_to_json import core
 import os
 
 
@@ -6,7 +6,7 @@ class AntibodyAnnRunner:
 
     def __init__(self, path):
         self.path = path
-        self.aa_run = antibody_ann_to_json.AntibodyToJSON(path)
+        self.aa_run = core.AntibodyToJSON(path)
 
     @staticmethod
     def directory_json_files():
@@ -29,7 +29,7 @@ class AntibodyAnnRunner:
 
 def main():
     # Run main Script
-    runner = AntibodyAnnRunner("sample_input")
+    runner = AntibodyAnnRunner("input_data")
     runner.directory_json_files()
     runner.run()
 

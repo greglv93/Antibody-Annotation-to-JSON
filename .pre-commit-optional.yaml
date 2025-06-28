@@ -16,7 +16,7 @@ repos:
         # TODO: make sure the input_dir and output_dir args are set up with argparse in the script
         entry: python3 -m runner --input_dir=test/input_data/ --output_dir=test/json_files/
         language: system
-        files: '^(test/input_data/.+\.txt)|(runner.py)|(antibody_ann_to_json.py)$'
+        files: '^(test/input_data/.+\.txt)|(cli.py)|(core.py)$'
         pass_filenames: false
       - id: validate-json-files
         name: validate-json-files
