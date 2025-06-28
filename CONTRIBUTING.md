@@ -10,6 +10,8 @@ thus allowing developers to focus on the code's logic.
 Other hooks run automated validation and unit tests upon any changes to the code, schema, or test cases.
 If the changes break any tests that are expected to pass, the commit will be stopped unless the error is fixed.
 However, there are ways to override this process if you wish (see below section on suppressing hooks).
+If you want a smoother 'format and commit' cycle (without having to re-stage fixed files),
+run `pre-commit run --files <file(s)>` for the desired files before staging and committing the changes.
 
 ### Instructions
 
