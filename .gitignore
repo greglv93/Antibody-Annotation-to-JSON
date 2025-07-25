@@ -12,6 +12,13 @@ __pycache__/
 venv/
 .venv/
 
+# Installation/Packaging/Distribution artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+*.whl
+
 # Personal files e.g. notes, reminders, ideas, code experiments
 .personal/
 test/test_ideas.txt
