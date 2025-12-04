@@ -1,5 +1,15 @@
 # Contributing
 
+## Getting Started
+
+1. Install the project as an editable install a.k.a. development mode (refer to [these 
+instructions](./README.md#installation))
+2. Install the [pre-commit hooks](#pre-commit-hooks)
+3. Consult the [development strategy](#development-strategy) outlined below. If the tool is already functional and the 
+data structure and mapping makes sense, you may want to simply add some more unit tests for the source code or JSON 
+schema to see if it aligns with your expectations. For substantive changes to the tool's behaviour, consult the 
+[maintaining and updating section](#maintaining-and-updating). 
+
 ## Pre-commit Hooks
 
 Ideally, all contributors should set up the pre-commit hooks defined in ./.pre-commit-config.yaml.
@@ -82,13 +92,13 @@ and more complicated antibody formats
 1. Explore and understand the input data
 	- Develop a sense of the ontology of annotations in relation to different levels of the antibody structure 
 	(residue, domain, instance, chain, whole). Consult the following:
-		- Prof. Andrew Martin's original format documentation (./doc/INN_annotation_format.pdf), 
-		- Sample input annotation files (in ./test/input_data/),
-		- Domain structure diagrams can be generated with abYdraw (http://www.bioinf.org.uk/software/abydraw/)
+		- Prof. Andrew Martin's [original format documentation](./doc/INN_annotation_format.pdf), 
+		- [Sample input annotation files](./test/input_data/),
+		- Domain structure diagrams can be generated with [abYdraw](http://www.bioinf.org.uk/software/abydraw/)
 		from AbML strings within the sample annotation files. This is useful for understanding complicated formats
 		e.g. 12120.txt, a "bispecific human/humanized monoclonal Fab-Fc/Fab-Fc-Fab antibody" with a domain-swapped Fab
 
-2. Annotation mapping (./doc/annotation_mapping.pdf)
+2. [Annotation mapping](./doc/annotation_mapping.md)
     - Group the INN annotation fields based on the most sensible JSON data structure, e.g. single strings, 
 	arrays of objects, or single nested objects
     - Ensure the input and output data is conceptually linked, with all input fields mapped to JSON properties
@@ -97,7 +107,7 @@ and more complicated antibody formats
         of all fields in the sample data
 	- For JSON sub-properties, be guided by the description of each field in the documentation for the input data
 
-3.  i. JSON Schema (./doc/INN_antibody_schema.json) to formally describe and define constraints for the desired output 
+3.  i. [JSON Schema](./doc/INN_antibody_schema.json) to formally describe and define constraints for the desired output 
 data structure
         - Consult the descriptions in the original format documentation
         - Also `grep` the sample input data to see what range of values should be possible for each property
@@ -112,11 +122,11 @@ data structure
 		- the ~80 annotation fields can be grouped and handled by ~20-30 methods, since many share the same 
 		information structure
 
-5.  i. Python unittest test cases (./test/*.py)
+5.  i. Python unittest test suite (./test/*.py)
     - Consult mapping documentation and JSON schema when adding test cases for every unit in the python code 
         skeleton
     
-    ii. Python code for the parser/converter package (./antibody_annotation_to_json/)
+    ii. Python code for the parser/converter [package](./antibody_annotation_to_json/)
     - Fill in the skeleton of classes and methods
     - Consult the pseudocode, mapping and JSON schema
     - TDD: the tests will start off as failing (before all of the code is completed)
@@ -140,7 +150,7 @@ existing ones, the appropriate changes should be made in the following places:
 - JSON schema (refer to the [JSON Schema website](https://json-schema.org/) for documentation and tutorials),
 - schema tests,
 - python unit tests
-- (if applicable) expected and invalid json files
+- (if applicable) expected and invalid json files (used by schema and unittest test cases)
 
 In any case, the 'cross-checking' between the parser/converter, unit tests, and JSON schema validation will probably
 catch any incompatible updates.
