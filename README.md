@@ -23,7 +23,7 @@ Features:
 2. (Optional) Create a virtual environment to avoid cluttering your base environment and avoid conflicts with OS 
 package managers such as Homebrew
 
-    Linux/macOS: `python3 -m venv/ .venv && source .venv/bin/activate`
+    Linux/macOS: `python3 -m venv .venv/ && source .venv/bin/activate`
     
     Windows: `py -3 -m venv .venv\ && .venv\Scripts\activate`
 
