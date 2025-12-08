@@ -3,12 +3,13 @@ name = "antibody_annotation_to_json"
 version = "0.1.0"
 requires-python = ">=3.7"
 dependencies = [
-    "jsonschema"
+    "jsonschema>=4.25"
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pre-commit"
+    "pre-commit>=4.2.0",
+    "sourcemeta-jsonschema>=12.10.1"
     ]
 
 [project.scripts]

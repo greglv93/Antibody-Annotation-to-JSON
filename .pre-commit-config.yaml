@@ -30,12 +30,6 @@ repos:
   # Using this mirror lets us use mypyc-compiled black, which is about 2x faster
   - repo: local
     hooks:
-      - id: reinstall-project
-        name: reinstall-project
-        description: Reinstall project and update requirements.txt with any new dependencies
-        entry: ./reinstall_project.sh
-        language: system
-        files: 'pyproject.toml'
       - id: sourcemeta-jsonschema-lint
         name: sourcemeta-jsonschema-lint
         description: Lint the JSON schema (without automatic fix)

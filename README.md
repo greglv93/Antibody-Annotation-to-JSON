@@ -31,12 +31,30 @@ package managers such as Homebrew
 
    `python3 -m pip install --upgrade pip`
    
-   `python3 -m pip install --editable .[dev]` for developers who want an editable install with live feedback 
-   on changes to the code), or <br>
-   `python3 -m pip install .` for a regular installation 
+   For a regular installation:
+   
+   `python3 -m pip install .` <br>
    (`python3 -m pip install --upgrade .` needs to be run to update the installation with any changes to the source code)
-
-
+   
+   **For developers** who want an editable install with live feedback on changes to the code (also refer to the 
+   [CONTRIBUTING](./CONTRIBUTING.md) guidelines):
+   
+   `python3 -m pip install --editable ".[dev]"`
+   
+   `python3 -m pip install --force-reinstall sourcemeta-jsonschema`
+   
+   The last line is important as it solves a CLI name conflict: sourcemeta's tool ships a `jsonschema` executable, but
+   this can get replaced by the CLI executable from the Python `jsonschema` library, which is installed as a runtime 
+   dependency for this project. The 'force-reinstall' command guarantees that sourcemeta's `jsonschema` CLI ends up on 
+   top, overwriting the Python `jsonschema` library. The Python library is needed at runtime but its command-line 
+   executable is not needed (and will in fact be deprecated in future versions), while sourcemeta's tool should be 
+   available from the CLI, where it is needed for some pre-commit hooks and can also be invoked for manual testing and 
+   exploration of the JSON schema.
+   
+   If the Python `jsonschema` library accidentally gets reinstalled and 'takes back' the CLI, run the 'force-reinstall'
+   command again inside your project environment. 
+   
+   
 ## Usage
 
 The tool is now available as an executable command from anywhere in your system terminal. To get started, run:
@@ -58,9 +76,9 @@ The tool is now available as an executable command from anywhere in your system 
 
 3. From the project directory (the repository root), run:
 
-    `python3 -m antibody_annotation_to_json.cli [args]`
+    `python3 -m antibody_annotation_to_json.cli --help`
 
 
-
+---
 This project is licensed under the MIT License.
 
