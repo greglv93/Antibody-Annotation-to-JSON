@@ -3,9 +3,9 @@
 This project is a Python-based CLI utility that parses and converts annotations for antibody-based therapeutics
 from [this format](./doc/INN_annotation_format.pdf), designed by Prof. Andrew Martin, into structured JSON files. 
 Internally, there are 3 main steps: 
-1. Parsing the original flat text format and structuring the data into a python dict
-2. Validation against a JSON schema
-3. Serialises the output into a JSON file
+1. Parse the original flat text format and structure the data into a Python dict
+2. Validate against a JSON schema
+3. Serialise the output into a JSON file
 
 It's ultimate purpose is to allow import of the converted data into a MongoDB database for further analysis and 
 to make it accessible to researchers through a web front-end.

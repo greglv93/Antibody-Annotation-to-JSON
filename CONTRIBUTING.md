@@ -41,7 +41,7 @@ again.
 **Warning**: If you don't like an automated fix, first run `git restore <file>` to restore the file from the staging 
 area, which is left untouched by pre-commit (it only modifies the file in the working tree, which is also the reason 
 why files with *wanted* automatic fixes need to be re-staged before committing). Then you can edit the `args` or `entry` 
-in the hook definition (e.g. remove `args: [--fix]` for ruff-check, the python linter). But note that an alternative 
+in the hook definition (e.g. remove `args: [--fix]` for ruff-check, the Python linter). But note that an alternative 
 manual fix must still pass the hook, unless the hook is suppressed in one of the ways outlined 
 [below](#suppressing-hooks).
 
@@ -78,9 +78,12 @@ Feel free to raise an issue if something doesn't make sense (this applies to the
 - Some degree of test-driven development (TDD), but without prematurely optimising the tests for a specific 
 pre-defined implementation (in terms of both the libraries/functions used and the broader logic of the code),
 as these tests will be too brittle
-- Prioritise accuracy, simplicity and maintainability; performance (execution time) is not that important
-- Extensibility (or at least extendability), in anticipation of new annotation fields 
-and more complicated antibody formats
+- Schemas are code too: they can generate unintended/unexpected validation behaviour, and as such, they should be run 
+past an automated unit testing suite, containing a 'ground truth' that covers as many base and edge cases as possible
+- Prioritise accuracy, simplicity and maintainability; performance (execution time) is not particularly important, 
+given the expected use case of one-time conversions of no more than ~1000 files
+- Extensibility (or at least extendability), in anticipation of new annotation fields and more complicated antibody 
+formats
 - Appropriate specificity: don't attempt to solve too general a problem too soon
     - A full-scale state machine and parser is probably not needed; string operations and regular expressions are
     sufficient for this project's input data, which is relatively flat and not arbitrarily nested.
@@ -94,12 +97,12 @@ and more complicated antibody formats
 	- Develop a sense of the ontology of annotations in relation to different levels of the antibody structure 
 	(residue, domain, instance, chain, whole). Consult the following:
 		- Prof. Andrew Martin's [original format documentation](./doc/INN_annotation_format.pdf), 
-		- [Sample input annotation files](./test/input_data/),
+		- [Sample input annotation files](./test/input_data),
 		- Domain structure diagrams can be generated with [abYdraw](http://www.bioinf.org.uk/software/abydraw/)
 		from AbML strings within the sample annotation files. This is useful for understanding complicated formats
 		e.g. 12120.txt, a "bispecific human/humanized monoclonal Fab-Fc/Fab-Fc-Fab antibody" with a domain-swapped Fab
 
-2. [Annotation mapping](./doc/annotation_mapping.md)
+2. [Annotation mapping](./doc/annotation_format_mapping.md)
     - Group the INN annotation fields based on the most sensible JSON data structure, e.g. single strings, 
 	arrays of objects, or single nested objects
     - Ensure the input and output data is conceptually linked, with all input fields mapped to JSON properties
@@ -113,56 +116,58 @@ data structure
         - Consult the descriptions in the original format documentation
         - Also `grep` the sample input data to see what range of values should be possible for each property
 
-    ii. In parallel, write test cases for each property in the schema (./test/schema_tests), 
+    ii. In parallel, write [test cases](./test/schema_tests) for each property in the schema, 
     so the schema can be updated and maintained in a test-driven way
 
-4. Pseudocode for the parser/converter
+4. Pseudocode for the parser
     - Describe the logic of how to step through an input file, including error handling
 	- Consult the mapping and schema
-	- Add skeleton of empty classes and methods to the code in the python package (./antibody_annotation_to_json/)
+	- Add skeleton of empty classes and methods to the code in the [Python package](./antibody_annotation_to_json)
 		- the ~80 annotation fields can be grouped and handled by ~20-30 methods, since many share the same 
 		information structure
 
 5.  i. Python unittest test suite (./test/*.py)
-    - Consult mapping documentation and JSON schema when adding test cases for every unit in the python code 
+    - Consult mapping documentation and JSON schema when adding test cases for every unit in the Python code 
         skeleton
     
-    ii. Python code for the parser/converter [package](./antibody_annotation_to_json/)
+    ii. Python code for the parser [package](./antibody_annotation_to_json)
     - Fill in the skeleton of classes and methods
     - Consult the pseudocode, mapping and JSON schema
     - TDD: the tests will start off as failing (before all of the code is completed)
-        - Tests will be configured in ./.pre-commit-optional.yaml so they don't automatically block commits
+        - Tests will be configured in the [optional pre-commit config](./.pre-commit-optional.yaml) so they don't 
+        automatically block commits
 
 Development won't necessarily always follow the exact order outlined above.
-For instance, writing and testing the python code might lead to new realisations about the viability/efficiency
+For instance, writing and testing the Python code might lead to new realisations about the viability/efficiency
 of converting to the desired data structure, in which case the JSON schema and annotation mapping may have to be
 updated.
 
 ### Maintaining and Updating
 
-Once the parser/converter has reached a stable, functional form (producing valid output and passing all or most tests),
-the pre-commit hooks for unit testing, running the parser/converter on the sample input, and validating the output can
-be moved from ./.pre-commit-optional.yaml to ./.pre-commit-config.yaml.
+Once the parser has reached a stable, functional form (producing valid output and passing all or most tests),
+the pre-commit hooks for unit testing, running the parser on the sample input, and validating the output can
+be moved from the [optional config](./.pre-commit-optional.yaml) to the [default config](./.pre-commit-config.yaml).
+In addition, some of the output of the parser should be manually inspected as a sanity check.
 
-When the parser/converter needs to be updated to handle new annotation fields or to change the output format of 
-existing ones, the appropriate changes should be made in the following places:
+When the parser needs to be updated to handle new annotation fields or to change the output format of existing ones, 
+the appropriate changes should be made in the following places:
     
 - mapping documentation,
 - JSON schema (refer to the [JSON Schema website](https://json-schema.org/) for documentation and tutorials),
 - schema tests,
-- python unit tests
-- (if applicable) expected and invalid json files (used by schema and unittest test cases)
+- Python unit tests,
+- (if applicable) expected and invalid complete json files (used by schema and unittest test cases).
 
-In any case, the 'cross-checking' between the parser/converter, unit tests, and JSON schema validation will probably
-catch any incompatible updates.
+In any case, the 'cross-checking' between the parser, unit tests, and JSON schema validation will probably catch any 
+incompatible updates.
 
-See ./test/README.md for a flowchart of the testing process and more information on how to edit or add new schema tests
-and python unittest tests.
+The [test README](./test/README.md) includes a flowchart of the testing process and more information on how to edit or 
+add new schema tests and Python unittest tests.
 
 For ad hoc manual testing before committing local changes, use the ./input_data/ and ./json_files/ directories.
 The contents of these directories are ignored by git.
 The ./test/input_data/ and ./test/json_files/ directories are reserved for automated testing and validation.
-The test directories are not ignored by git, so the output generated by the latest version of the parser/converter can
+The test directories are not ignored by git, so the output generated by the latest version of the parser can
 be inspected.
 
 ### Changes to the Project Configuration
