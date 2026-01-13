@@ -22,6 +22,7 @@ dist/
 # Personal files e.g. notes, reminders, ideas, code experiments
 .personal/
 test/test_ideas.txt
+temp*/
 
 # See also: '/input_data/.gitignore' and '/json_files/.gitignore'
 # These are empty directories for local runs of the program
