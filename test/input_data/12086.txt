@@ -1,0 +1,60 @@
+Request: 12086
+
+Format: human monoclonal Fab antibody;
+Type: IgG1-kappa;
+ID: RO7250284;
+AbML: VL.a(1:3)-CL(2:4){1}|VH.b(3:1)-CH1(4:2){1};
+
+Antigen[1,2]: human vascular endothelial growth factor A, VEGF-A, Vascular permeability factor, VPF (VEGFA);
+Note[1,2]: CDRs L1 L3 H2;
+Antigen[1,2]: human Angiopoietin-2, ANG-2 (ANGPT2);
+Note[1,2]: CDRs L2 H1 H3;
+
+HeavyChainClass[1]: Gamma1;
+HeavyChainLength[1]: 223;
+HeavyPotentialNGlycos[1]: NONE;
+HeavyConfirmedNGlycos[1]: NONE;
+HeavyCysPositions[1]: 22 95 142 198 218;
+HeavyDisulfidesIntra[1]: 22-95 142-198;
+HVGermline[1]: Homo sapiens IGHV3-23*04;
+HJGermline[1]: Homo sapiens IGHJ4*01;
+HCGermline[1]: Homo sapiens IGHG1*01;
+VHRange[1]: 1-115;
+CH1Range[1]: 116-213;
+HingeRange[1]: 214-223;
+CDRKabatH1[1]: DDMS (31-34);
+CDRKabatH2[1]: SISPKGDHKYLNTKFIG (49-65);
+CDRKabatH3[1]: DVGFFDW (98-104);
+
+DisulfidesInterL1H1[2,1]: 214-218;
+
+LightChainClass[2]: kappa;
+LightChainLength[2]: 214;
+LightPotentialNGlycos[2]: NONE;
+LightConfirmedNGlycos[2]: NONE;
+LightCysPositions[2]: 23 88 134 194 214;
+LightDisulfidesIntra[2]: 23-88 134-194;
+LVGermline[2]: Homo sapiens IGKV1-39*01;
+LJGermline[2]: Homo sapiens IGKJ4*01;
+LCGermline[2]: Homo sapiens IGKC*01;
+VLRange[2]: 1-107;
+CLRange[2]: 108-214;
+CDRKabatL1[2]: HGSYWLNSEVA (24-34);
+CDRKabatL2[2]: DGDFKVY (50-56);
+CDRKabatL3[2]: QQYRYHPYT (89-97);
+
+Heavy Chain[1]:
+SEHLVESGGG LVKPGGSLRL SCATADFFEY DDMSWVRQAP GKGLEWVGSI  50
+SPKGDHKYLN TKFIGRFTIS RDDSKNTLYL QMNSLRAEDT AVYYCARDVG 100
+FFDWWGQGTL VTVSSASTKG PSVFPLAPSS KSTSGGTAAL GCLVKDYFPE 150
+PVTVSWNSGA LTSGVHTFPA VLQSSGLYSL SSVVTVPSSS LGTQTYICNV 200
+NHKPSNTKVD KKVEPKSCDK THT                              223
+//
+
+Light Chain[2]:
+AIYMHQEPSS LSASVGDRVT ITCHGSYWLN SEVAWYQQKP GKAPKLLIFD  50
+GDFKVYEVPS RFSGSGSHED YTLTISSLQP EDFATYYCQQ YRYHPYTFGH 100
+GTKVEIKRTV AAPSVFIFPP SDEQLKSGTA SVVCLLNNFY PREAKVQWKV 150
+DNALQSGNSQ ESVTEQDSKD STYSLSSTLT LSKADYEKHK VYACEVTHQG 200
+LSSPVTKSFN RGEC                                        214
+//

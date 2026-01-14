@@ -1,0 +1,743 @@
+{
+	"Request": "12023",
+	"Format": "tetraspecific human/humanized scFv-Ab-scFv-scFv monoclonal antibody",
+	"ID": "GNC-038",
+	"Fusion": [
+		{
+			"Instances": [1, 2, 3, 4, 5, 6, 7]
+		}
+	],
+	"Antigen": [
+		{
+			"Instances": [1,2],
+			"Species": "human",
+			"Names": "T-cell surface glycoprotein CD3 epsilon chain, T-cell surface antigen T3/Leu-4 epsilon chain, CD3e",
+			"Gene": "CD3E"
+		},
+		{
+			"Instances": [3,8],
+			"Species": "human",
+			"Names": "B-lymphocyte antigen CD19, B-lymphocyte surface antigen B4, T-cell surface antigen Leu-12",
+			"Gene": "CD19"
+		},
+		{
+			"Instances": [4,5],
+			"Species": "human",
+			"Names": "programmed cell death 1 ligand 1, PD-L1, programmed death ligand 1, PDCD1 ligand 1, B7 homolog 1, B7-H1",
+			"Gene": "CD274"
+		},
+		{
+			"Instances": [6,7],
+			"Species": "human",
+			"Names": "Tumor necrosis factor ligand superfamily member 9, 4-1BB ligand, 4-1BBL",
+			"Gene": "TNFSF9"
+		}
+	],
+	"CDRSource": [
+		{
+			"Instances": [1, 2],
+			"Species": "Oryctolagus cuniculus",
+			"Note": "humanized by CDR grafting"
+		},
+		{
+			"Instances": [3, 8],
+			"Species": "Homo sapiens",
+			"Note": "transgenic mouse with human genes"
+		},
+		{
+			"Instances": [4, 5],
+			"Species": "Oryctolagus cuniculus",
+			"Note": "humanized by CDR grafting"
+		},
+		{
+			"Instances": [6, 7],
+			"Species": "Oryctolagus cuniculus",
+			"Note": "humanized by CDR grafting"
+		}
+	],
+	"Domains": [
+		{
+			"Instances": [1],
+			"Values": ["VL"]
+		},
+		{
+			"Instances": [2],
+			"Values": ["VH"]
+		},
+		{
+			"Instances": [3],
+			"Values": ["VH", "CH1", "CH2", "CH3"]
+		},
+		{
+			"Instances": [4],
+			"Values": ["VH"]
+		},
+		{
+			"Instances": [5],
+			"Values": ["VL"]
+		},
+		{
+			"Instances": [6],
+			"Values": ["VH"]
+		},
+		{
+			"Instances": [7],
+			"Values": ["VL"]
+		},
+		{
+			"Instances": [8],
+			"Values": ["VL", "CL"]
+		}
+	],
+	"ChainLength": [
+		{
+			"Instances": [1, 2, 3, 4, 5, 6, 7],
+			"Value":  1230
+		}
+	],
+	"Type": [
+		{
+			"Instances": [1],
+			"Value": "Fv-kappa scFv"
+		},
+		{
+			"Instances": [2],
+			"Value": "Fv-heavy scFv"
+		},
+		{
+			"Instances": [3],
+			"Value": "IgG1-kappa"
+		},
+		{
+			"Instances": [4],
+			"Value": "Fv-heavy scFv"
+		},
+		{
+			"Instances": [5],
+			"Value": "Fv-kappa scFv"
+		},
+		{
+			"Instances": [6],
+			"Value": "Fv-heavy scFv"
+		},
+		{
+			"Instances": [7],
+			"Value": "Fv-kappa scFv"
+		},
+		{
+			"Instances": [8],
+			"Value": "IgG1-kappa"
+		}
+	],
+	"LightChainClass": [
+		{
+			"Instance": 1,
+			"Value": "kappa"
+		},
+		{
+			"Instance": 5,
+			"Value": "kappa"
+		},
+		{
+			"Instance": 7,
+			"Value": "kappa"
+		},
+		{
+			"Instance": 8,
+			"Value": "kappa"
+		}
+	],
+	"LightNGlycos": [
+		{
+			"Instance": 1,
+			"Potential": null,
+			"Confirmed": null
+		},
+		{
+			"Instance": 5,
+			"Potential": null,
+			"Confirmed": null
+		},
+		{
+			"Instance": 7,
+			"Potential": null,
+			"Confirmed": null
+		},
+		{
+			"Instance": 8,
+			"Potential": null,
+			"Confirmed": null
+		}
+	],
+	"LightCysPositions": [
+		{
+			"Instance": 1,
+			"Values": [23, 88]
+		},
+		{
+			"Instance": 5,
+			"Values": [887, 952]
+		},
+		{
+			"Instance": 7,
+			"Values": [1142, 1207]
+		},
+		{
+			"Instance": 8,
+			"Values": [23, 88, 134, 194, 214]
+		}
+	],
+	"LightDisulfidesIntra": [
+		{
+			"Instance": 1,
+			"Positions": [
+				[23, 88]
+			]
+		},
+		{
+			"Instance": 5,
+			"Positions": [
+				[887, 952]
+			]
+		},
+		{
+			"Instance": 7,
+			"Positions": [
+				[1142, 1207]
+			]
+		},
+		{
+			"Instance": 8,
+			"Positions": [
+				[23, 88],
+				[134, 194]
+			]
+		}
+	],
+	"LVGermline": [
+		{
+			"Instance": 1,
+			"Species": "Homo sapiens",
+			"GeneID": "IGKV1-5*01"
+		},
+		{
+			"Instance": 5,
+			"Species": "Homo sapiens",
+			"GeneID": "IGKV1-5*03"
+		},
+		{
+			"Instance": 7,
+			"Species": "Homo sapiens",
+			"GeneID": "IGKV1-39*01"
+		},
+		{
+			"Instance": 8,
+			"Species": "Homo sapiens",
+			"GeneID": "IGKV1-13*02"
+		}
+	],
+	"LJGermline": [
+		{
+			"Instance": 1,
+			"Species": "Homo sapiens",
+			"GeneID": "IGKJ4*01"
+		},
+		{
+			"Instance": 5,
+			"Species": "Homo sapiens",
+			"GeneID": "IGKJ4*01"
+		},
+		{
+			"Instance": 7,
+			"Species": "Homo sapiens",
+			"GeneID": "IGKJ4*01"
+		},
+		{
+			"Instance": 8,
+			"Species": "Homo sapiens",
+			"GeneID": "IGKJ3*01"
+		}
+	],
+	"VLRange": [
+		{
+			"Instance": 1,
+			"Start": 1,
+			"End": 112
+		},
+		{
+			"Instance": 5,
+			"Start": 865,
+			"End": 974
+		},
+		{
+			"Instance": 7,
+			"Start": 1120,
+			"End": 1230
+		},
+		{
+			"Instance": 8,
+			"Start": 1,
+			"End": 107
+		}
+	],
+	"CDRKabatL1": [
+		{
+			"Instance": 1,
+			"Sequence": "QASESISSWLA",
+			"Start": 24,
+			"End": 34
+		},
+		{
+			"Instance": 5,
+			"Sequence": "QASQSISSHLN",
+			"Start": 888,
+			"End": 898
+		},
+		{
+			"Instance": 7,
+			"Sequence": "QASQNIRTYLS",
+			"Start": 1143,
+			"End": 1153
+		},
+		{
+			"Instance": 8,
+			"Sequence": "RASQGISSALA",
+			"Start": 24,
+			"End": 34
+		}
+	],
+	"CDRKabatL2": [
+		{
+			"Instance": 1,
+			"Sequence": "EASKLAS",
+			"Start": 50,
+			"End": 56
+		},
+		{
+			"Instance": 5,
+			"Sequence": "KASTLAS",
+			"Start": 914,
+			"End": 920
+		},
+		{
+			"Instance": 7,
+			"Sequence": "AAANLAS",
+			"Start": 1169,
+			"End": 1175
+		},
+		{
+			"Instance": 8,
+			"Sequence": "DASSLES",
+			"Start": 50,
+			"End": 56
+		}
+	],
+	"CDRKabatL3": [
+		{
+			"Instance": 1,
+			"Sequence": "QGYFYFISRTYVNS",
+			"Start": 89,
+			"End": 102
+		},
+		{
+			"Instance": 5,
+			"Sequence": "QQGYSWGNVDNV",
+			"Start": 953,
+			"End": 964
+		},
+		{
+			"Instance": 7,
+			"Sequence": "QSTYLGTDYVGGA",
+			"Start": 1208,
+			"End": 1220
+		},
+		{
+			"Instance": 8,
+			"Sequence": "QQFNSYPFT",
+			"Start": 89,
+			"End": 97
+		}
+	],
+	"Linker": [
+		{
+			"Instances": [1, 2],
+			"Start": 113,
+			"End": 132
+		},
+		{
+			"Instances": [2, 3],
+			"Start": 253,
+			"End": 262
+		},
+		{
+			"Instances": [3, 4],
+			"Start": 712,
+			"End": 722
+		},
+		{
+			"Instances": [4, 5],
+			"Start": 845,
+			"End": 864
+		},
+		{
+			"Instances": [5, 6],
+			"Start": 975,
+			"End": 984
+		},
+		{
+			"Instances": [6, 7],
+			"Start": 1100,
+			"End": 1119
+		}
+	],
+	"HeavyNGlycos": [
+		{
+			"Instance": 2,
+			"Potential": null,
+			"Confirmed": null
+		},
+		{
+			"Instance": 3,
+			"Potential": [563],
+			"Confirmed": [563]
+		},
+		{
+			"Instance": 4,
+			"Potential": null,
+			"Confirmed": null
+		},
+		{
+			"Instance": 6,
+			"Potential": null,
+			"Confirmed": null
+		}
+	],
+	"HeavyCysPositions": [
+		{
+			"Instance": 2,
+			"Values": [154, 227]
+		},
+		{
+			"Instance": 3,
+			"Values": [284, 358, 410, 466, 486, 492, 495, 527, 587, 633, 691]
+		},
+		{
+			"Instance": 4,
+			"Values": [744, 758, 773, 820]
+		},
+		{
+			"Instance": 6,
+			"Values": [1005, 1078]
+		}
+	],
+	"HeavyDisulfidesIntra": [
+		{
+			"Instance": 2,
+			"Positions": [
+				[154, 227]
+			]
+		},
+		{
+			"Instance": 3,
+			"Positions": [
+				[284, 358],
+				[410, 466],
+				[527, 587],
+				[633, 691]
+			]
+		},
+		{
+			"Instance": 4,
+			"Positions": [
+				[744, 820],
+				[758, 773]
+			]
+		},
+		{
+			"Instance": 6,
+			"Positions": [
+				[1005, 1078]
+			]
+		}
+	],
+	"VHRange": [
+		{
+			"Instance": 2,
+			"Start": 133,
+			"End": 252
+		},
+		{
+			"Instance": 3,
+			"Start": 263,
+			"End": 383
+		},
+		{
+			"Instance": 4,
+			"Start": 723,
+			"End": 844
+		},
+		{
+			"Instance": 6,
+			"Start": 985,
+			"End": 1099
+		}
+	],
+	"HVGermline": [
+		{
+			"Instance": 2,
+			"Species": "Homo sapiens",
+			"GeneID": "IGHV3-66*01"
+		},
+		{
+			"Instance": 3,
+			"Species": "Homo sapiens",
+			"GeneID": "IGHV5-51*01"
+		},
+		{
+			"Instance": 4,
+			"Species": "Homo sapiens",
+			"GeneID": "IGHV3-23*01"
+		},
+		{
+			"Instance": 6,
+			"Species": "Homo sapiens",
+			"GeneID": "IGHV3-53*04"
+		}
+	],
+	"HJGermline": [
+		{
+			"Instance": 2,
+			"Species": "Homo sapiens",
+			"GeneID": "IGHJ4*01"
+		},
+		{
+			"Instance": 3,
+			"Species": "Homo sapiens",
+			"GeneID": "IGHJ4*01"
+		},
+		{
+			"Instance": 4,
+			"Species": "Homo sapiens",
+			"GeneID": "IGHJ4*01"
+		},
+		{
+			"Instance": 6,
+			"Species": "Homo sapiens",
+			"GeneID": "IGHJ4*01"
+		}
+	],
+	"HCGermline": [
+		{
+			"Instance": 3,
+			"Species": "Homo sapiens",
+			"GeneID": "IGHG1*01"
+		}
+	],
+	"CDRKabatH1": [
+		{
+			"Instance": 2,
+			"Sequence": "TNAMS",
+			"Start": 163,
+			"End": 167
+		},
+		{
+			"Instance": 3,
+			"Sequence": "SSWIG",
+			"Start": 293,
+			"End": 297
+		},
+		{
+			"Instance": 4,
+			"Sequence": "SGYDMC",
+			"Start": 753,
+			"End": 758
+		},
+		{
+			"Instance": 6,
+			"Sequence": "SYHMQ",
+			"Start": 1014,
+			"End": 1018
+		}
+	],
+	"CDRKabatH2": [
+		{
+			"Instance": 2,
+			"Sequence": "VITGRDITYYASWAKG",
+			"Start": 182,
+			"End": 197
+		},
+		{
+			"Instance": 3,
+			"Sequence": "IIYPDDSDTRYSPSFQG",
+			"Start": 312,
+			"End": 328
+		},
+		{
+			"Instance": 4,
+			"Sequence": "CIAAGSAGITYDANWAKG",
+			"Start": 773,
+			"End": 790
+		},
+		{
+			"Instance": 6,
+			"Sequence": "TISSGGNVYYASSARG",
+			"Start": 1033,
+			"End": 1048
+		}
+	],
+	"CDRKabatH3": [
+		{
+			"Instance": 2,
+			"Sequence": "DGGSSAITSNNI",
+			"Start": 230,
+			"End": 241
+		},
+		{
+			"Instance": 3,
+			"Sequence": "HVTMIWGVIIDF",
+			"Start": 361,
+			"End": 372
+		},
+		{
+			"Instance": 4,
+			"Sequence": "SAFSFDYAMDL",
+			"Start": 823,
+			"End": 833
+		},
+		{
+			"Instance": 6,
+			"Sequence": "DSGYSDPM",
+			"Start": 1081,
+			"End": 1088
+		}
+	],
+	"HeavyChainClass": [
+		{
+			"Instance": 3,
+			"Value": "Gamma1"
+		}
+	],
+	"CH1Range": [
+		{
+			"Instance": 3,
+			"Start": 384,
+			"End": 481,
+			"Mutations": ["K480R"],
+			"Note": "K480R matches IGHG1*03"
+		}
+	],
+	"HingeRange": [
+		{
+			"Instance": 3,
+			"Start": 482,
+			"End": 496
+		}
+	],
+	"CH2Range": [
+		{
+			"Instance": 3,
+			"Start": 497,
+			"End": 606,
+			"Mutations": ["L500A", "L501A", "G503A", "K588A"]
+		}
+	],
+	"CH3Range": [
+		{
+			"Instance": 3,
+			"Start": 607,
+			"End": 711
+		}
+	],
+	"CHSRange": [
+		{
+			"Instance": 3,
+			"Start": null,
+			"End": null,
+			"Mutations": ["G712del", "K712del"]
+		}
+	],
+	"MutationH": [
+		{
+			"Instance": 3,
+			"Mutations": ["L500A", "L501A", "G503A", "K588A"],
+			"Reason": "Reduce ADCC and CDC"
+		},
+		{
+			"Instance": 3,
+			"Mutations": ["G712del", "K712del"],
+			"Reason": "Remove CHS"
+		}
+	],
+	"DisulfidesInterH1H2": [
+		{
+			"InstanceX": 3,
+			"InstanceY": 3,
+			"Positions": [
+				{
+					"X": 492,
+					"Y": 492
+				},
+				{
+					"X": 495,
+					"Y": 495
+				}
+			]
+		}
+	],
+	"DisulfidesInterL1H1": [
+		{
+			"InstanceL": 8,
+			"InstanceH": 3,
+			"Positions": [
+				{
+					"L": 214,
+					"H": 486
+				}
+			]
+		}
+	],
+	"DisulfidesInterL2H2": [
+		{
+			"InstanceL": 8,
+			"InstanceH": 3,
+			"Positions": [
+				{
+					"L": 214,
+					"H": 486
+				}
+			]
+		}
+	],
+	"LightChainLength": [
+		{
+			"Instance": 8,
+			"Value": 214
+		}
+	],
+	"LCGermline": [
+		{
+			"Instance": 8,
+			"Species": "Homo sapiens",
+			"GeneID": "IGKC*01"
+		}
+	],
+	"CLRange": [
+		{
+			"Instance": 8,
+			"Start": 108,
+			"End": 214
+		}
+	],
+	"Chain": [
+		{
+			"Instances": [1, 2, 3, 4, 5, 6, 7],
+			"Sequence": "DVVMTQSPSTLSASVGDRVTINCQASESISSWLAWYQQKPGKAPKLLIYEASKLASGVPSRFSGSGSGTEFTLTISSLQPDDFATYYCQGYFYFISRTYVNSFGGGTKVEIKGGGGSGGGGSGGGGSGGGGSEVQLVESGGGLVQPGGSLRLSCAASGFTISTNAMSWVRQAPGKGLEWIGVITGRDITYYASWAKGRFTISRDNSKNTLYLQMNSLRAEDTAVYYCARDGGSSAITSNNIWGQGTLVTVSSGGGGSGGGGSEVQLVQSGAEVKKPGESLKISCKGSGYSFSSSWIGWVRQAPGKGLEWMGIIYPDDSDTRYSPSFQGQVTISADKSIRTAYLQWSSLKASDTAMYYCARHVTMIWGVIIDFWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKRVEPKSCDKTHTCPPCPAPEAAGAPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNWYVDGVEVHNAKTKPREEQYNSTYRVVSVLTVLHQDWLNGKEYKCAVSNKALPAPIEKTISKAKGQPREPQVYTLPPSRDELTKNQVSLTCLVKGFYPSDIAVEWESNGQPENNYKTTPPVLDSDGSFFLYSKLTVDKSRWQQGNVFSCSVMHEALHNHYTQKSLSLSPGGGGGSGGGGSEVQLLESGGGLVQPGGSLRLSCAASGFSFSSGYDMCWVRQAPGKGLEWIACIAAGSAGITYDANWAKGRFTISRDNSKNTLYLQMNSLRAEDTAVYYCARSAFSFDYAMDLWGQGTLVTVSSGGGGSGGGGSGGGGSGGGGSDIQMTQSPSTLSASVGDRVTITCQASQSISSHLNWYQQKPGKAPKLLIYKASTLASGVPSRFSGSGSGTEFTLTISSLQPDDFATYYCQQGYSWGNVDNVFGGGTKVEIKGGGGSGGGGSRSLVESGGGLVQPGGSLRLSCTASGFTISSYHMQWVRQAPGKGLEYIGTISSGGNVYYASSARGRFTISRPSSKNTVDLQMNSLRAEDTAVYYCARDSGYSDPMWGQGTLVTVSSGGGGSGGGGSGGGGSGGGGSDVVMTQSPSSVSASVGDRVTITCQASQNIRTYLSWYQQKPGKAPKLLIYAAANLASGVPSRFSGSGSGTDFTLTISDLEPGDAATYYCQSTYLGTDYVGGAFGGGTKVEIK"
+		}
+	],
+	"LightChain": [
+		{
+			"Instances": [8],
+			"Sequence": "AIQLTQSPSSLSASVGDRVTITCRASQGISSALAWYQQKPGKAPKLLIYDASSLESGVPSRFSGSGSGTDFTLTISSLQPEDFATYYCQQFNSYPFTFGPGTKVDIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSGNSQESVTEQDSKDSTYSLSSTLTLSKADYEKHKVYACEVTHQGLSSPVTKSFNRGEC"
+		}
+	]
+}

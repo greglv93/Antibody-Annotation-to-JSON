@@ -1,0 +1,23 @@
+[project]
+name = "antibody_annotation_to_json"
+version = "0.1.0"
+requires-python = ">=3.7"
+dependencies = [
+    "jsonschema>=4.25"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit>=4.2.0",
+    "sourcemeta-jsonschema>=12.10.1"
+    ]
+
+[project.scripts]
+antibody-to-json = "antibody_annotation_to_json.cli:main"
+
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["antibody_annotation_to_json"]

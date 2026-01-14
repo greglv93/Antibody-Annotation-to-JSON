@@ -1,0 +1,195 @@
+Request: 12292
+
+Format: tetraspecific humanized/chimeric scFv-Ab-scFv-scFv monoclonal antibody;
+ID: GNC-039;
+
+AbML: VL.a(1:3)-L(2)-VH.a(3:1)-L(4)-VH.b(5:35)-CH1(6:36){1}-H(7:24){2}-CH2*(8:25)-CH3(9:26)-L(10)-VH.c(11:13)-L(12)-VL.c(13:11)-L(14)-VH.d(15:17)-L(16)-VL.d(17:15)|VL.a(18:20)-L(19)-VH.a(20:18)-L(21)-VH.b(22:37)-CH1(23:38){1}-H(24:7){2}-CH2*(25:8)-CH3(26:9)-L(27)-VH.c(28:30)-L(29)-VL.c(30:28)-L(31)-VH.d(32:34)-L(33)-VL.d(34:32)|VL.b(35:5)-CL(36:6){1}|VL.b(37:22)-CL(38:23){1};
+
+Antigen[1,2]: human T-cell surface glycoprotein CD3 epsilon chain, T-cell surface antigen T3/Leu-4 epsilon chain, CD3e (CD3E);
+Antigen[3,8]: human Epidermal growth factor receptor EC:2.7.10.1 [Variant III, de2‐7EGFR, EGFRvIII], Proto-oncogene c-ErbB-1, Receptor tyrosine-protein kinase erbB-1 (EGFR);
+Antigen[4,5]: human programmed cell death 1 ligand 1, PD-L1, programmed death ligand 1, PDCD1 ligand 1, B7 homolog 1, B7-H1 (CD274);
+Antigen[6,7]: human Tumor necrosis factor ligand superfamily member 9, 4-1BB ligand, 4-1BBL (TNFSF9);
+CDRSource[1,2]: Oryctolagus cuniculus;
+Note[1,2]: humanized by Kabat CDR grafting;
+CDRSource[3,8]: Mus musculus;
+Note[3,8]: mouse chimeric;
+CDRSource[4,5]: Oryctolagus cuniculus;
+Note[4,5]: humanized by Kabat CDR grafting;
+CDRSource[6,7]: Oryctolagus cuniculus;
+Note[6,7]: humanized by Kabat CDR grafting;
+
+Fusion: 1 2 3 4 5 6 7;
+Domains[1]: VL;
+Domains[2]: VH;
+Domains[3]: VH CH1 CH2 CH3;
+Domains[4]: VH;
+Domains[5]: VL;
+Domains[6]: VH;
+Domains[7]: VL;
+Domains[8]: VL CL;
+
+ChainLength[1,2,3,4,5,6,7]: 1230;
+
+Type[1]: Fv-kappa scFv;
+LightChainClass[1]: kappa;
+LightPotentialNGlycos[1]: NONE;
+LightConfirmedNGlycos[1]: NONE;
+LightCysPositions[1]: 23 88;
+LightDisulfidesIntra[1]: 23-88;
+LVGermline[1]: Homo sapiens IGKV1-5*01;
+LJGermline[1]: Homo sapiens IGKJ4*01;
+VLRange[1]: 1-112;
+CDRKabatL1[1]: QASESISSWLA (24-34);
+CDRKabatL2[1]: EASKLAS (50-56);
+CDRKabatL3[1]: QGYFYFISRTYVNS (89-102);
+
+Linker[1,2]: 113-132;
+
+Type[2]: Fv-heavy scFv;
+HeavyPotentialNGlycos[2]: NONE;
+HeavyConfirmedNGlycos[2]: NONE;
+HeavyCysPositions[2]: 154 227;
+HeavyDisulfidesIntra[2]: 154-227;
+VHRange[2]: 133-252;
+HVGermline[2]: Homo sapiens IGHV3-66*01;
+HJGermline[2]: Homo sapiens IGHJ4*01;
+CDRKabatH1[2]: TNAMS (163-167);
+CDRKabatH2[2]: VITGRDITYYASWAKG (182-197);
+CDRKabatH3[2]: DGGSSAITSNNI (230-241);
+        
+Linker[2,3]: 253-262;
+
+Type[3]: IgG1-kappa;
+HeavyChainClass[3]: Gamma1;
+HeavyPotentialNGlycos[3]: 558;
+HeavyConfirmedNGlycos[3]: 558;
+HeavyCysPositions[3]: 284 358 405 461 481 487 490 522 582 628 686;
+HeavyDisulfidesIntra[3]: 284-358 405-461 522-582 628-686;
+HVGermline[3]: Mus musculus IGHV3-2*02;
+HJGermline[3]: Mus musculus IGHJ3*01;
+HCGermline[3]: Homo sapiens IGHG1*01;
+VHRange[3]: 263-378;
+CH1Range[3]: 379-476 (K475R);
+Note[3]: K475R matches IGHG1*03;
+HingeRange[3]: 477-491;
+CH2Range[3]: 492-601 (L495A L496A G498A K583A);
+CH3Range[3]: 602-706;
+CHSRange[3]: 707-707 (K708del);
+MutationH[3]: L495A L496A G498A K583A (Reduce ADCC and CDC);
+CDRKabatH1[3]: SDFAWN (293-298);
+CDRKabatH2[3]: YISYSGNTRYNPSLKS (313-328);
+CDRKabatH3[3]: AGRGFPY (361-367);
+
+DisulfidesInterH1H2[3,3]: 487-487 490-490;
+DisulfidesInterL1H1[8,3]: 214-481;
+DisulfidesInterL2H2[8,3]: 214-481;
+
+Linker[3,4]: 708-717;
+
+Type[4]: Fv-heavy scFv;
+HeavyPotentialNGlycos[4]: NONE;
+HeavyConfirmedNGlycos[4]: NONE;
+HeavyCysPositions[4]: 739 753 768 815;
+HeavyDisulfidesIntra[4]: 739-815 753-768;
+VHRange[4]: 718-839;
+HVGermline[4]: Homo sapiens IGHV3-23*01;
+HJGermline[4]: Homo sapiens IGHJ4*01;
+CDRKabatH1[4]: SGYDMC (748-753);
+CDRKabatH2[4]: CIAAGSAGITYDANWAKG (768-785);
+CDRKabatH3[4]: SAFSFDYAMDL (818-828);
+
+Linker[4,5]: 840-859;
+
+Type[5]: Fv-kappa scFv;
+LightChainClass[5]: kappa;
+LightPotentialNGlycos[5]: NONE;
+LightConfirmedNGlycos[5]: NONE;
+LightCysPositions[5]: 882 947;
+LightDisulfidesIntra[5]: 882-947;
+LVGermline[5]: Homo sapiens IGKV1-5*03;
+LJGermline[5]: Homo sapiens IGKJ4*01;
+VLRange[5]: 860-969;
+CDRKabatL1[5]: QASQSISSHLN (883-893);
+CDRKabatL2[5]: KASTLAS (909-915);
+CDRKabatL3[5]: QQGYSWGNVDNV (948-959);
+
+Linker[5,6]: 970-979;
+
+Type[6]: Fv-heavy scFv;
+HeavyPotentialNGlycos[6]: NONE;
+HeavyConfirmedNGlycos[6]: NONE;
+HeavyCysPositions[6]: 1000 1014 1029 1076;
+HeavyDisulfidesIntra[6]: 1000-1076 1014-1029;
+VHRange[6]: 980-1099;
+HVGermline[6]: Homo sapiens IGHV3-23*04;
+HJGermline[6]: Homo sapiens IGHJ4*01;
+CDRKabatH1[6]: SNYWIC (1009-1014);
+CDRKabatH2[6]: CIYVGSSGDTYYASSAKG (1029-1046);
+CDRKabatH3[6]: DSSSYYMFNL (1079-1088);
+
+Linker[6,7]: 1100-1119;
+
+Type[7]: Fv-kappa scFv;
+LightChainClass[7]: kappa;
+LightPotentialNGlycos[7]: NONE;
+LightConfirmedNGlycos[7]: NONE;
+LightCysPositions[7]: 1142 1207;
+LightDisulfidesIntra[7]: 1142-1207;
+LVGermline[7]: Homo sapiens IGKV1-5*01;
+LJGermline[7]: Homo sapiens IGKJ4*01;
+VLRange[7]: 1120-1231;
+CDRKabatL1[7]: QASEDIDTYLA (1143-1153);
+CDRKabatL2[7]: YASDLAS (1169-1175);
+CDRKabatL3[7]: QGGYYTSSADTRGA (1208-1221);
+
+Type[8]: IgG1-kappa;
+LightChainClass[8]: kappa;
+LightChainLength[8]: 214;
+LightPotentialNGlycos[8]: NONE;
+LightConfirmedNGlycos[8]: NONE;
+LightCysPositions[8]: 23 88 134 194 214;
+LightDisulfidesIntra[8]: 23-88 134-194;
+LVGermline[8]: Mus musculus IGKV14-100*01;
+LJGermline[8]: Mus musculus IGKJ1*01;
+LCGermline[8]: Homo sapiens IGKC*01;
+VLRange[8]: 1-107;
+CLRange[8]: 108-214;
+CDRKabatL1[8]: HSSQDINSNIG (24-34);
+CDRKabatL2[8]: HGTNLDD (50-56);
+CDRKabatL3[8]: VQYAQFPWT (89-97);
+
+Chain[1-2-3-4-5-6-7]:
+DVVMTQSPST LSASVGDRVT INCQASESIS SWLAWYQQKP GKAPKLLIYE   50
+ASKLASGVPS RFSGSGSGTE FTLTISSLQP DDFATYYCQG YFYFISRTYV  100
+NSFGGGTKVE IKGGGGSGGG GSGGGGSGGG GSEVQLVESG GGLVQPGGSL  150
+RLSCAASGFT ISTNAMSWVR QAPGKGLEWI GVITGRDITY YASWAKGRFT  200
+ISRDNSKNTL YLQMNSLRAE DTAVYYCARD GGSSAITSNN IWGQGTLVTV  250
+SSGGGGSGGG GSDVQLQESG PSLVKPSQSL SLTCTVTGYS ITSDFAWNWI  300
+RQFPGNKLEW MGYISYSGNT RYNPSLKSRI SITRDTSKNQ FFLQLNSVTI  350
+EDTATYYCVT AGRGFPYWGQ GTLVTVSAAS TKGPSVFPLA PSSKSTSGGT  400
+AALGCLVKDY FPEPVTVSWN SGALTSGVHT FPAVLQSSGL YSLSSVVTVP  450
+SSSLGTQTYI CNVNHKPSNT KVDKRVEPKS CDKTHTCPPC PAPEAAGAPS  500
+VFLFPPKPKD TLMISRTPEV TCVVVDVSHE DPEVKFNWYV DGVEVHNAKT  550
+KPREEQYNST YRVVSVLTVL HQDWLNGKEY KCAVSNKALP APIEKTISKA  600
+KGQPREPQVY TLPPSRDELT KNQVSLTCLV KGFYPSDIAV EWESNGQPEN  650
+NYKTTPPVLD SDGSFFLYSK LTVDKSRWQQ GNVFSCSVMH EALHNHYTQK  700
+SLSLSPGGGG GSGGGGSEVQ LLESGGGLVQ PGGSLRLSCA ASGFSFSSGY  750
+DMCWVRQAPG KGLEWIACIA AGSAGITYDA NWAKGRFTIS RDNSKNTLYL  800
+QMNSLRAEDT AVYYCARSAF SFDYAMDLWG QGTLVTVSSG GGGSGGGGSG  850
+GGGSGGGGSD IQMTQSPSTL SASVGDRVTI TCQASQSISS HLNWYQQKPG  900
+KAPKLLIYKA STLASGVPSR FSGSGSGTEF TLTISSLQPD DFATYYCQQG  950
+YSWGNVDNVF GGGTKVEIKG GGGSGGGGSQ SLVESGGGLV QPGGSLRLSC 1000
+AASGFSFSSN YWICWVRQAP GKGLEWIACI YVGSSGDTYY ASSAKGRFTI 1050
+SRDNSKNTLY LQMNSLRAED TAVYYCARDS SSYYMFNLWG QGTLVTVSSG 1100
+GGGSGGGGSG GGGSGGGGSA LVMTQSPSTL SASVGDRVTI NCQASEDIDT 1150
+YLAWYQQKPG KAPKLLIFYA SDLASGVPSR FSGSGSGTEF TLTISSLQPD 1200
+DFATYYCQGG YYTSSADTRG AFGGGTKVEI K                     1231
+//
+
+Light Chain[8]:
+DILMTQSPSS MSVSLGDTVS ITCHSSQDIN SNIGWLQQRP GKSFKGLIYH  50
+GTNLDDEVPS RFSGSGSGAD YSLTISSLES EDFADYYCVQ YAQFPWTFGG 100
+GTKLEIKRTV AAPSVFIFPP SDEQLKSGTA SVVCLLNNFY PREAKVQWKV 150
+DNALQSGNSQ ESVTEQDSKD STYSLSSTLT LSKADYEKHK VYACEVTHQG 200
+LSSPVTKSFN RGEC                                        214
+//

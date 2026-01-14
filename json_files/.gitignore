@@ -1,0 +1,7 @@
+# This file also serves as a placeholder to keep this empty directory in the git tree
+
+# Ignore everything in this directory
+*
+# Except this file
+!.gitignore
+
