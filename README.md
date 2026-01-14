@@ -79,6 +79,13 @@ The tool is now available as an executable command from anywhere in your system 
     `python3 -m antibody_annotation_to_json.cli --help`
 
 
+## More information
+
+Refer to the (documentation website)[https://greglv93.github.io/Antibody-Annotation-to-JSON] or view the documentation 
+files (here)[./doc].
+Examples of the input data and corresponding JSON output produced and validated by the current version of the tool are 
+available to view (here)[./test/input_data] and (here)[./test/json_files].
+
 ---
 This project is licensed under the MIT License.
 
