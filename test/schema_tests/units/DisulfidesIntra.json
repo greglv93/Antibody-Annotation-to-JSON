@@ -1,0 +1,323 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/properties/DisulfidesIntra",
+  "$comment": "Unit tests for the validation of the DisulfidesIntra property",
+  "tests": [
+    {
+      "description": "Valid example including an optional isoform indicator",
+      "valid": true,
+      "$comment": "The schema currently allows this, but future updates will ensure that when the 'Isoform' sub-property is present in any item, it must also be present in at least one more item",
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Positions": [
+            [
+              146,
+              159
+            ],
+            [
+              397,
+              407
+            ]
+          ],
+          "Isoform": "A"
+        }
+      ]
+    },
+    {
+      "description": "Empty array",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Non-unique array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Positions": [
+            [
+              146,
+              159
+            ],
+            [
+              397,
+              407
+            ]
+          ]
+        },
+        {
+          "Instances": [
+            1
+          ],
+          "Positions": [
+            [
+              146,
+              159
+            ],
+            [
+              397,
+              407
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "description": "A single object, rather than an array (even though the object is a valid array item)",
+      "valid": false,
+      "data": {
+        "Instances": [
+          1
+        ],
+        "Positions": [
+          [
+            146,
+            159
+          ],
+          [
+            397,
+            407
+          ]
+        ]
+      }
+    },
+    {
+      "description": "Missing 'Instances' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Positions": [
+            [
+              146,
+              159
+            ],
+            [
+              397,
+              407
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Positions' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Instances' is a single number, but must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": 1,
+          "Positions": [
+            [
+              146,
+              159
+            ],
+            [
+              397,
+              407
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Instances' array cannot be empty",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [],
+          "Positions": [
+            [
+              146,
+              159
+            ],
+            [
+              397,
+              407
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Positions' sub-property is a single number, but must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Positions": 146
+        }
+      ]
+    },
+    {
+      "description": "'Positions' array cannot be empty",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Positions": []
+        }
+      ]
+    },
+    {
+      "description": "'Positions' array items are single numbers, but must be nested arrays",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Positions": [
+            146,
+            159
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Positions' nested array contains one item, but must contain exactly two items",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Positions": [
+            [
+              146
+            ],
+            [
+              397,
+              407
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Positions' nested array contains three items, but must contain exactly two items",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Positions": [
+            [
+              146,
+              159,
+              160
+            ],
+            [
+              397,
+              407
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Non-unique 'Positions' array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Positions": [
+            [
+              146,
+              159
+            ],
+            [
+              146,
+              159
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Non-unique nested array inside 'Positions' array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Positions": [
+            [
+              146,
+              146
+            ],
+            [
+              159,
+              159
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "description": "`Isoform` must be a single uppercase letter string",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Positions": [
+            [
+              146,
+              159
+            ],
+            [
+              397,
+              407
+            ]
+          ],
+          "Isoform": "1"
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Positions": [
+            [
+              146,
+              159
+            ],
+            [
+              397,
+              407
+            ]
+          ],
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

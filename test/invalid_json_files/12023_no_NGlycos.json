@@ -239,28 +239,6 @@
       "Value": "kappa"
     }
   ],
-  "LightNGlycos": [
-    {
-      "Instance": 1,
-      "Potential": null,
-      "Confirmed": null
-    },
-    {
-      "Instance": 5,
-      "Potential": null,
-      "Confirmed": null
-    },
-    {
-      "Instance": 7,
-      "Potential": null,
-      "Confirmed": null
-    },
-    {
-      "Instance": 8,
-      "Potential": null,
-      "Confirmed": null
-    }
-  ],
   "LightCysPositions": [
     {
       "Instance": 1,
@@ -528,32 +506,6 @@
       ],
       "Start": 1100,
       "End": 1119
-    }
-  ],
-  "HeavyNGlycos": [
-    {
-      "Instance": 2,
-      "Potential": null,
-      "Confirmed": null
-    },
-    {
-      "Instance": 3,
-      "Potential": [
-        563
-      ],
-      "Confirmed": [
-        563
-      ]
-    },
-    {
-      "Instance": 4,
-      "Potential": null,
-      "Confirmed": null
-    },
-    {
-      "Instance": 6,
-      "Potential": null,
-      "Confirmed": null
     }
   ],
   "HeavyCysPositions": [

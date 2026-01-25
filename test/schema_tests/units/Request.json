@@ -1,0 +1,44 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/properties/Request",
+  "$comment": "Unit tests for the validation of the Request property",
+  "tests": [
+    {
+      "description": "Valid example",
+      "valid": true,
+      "data": "12345"
+    },
+    {
+      "description": "Valid example",
+      "valid": true,
+      "data": "67890"
+    },
+    {
+      "description": "Valid example",
+      "valid": true,
+      "data": "11111"
+    },
+    {
+      "description": "Too short",
+      "valid": false,
+      "data": "1234"
+    },
+    {
+      "description": "Too long",
+      "valid": false,
+      "data": "123456"
+    },
+    {
+      "description": "Not a string",
+      "valid": false,
+      "data": 12345
+    },
+    {
+      "description": "Not a string (even though array items would be valid on their own)",
+      "valid": false,
+      "data": [
+        "12345",
+        "67890"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "target": "../../doc/INN_antibody_schema.json",
+  "$comment": "These tests check the validation behaviour of the complete schema (not subschema 'units')",
+  "tests": [
+    {
+      "description": "The manually-written instance (a real, complete data file) must pass validation",
+      "valid": true,
+      "dataPath": "../expected_json_files/12023_expected.json"
+    },
+    {
+      "description": "The empty instance is invalid",
+      "valid": false,
+      "data": {}
+    },
+    {
+      "description": "The instance contains a disallowed property ('unevalPropTest')",
+      "valid": false,
+      "dataPath": "../invalid_json_files/12023_uneval_prop.json"
+    },
+    {
+      "description": "The instance is missing the required 'Format' property",
+      "valid": false,
+      "dataPath": "../invalid_json_files/12023_no_Format.json"
+    },
+    {
+      "description": "The instance is missing the required 'Request' property",
+      "valid": false,
+      "dataPath": "../invalid_json_files/12023_no_Request.json"
+    },
+    {
+      "description": "The instance is missing the required 'Type' property",
+      "valid": false,
+      "dataPath": "../invalid_json_files/12023_no_Type.json"
+    },
+    {
+      "description": "The instance is missing all of the required '*ChainLength' properties",
+      "valid": false,
+      "dataPath": "../invalid_json_files/12023_no_ChainLength.json"
+    },
+    {
+      "description": "The instance is missing all of the required '*NGlycos' properties",
+      "valid": false,
+      "dataPath": "../invalid_json_files/12023_no_NGlycos.json"
+    },
+    {
+      "description": "The instance is missing all of the required '*CysPositions' properties",
+      "valid": false,
+      "dataPath": "../invalid_json_files/12023_no_CysPositions.json"
+    },
+    {
+      "description": "The instance is missing all of the required '*DisulfidesIntra' properties",
+      "valid": false,
+      "dataPath": "../invalid_json_files/12023_no_DisulfidesIntra.json"
+    },
+    {
+      "description": "The instance is missing all of the required '*Germline' properties",
+      "valid": false,
+      "dataPath": "../invalid_json_files/12023_no_Germline.json"
+    },
+    {
+      "description": "The instance is missing all of the required '*Range' properties",
+      "valid": false,
+      "dataPath": "../invalid_json_files/12023_no_Range.json"
+    }
+  ]
+}

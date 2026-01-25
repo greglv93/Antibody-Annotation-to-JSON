@@ -1,0 +1,177 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/patternProperties/%5E(Heavy%7CLight)ConfirmedPTM$",
+  "$comment": "Unit tests for heavy/light confirmed PTM pattern properties",
+  "tests": [
+    {
+      "description": "Valid entries covering all combinations of position arrays",
+      "valid": true,
+      "data": [
+        {
+          "Instance": 0,
+          "Type": "oxidation",
+          "Positions": [
+            425
+          ]
+        },
+        {
+          "Instance": 1,
+          "Type": "deamidation",
+          "PositionsPartial": [
+            171
+          ],
+          "PositionsRare": [
+            25
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Object instead of array is invalid even if the item is valid",
+      "valid": false,
+      "data": {
+        "Instance": 0,
+        "Type": "oxidation",
+        "Positions": [
+          425
+        ]
+      }
+    },
+    {
+      "description": "Empty array is not allowed",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Duplicate items violate uniqueItems",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Type": "oxidation",
+          "Positions": [
+            425
+          ]
+        },
+        {
+          "Instance": 0,
+          "Type": "oxidation",
+          "Positions": [
+            425
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Instance' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Type": "oxidation",
+          "Positions": [
+            425
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Instance' must be a non-negative integer",
+      "valid": false,
+      "data": [
+        {
+          "Instance": -1,
+          "Type": "oxidation",
+          "Positions": [
+            425
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Type' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Positions": [
+            425
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Type' must be a single word with no spaces",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Type": "oxidation site",
+          "Positions": [
+            425
+          ]
+        }
+      ]
+    },
+    {
+      "description": "At least one positions array must be provided",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Type": "oxidation"
+        }
+      ]
+    },
+    {
+      "description": "'Positions' must be an array when present",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Type": "oxidation",
+          "Positions": 425
+        }
+      ]
+    },
+    {
+      "description": "'Positions' entries must be positive integers",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Type": "oxidation",
+          "Positions": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'PositionsPartial' entries must be unique positive integers",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Type": "oxidation",
+          "PositionsPartial": [
+            10,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Type": "oxidation",
+          "Positions": [
+            425
+          ],
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

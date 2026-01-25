@@ -1,0 +1,244 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/properties/ChainLength",
+  "$comment": "Unit tests for the validation of the ChainLength property",
+  "tests": [
+    {
+      "description": "Valid example",
+      "valid": true,
+      "data": [
+        {
+          "Instances": [
+            3,
+            4,
+            5
+          ],
+          "Value": 702
+        },
+        {
+          "Instances": [
+            6,
+            7
+          ],
+          "Value": 215
+        }
+      ]
+    },
+    {
+      "description": "Empty array",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Non-unique array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            3,
+            4,
+            5
+          ],
+          "Value": 702
+        },
+        {
+          "Instances": [
+            3,
+            4,
+            5
+          ],
+          "Value": 702
+        }
+      ]
+    },
+    {
+      "description": "A single object, rather than an array (even though the object is a valid array item)",
+      "valid": false,
+      "data": {
+        "Instances": [
+          3,
+          4,
+          5
+        ],
+        "Value": 702
+      }
+    },
+    {
+      "description": "Missing 'Instances' sub-property in one array item",
+      "valid": false,
+      "data": [
+        {
+          "Value": 702
+        },
+        {
+          "Instances": [
+            6,
+            7
+          ],
+          "Value": 215
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Value' sub-property in one array item",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "Instances": [
+            6,
+            7
+          ],
+          "Value": 215
+        }
+      ]
+    },
+    {
+      "description": "'Instances' is a single number, but must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": 3,
+          "Value": 702
+        },
+        {
+          "Instances": [
+            6,
+            7
+          ],
+          "Value": 215
+        }
+      ]
+    },
+    {
+      "description": "'Instances' array must contain at least two items",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            3
+          ],
+          "Value": 702
+        },
+        {
+          "Instances": [
+            6,
+            7
+          ],
+          "Value": 215
+        }
+      ]
+    },
+    {
+      "description": "'Instances' array items must be non-negative numbers",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            3,
+            -4,
+            5
+          ],
+          "Value": 702
+        },
+        {
+          "Instances": [
+            6,
+            7
+          ],
+          "Value": 215
+        }
+      ]
+    },
+    {
+      "description": "'Value' sub-property is a string, but must be a number",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            3,
+            4,
+            5
+          ],
+          "Value": "702"
+        },
+        {
+          "Instances": [
+            6,
+            7
+          ],
+          "Value": 215
+        }
+      ]
+    },
+    {
+      "description": "'Value' is 0, but must be at least 1",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            3,
+            4,
+            5
+          ],
+          "Value": 0
+        },
+        {
+          "Instances": [
+            6,
+            7
+          ],
+          "Value": 215
+        }
+      ]
+    },
+    {
+      "description": "'Value' is a negative integer, but must be positive",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            3,
+            4,
+            5
+          ],
+          "Value": -702
+        },
+        {
+          "Instances": [
+            6,
+            7
+          ],
+          "Value": 215
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            3,
+            4,
+            5
+          ],
+          "Value": 702
+        },
+        {
+          "Instances": [
+            6,
+            7
+          ],
+          "Value": 215,
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

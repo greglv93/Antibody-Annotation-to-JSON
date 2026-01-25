@@ -1,0 +1,35 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/properties/ID",
+  "$comment": "Unit tests for the validation of the ID property",
+  "tests": [
+    {
+      "description": "Valid example",
+      "valid": true,
+      "data": "DS-6016a"
+    },
+    {
+      "description": "Valid example",
+      "valid": true,
+      "data": "SI-B003, SI-3X35, SI-3"
+    },
+    {
+      "description": "Too short (minLength is 3)",
+      "valid": false,
+      "data": "AB"
+    },
+    {
+      "description": "Not a string",
+      "valid": false,
+      "data": 123
+    },
+    {
+      "description": "Not a string (even though the array items are valid strings)",
+      "valid": false,
+      "data": [
+        "SI-B003",
+        "SI-3X35",
+        "SI-3"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/patternProperties/%5ECDRKabat(L%7CH)%5B1-3%5D$",
+  "$comment": "Unit tests for CDRKabat pattern properties",
+  "tests": [
+    {
+      "description": "Valid example, including an 'X' (non-canonical amino acid) in one sequence",
+      "valid": true,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 89,
+          "End": 102,
+          "Sequence": "QGYFYFISRTYVNS"
+        },
+        {
+          "Instance": 5,
+          "Start": 953,
+          "End": 964,
+          "Sequence": "XQGYSWGNVDNV"
+        }
+      ]
+    },
+    {
+      "description": "Object instead of array is invalid even if the item is valid",
+      "valid": false,
+      "data": {
+        "Instance": 1,
+        "Start": 89,
+        "End": 102,
+        "Sequence": "QGYFYFISRTYVNS"
+      }
+    },
+    {
+      "description": "Empty array is not allowed",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Duplicate items violate uniqueItems",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 89,
+          "End": 102,
+          "Sequence": "QGYFYFISRTYVNS"
+        },
+        {
+          "Instance": 1,
+          "Start": 89,
+          "End": 102,
+          "Sequence": "QGYFYFISRTYVNS"
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Instance' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Start": 89,
+          "End": 102,
+          "Sequence": "QGYFYFISRTYVNS"
+        }
+      ]
+    },
+    {
+      "description": "'Instance' must be a non-negative integer",
+      "valid": false,
+      "data": [
+        {
+          "Instance": -1,
+          "Start": 89,
+          "End": 102,
+          "Sequence": "QGYFYFISRTYVNS"
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Sequence' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 89,
+          "End": 102
+        }
+      ]
+    },
+    {
+      "description": "'Sequence' must contain valid amino acid letters (20 canonical AAs and 'X' for any unnatural",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 89,
+          "End": 102,
+          "Sequence": "QGYFYFISRTYVNB"
+        }
+      ]
+    },
+    {
+      "description": "'Sequence' cannot be empty",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 89,
+          "End": 102,
+          "Sequence": ""
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Start' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "End": 102,
+          "Sequence": "QGYFYFISRTYVNS"
+        }
+      ]
+    },
+    {
+      "description": "'Start' must be at least 1",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 0,
+          "End": 102,
+          "Sequence": "QGYFYFISRTYVNS"
+        }
+      ]
+    },
+    {
+      "description": "Missing 'End' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 89,
+          "Sequence": "QGYFYFISRTYVNS"
+        }
+      ]
+    },
+    {
+      "description": "'End' must be at least 2",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 89,
+          "End": 1,
+          "Sequence": "QGYFYFISRTYVNS"
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 89,
+          "End": 102,
+          "Sequence": "QGYFYFISRTYVNS",
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

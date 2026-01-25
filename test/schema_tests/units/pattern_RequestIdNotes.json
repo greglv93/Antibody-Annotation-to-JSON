@@ -1,0 +1,23 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/patternProperties/%5E(Request%7CID%7CAbML%7C(Heavy%7CLight)Source)-Note$",
+  "$comment": "Unit tests for top-level note pattern properties",
+  "tests": [
+    {
+      "description": "Valid note string",
+      "valid": true,
+      "data": "humanized by CDR grafting"
+    },
+    {
+      "description": "String shorter than three characters is invalid",
+      "valid": false,
+      "data": "hu"
+    },
+    {
+      "description": "Non-string values are invalid",
+      "valid": false,
+      "data": [
+        "humanized"
+      ]
+    }
+  ]
+}

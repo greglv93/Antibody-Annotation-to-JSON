@@ -1,0 +1,130 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/properties/Conjugate",
+  "$comment": "Unit tests for the validation of the Conjugate property",
+  "tests": [
+    {
+      "description": "Valid example",
+      "valid": true,
+      "data": [
+        {
+          "Instances": [
+            0
+          ],
+          "DrugName": "tazide"
+        }
+      ]
+    },
+    {
+      "description": "Empty array",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Non-unique array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            0
+          ],
+          "DrugName": "tazide"
+        },
+        {
+          "Instances": [
+            0
+          ],
+          "DrugName": "tazide"
+        }
+      ]
+    },
+    {
+      "description": "A single object, rather than an array (even though the object is a valid array item)",
+      "valid": false,
+      "data": {
+        "Instances": [
+          0
+        ],
+        "DrugName": "tazide"
+      }
+    },
+    {
+      "description": "Missing 'Instances' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "DrugName": "tazide"
+        }
+      ]
+    },
+    {
+      "description": "Missing 'DrugName' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Instances' is a single number, but must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": 0,
+          "DrugName": "tazide"
+        }
+      ]
+    },
+    {
+      "description": "Empty 'Instances' array (minItems: 1)",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [],
+          "DrugName": "tazide"
+        }
+      ]
+    },
+    {
+      "description": "'Instances' array contains too many items (maxItems: 2)",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            0,
+            1,
+            2
+          ],
+          "DrugName": "tazide"
+        }
+      ]
+    },
+    {
+      "description": "Empty string for 'DrugName' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            0
+          ],
+          "DrugName": ""
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            0
+          ],
+          "DrugName": "tazide",
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/properties/AbML",
+  "$comment": "Unit tests for the validation of the AbML property",
+  "tests": [
+    {
+      "description": "Valid example",
+      "valid": true,
+      "data": "VL(1:3)-L(2)-VH(3:1)-H*(4:10){3}[MOD:REMCYS][NOTE: Nter 5aa extension Cter 2aa extension]-L(5)-CH3(6:12)|VL(7:9)-L(8)-VH(9:7)-H(10:4){3}[MOD:REMCYS][NOTE: Nter 5aa extension Cter 2aa extension]-L(11)-CH3(12:6)"
+    },
+    {
+      "description": "Valid edge case",
+      "valid": true,
+      "data": "VHH"
+    },
+    {
+      "description": "Too short (minLength is 3)",
+      "valid": false,
+      "data": "VH"
+    },
+    {
+      "description": "Not a string",
+      "valid": false,
+      "data": 123
+    },
+    {
+      "description": "Not a string (even though the array items are valid strings)",
+      "valid": false,
+      "data": [
+        "X(1)-L(2)-VH(3:5)-L(4)-VL(5:3)",
+        "VHH"
+      ]
+    }
+  ]
+}

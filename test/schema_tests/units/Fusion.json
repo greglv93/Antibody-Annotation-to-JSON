@@ -1,0 +1,111 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/properties/Fusion",
+  "$comment": "Unit tests for the validation of the Fusion property",
+  "tests": [
+    {
+      "description": "Valid example",
+      "valid": true,
+      "data": [
+        {
+          "Instances": [
+            3,
+            4,
+            5
+          ],
+          "Note": "A note about the fused instances"
+        },
+        {
+          "Instances": [
+            6,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Empty array",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Non-unique array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "Instances": [
+            3,
+            4,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "description": "A single object, rather than an array (even though the object is a valid array item)",
+      "valid": false,
+      "data": {
+        "Instances": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    {
+      "description": "'Instances' is a single number, but must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": 3
+        },
+        {
+          "Instances": 6
+        }
+      ]
+    },
+    {
+      "description": "'Instances' arrays must contain at least two items",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            3
+          ]
+        },
+        {
+          "Instances": [
+            6,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "Instances": [
+            6,
+            7
+          ],
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

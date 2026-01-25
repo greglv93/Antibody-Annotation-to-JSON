@@ -1,0 +1,127 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/patternProperties/%5E(HV%7CHJ%7CLV%7CLJ)Germline$",
+  "$comment": "Unit tests for germline fragment pattern properties",
+  "tests": [
+    {
+      "description": "Valid entries for variable and joining segments",
+      "valid": true,
+      "data": [
+        {
+          "Instance": 0,
+          "Species": "Homo sapiens",
+          "GeneID": "IGKV1-5*01"
+        },
+        {
+          "Instance": 2,
+          "Species": "Homo sapiens",
+          "GeneID": "IGHJ3*01"
+        }
+      ]
+    },
+    {
+      "description": "Object instead of array is invalid even if the item is valid",
+      "valid": false,
+      "data": {
+        "Instance": 0,
+        "Species": "Homo sapiens",
+        "GeneID": "IGKV1-5*01"
+      }
+    },
+    {
+      "description": "Empty array is not allowed",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Duplicate items violate uniqueItems",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Species": "Homo sapiens",
+          "GeneID": "IGKV1-5*01"
+        },
+        {
+          "Instance": 0,
+          "Species": "Homo sapiens",
+          "GeneID": "IGKV1-5*01"
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Instance' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Species": "Homo sapiens",
+          "GeneID": "IGKV1-5*01"
+        }
+      ]
+    },
+    {
+      "description": "'Instance' must be a non-negative integer",
+      "valid": false,
+      "data": [
+        {
+          "Instance": -1,
+          "Species": "Homo sapiens",
+          "GeneID": "IGKV1-5*01"
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Species' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "GeneID": "IGKV1-5*01"
+        }
+      ]
+    },
+    {
+      "description": "'Species' must match the speciesBinomial pattern",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Species": "human",
+          "GeneID": "IGKV1-5*01"
+        }
+      ]
+    },
+    {
+      "description": "Missing 'GeneID' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Species": "Homo sapiens"
+        }
+      ]
+    },
+    {
+      "description": "'GeneID' must match the IMGT pattern",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Species": "Homo sapiens",
+          "GeneID": "IGKV1-5"
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Species": "Homo sapiens",
+          "GeneID": "IGKV1-5*01",
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

@@ -336,50 +336,6 @@
       ]
     }
   ],
-  "LVGermline": [
-    {
-      "Instance": 1,
-      "Species": "Homo sapiens",
-      "GeneID": "IGKV1-5*01"
-    },
-    {
-      "Instance": 5,
-      "Species": "Homo sapiens",
-      "GeneID": "IGKV1-5*03"
-    },
-    {
-      "Instance": 7,
-      "Species": "Homo sapiens",
-      "GeneID": "IGKV1-39*01"
-    },
-    {
-      "Instance": 8,
-      "Species": "Homo sapiens",
-      "GeneID": "IGKV1-13*02"
-    }
-  ],
-  "LJGermline": [
-    {
-      "Instance": 1,
-      "Species": "Homo sapiens",
-      "GeneID": "IGKJ4*01"
-    },
-    {
-      "Instance": 5,
-      "Species": "Homo sapiens",
-      "GeneID": "IGKJ4*01"
-    },
-    {
-      "Instance": 7,
-      "Species": "Homo sapiens",
-      "GeneID": "IGKJ4*01"
-    },
-    {
-      "Instance": 8,
-      "Species": "Homo sapiens",
-      "GeneID": "IGKJ3*01"
-    }
-  ],
   "VLRange": [
     {
       "Instance": 1,
@@ -673,57 +629,6 @@
       "End": 1099
     }
   ],
-  "HVGermline": [
-    {
-      "Instance": 2,
-      "Species": "Homo sapiens",
-      "GeneID": "IGHV3-66*01"
-    },
-    {
-      "Instance": 3,
-      "Species": "Homo sapiens",
-      "GeneID": "IGHV5-51*01"
-    },
-    {
-      "Instance": 4,
-      "Species": "Homo sapiens",
-      "GeneID": "IGHV3-23*01"
-    },
-    {
-      "Instance": 6,
-      "Species": "Homo sapiens",
-      "GeneID": "IGHV3-53*04"
-    }
-  ],
-  "HJGermline": [
-    {
-      "Instance": 2,
-      "Species": "Homo sapiens",
-      "GeneID": "IGHJ4*01"
-    },
-    {
-      "Instance": 3,
-      "Species": "Homo sapiens",
-      "GeneID": "IGHJ4*01"
-    },
-    {
-      "Instance": 4,
-      "Species": "Homo sapiens",
-      "GeneID": "IGHJ4*01"
-    },
-    {
-      "Instance": 6,
-      "Species": "Homo sapiens",
-      "GeneID": "IGHJ4*01"
-    }
-  ],
-  "HCGermline": [
-    {
-      "Instance": 3,
-      "Species": "Homo sapiens",
-      "GeneID": "IGHG1*01"
-    }
-  ],
   "CDRKabatH1": [
     {
       "Instance": 2,
@@ -921,13 +826,6 @@
     {
       "Instance": 8,
       "Value": 214
-    }
-  ],
-  "LCGermline": [
-    {
-      "Instance": 8,
-      "Species": "Homo sapiens",
-      "GeneID": "IGKC*01"
     }
   ],
   "CLRange": [

@@ -1,4 +1,5 @@
 {
+  "unevalPropTest": "This should cause schema validation to fail, as root-level unevaluatedProperties is set to false",
   "Request": "12023",
   "Format": "tetraspecific human/humanized scFv-Ab-scFv-scFv monoclonal antibody",
   "ID": "GNC-038",

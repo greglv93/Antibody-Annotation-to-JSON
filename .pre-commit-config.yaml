@@ -1,4 +1,13 @@
 repos:
+  - repo: local
+    hooks:
+      # Note: this is above the pretty-format-json hook to ensure that the consistent formatting is applied last
+      - id: fix-jsonschema-test-targets
+        name: fix-jsonschema-test-targets
+        description: Fix jsonschema test target URIs
+        entry: fix-schema-targets
+        language: system
+        files: 'test/schema_tests/'
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v3.2.0
     hooks:
@@ -16,6 +25,7 @@ repos:
       - id: name-tests-test
         args: [ --unittest ] # override the default test name pattern, which is for the pytest framework
         files: '(^|/)test/.+\.py$' # override the default file pattern, which specifies a 'tests' directory
+  # Using this mirror lets us use mypyc-compiled black, which is about 2x faster
   - repo: https://github.com/psf/black-pre-commit-mirror
     rev: 25.1.0
     hooks:
@@ -27,7 +37,6 @@ repos:
       # Run the linter for all python files
       - id: ruff-check
         args: [ --fix ]
-  # Using this mirror lets us use mypyc-compiled black, which is about 2x faster
   - repo: local
     hooks:
       - id: sourcemeta-jsonschema-lint
@@ -35,19 +44,19 @@ repos:
         description: Lint the JSON schema (without automatic fix)
         entry: jsonschema lint --verbose
         language: system
-        files: 'schema\.json$'
+        files: '^doc/.*schema\.json$'
       - id: sourcemeta-jsonschema-metaschema
         name: sourcemeta-jsonschema-metaschema
         description: Validate the JSON schema with respect to its metaschema
         entry: jsonschema metaschema --verbose
         language: system
-        files: 'schema\.json$'
+        files: '^doc/.*schema\.json$'
       - id: sourcemeta-jsonschema-test
         name: sourcemeta-jsonschema-test
         description: Test the JSON schema with valid and invalid instances as defined in the test suite directory
-        entry: jsonschema test ./test/schema_tests/ --resolve ./doc/
+        entry: jsonschema test ./test/schema_tests/
         language: system
-        files: '(schema\.json|test/schema_tests/)'
+        files: '(^doc/.*schema\.json|test/schema_tests/)'
         pass_filenames: false
 # TODO: move over the parse-samples and python-unittest hooks from .pre-commit-optional.yaml, once stable (expected to pass)
 # TODO: consider moving details of all local system hooks to a .pre-commit-hooks.yaml file

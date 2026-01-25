@@ -1,0 +1,264 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/patternProperties/%5EDisulfidesInterL%5B1-9%5DH%5B1-9%5D$",
+  "$comment": "Unit tests for heavy-light disulfide pattern properties",
+  "tests": [
+    {
+      "description": "Valid entries including 'Isoform' and null 'Positions'",
+      "valid": true,
+      "$comment": "The schema currently allows a single item with 'Isoform', but future updates will ensure that if 'Isoform' can only exist in zero or two or more items",
+      "data": [
+        {
+          "InstanceL": 8,
+          "InstanceH": 3,
+          "Positions": [
+            {
+              "L": 214,
+              "H": 486
+            }
+          ]
+        },
+        {
+          "InstanceL": 0,
+          "InstanceH": 0,
+          "Isoform": "A",
+          "Positions": null
+        }
+      ]
+    },
+    {
+      "description": "Object instead of array is invalid even if the item is valid",
+      "valid": false,
+      "data": {
+        "InstanceL": 8,
+        "InstanceH": 3,
+        "Positions": [
+          {
+            "L": 214,
+            "H": 486
+          }
+        ]
+      }
+    },
+    {
+      "description": "Empty array is not allowed",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Duplicate items violate uniqueItems",
+      "valid": false,
+      "data": [
+        {
+          "InstanceL": 8,
+          "InstanceH": 3,
+          "Positions": [
+            {
+              "L": 214,
+              "H": 486
+            }
+          ]
+        },
+        {
+          "InstanceL": 8,
+          "InstanceH": 3,
+          "Positions": [
+            {
+              "L": 214,
+              "H": 486
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing 'InstanceL' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "InstanceH": 3,
+          "Positions": [
+            {
+              "L": 214,
+              "H": 486
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'InstanceL' must be a non-negative integer",
+      "valid": false,
+      "data": [
+        {
+          "InstanceL": -1,
+          "InstanceH": 3,
+          "Positions": [
+            {
+              "L": 214,
+              "H": 486
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing 'InstanceH' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "InstanceL": 8,
+          "Positions": [
+            {
+              "L": 214,
+              "H": 486
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'InstanceH' must be an integer",
+      "valid": false,
+      "data": [
+        {
+          "InstanceL": 8,
+          "InstanceH": "three",
+          "Positions": [
+            {
+              "L": 214,
+              "H": 486
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Positions' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "InstanceL": 8,
+          "InstanceH": 3
+        }
+      ]
+    },
+    {
+      "description": "'Positions' must be either null or an array",
+      "valid": false,
+      "data": [
+        {
+          "InstanceL": 8,
+          "InstanceH": 3,
+          "Positions": "invalid type"
+        }
+      ]
+    },
+    {
+      "description": "'Positions' array cannot be empty",
+      "valid": false,
+      "data": [
+        {
+          "InstanceL": 8,
+          "InstanceH": 3,
+          "Positions": []
+        }
+      ]
+    },
+    {
+      "description": "Each 'Positions' entry must include both 'L' and 'H' keys ('H' is missing)",
+      "valid": false,
+      "data": [
+        {
+          "InstanceL": 8,
+          "InstanceH": 3,
+          "Positions": [
+            {
+              "L": 214
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Position values must be positive integers",
+      "valid": false,
+      "data": [
+        {
+          "InstanceL": 8,
+          "InstanceH": 3,
+          "Positions": [
+            {
+              "L": 0,
+              "H": 486
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Each 'Positions' entry must include both 'L' and 'H' keys ('L' is missing)",
+      "valid": false,
+      "data": [
+        {
+          "InstanceL": 8,
+          "InstanceH": 3,
+          "Positions": [
+            {
+              "H": 486
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Position values must be positive integers",
+      "valid": false,
+      "data": [
+        {
+          "InstanceL": 8,
+          "InstanceH": 3,
+          "Positions": [
+            {
+              "L": 214,
+              "H": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Isoform' must be a single capital letter when present",
+      "valid": false,
+      "data": [
+        {
+          "InstanceL": 8,
+          "InstanceH": 3,
+          "Isoform": "AA",
+          "Positions": [
+            {
+              "L": 214,
+              "H": 486
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "InstanceL": 8,
+          "InstanceH": 3,
+          "Positions": [
+            {
+              "L": 214,
+              "H": 486
+            }
+          ],
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/properties/Source",
+  "$comment": "Unit tests for the validation of the Source property",
+  "tests": [
+    {
+      "description": "Valid example",
+      "valid": true,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Value": "human"
+        },
+        {
+          "Instances": [
+            2,
+            3
+          ],
+          "Value": "humanized",
+          "Note": "A note about the source"
+        }
+      ]
+    },
+    {
+      "description": "Empty array",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Non-unique array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Value": "human"
+        },
+        {
+          "Instances": [
+            1
+          ],
+          "Value": "human"
+        }
+      ]
+    },
+    {
+      "description": "A single object, rather than an array (even though the object is a valid array item)",
+      "valid": false,
+      "data": {
+        "Instances": [
+          1
+        ],
+        "Value": "human"
+      }
+    },
+    {
+      "description": "Missing 'Instances' sub-property in one array item",
+      "valid": false,
+      "data": [
+        {
+          "Value": "human"
+        },
+        {
+          "Instances": [
+            2,
+            3
+          ],
+          "Value": "humanized"
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Value' sub-property in one array item",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ]
+        },
+        {
+          "Instances": [
+            2,
+            3
+          ],
+          "Value": "humanized"
+        }
+      ]
+    },
+    {
+      "description": "'Instances' is a single number, but must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": 1,
+          "Value": "human"
+        },
+        {
+          "Instances": [
+            2,
+            3
+          ],
+          "Value": "humanized"
+        }
+      ]
+    },
+    {
+      "description": "'Instances' array cannot be empty (minItems: 1)",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [],
+          "Value": "human"
+        },
+        {
+          "Instances": [
+            2,
+            3
+          ],
+          "Value": "humanized"
+        }
+      ]
+    },
+    {
+      "description": "Empty string for 'Value' sub-property of one array item (minLength: 3)",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Value": ""
+        },
+        {
+          "Instances": [
+            2,
+            3
+          ],
+          "Value": "humanized"
+        }
+      ]
+    },
+    {
+      "description": "'Value' string is too short (minLength: 3)",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Value": "hu"
+        },
+        {
+          "Instances": [
+            2,
+            3
+          ],
+          "Value": "humanized"
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Value": "human"
+        },
+        {
+          "Instances": [
+            2,
+            3
+          ],
+          "Value": "humanized",
+          "Note": "A note about the source",
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

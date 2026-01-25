@@ -380,28 +380,6 @@
       "GeneID": "IGKJ3*01"
     }
   ],
-  "VLRange": [
-    {
-      "Instance": 1,
-      "Start": 1,
-      "End": 112
-    },
-    {
-      "Instance": 5,
-      "Start": 865,
-      "End": 974
-    },
-    {
-      "Instance": 7,
-      "Start": 1120,
-      "End": 1230
-    },
-    {
-      "Instance": 8,
-      "Start": 1,
-      "End": 107
-    }
-  ],
   "CDRKabatL1": [
     {
       "Instance": 1,
@@ -651,28 +629,6 @@
       ]
     }
   ],
-  "VHRange": [
-    {
-      "Instance": 2,
-      "Start": 133,
-      "End": 252
-    },
-    {
-      "Instance": 3,
-      "Start": 263,
-      "End": 383
-    },
-    {
-      "Instance": 4,
-      "Start": 723,
-      "End": 844
-    },
-    {
-      "Instance": 6,
-      "Start": 985,
-      "End": 1099
-    }
-  ],
   "HVGermline": [
     {
       "Instance": 2,
@@ -808,42 +764,11 @@
       "Value": "Gamma1"
     }
   ],
-  "CH1Range": [
-    {
-      "Instance": 3,
-      "Start": 384,
-      "End": 481,
-      "Mutations": [
-        "K480R"
-      ],
-      "Note": "K480R matches IGHG1*03"
-    }
-  ],
   "HingeRange": [
     {
       "Instance": 3,
       "Start": 482,
       "End": 496
-    }
-  ],
-  "CH2Range": [
-    {
-      "Instance": 3,
-      "Start": 497,
-      "End": 606,
-      "Mutations": [
-        "L500A",
-        "L501A",
-        "G503A",
-        "K588A"
-      ]
-    }
-  ],
-  "CH3Range": [
-    {
-      "Instance": 3,
-      "Start": 607,
-      "End": 711
     }
   ],
   "CHSRange": [
@@ -928,13 +853,6 @@
       "Instance": 8,
       "Species": "Homo sapiens",
       "GeneID": "IGKC*01"
-    }
-  ],
-  "CLRange": [
-    {
-      "Instance": 8,
-      "Start": 108,
-      "End": 214
     }
   ],
   "Chain": [

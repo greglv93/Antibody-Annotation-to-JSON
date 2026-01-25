@@ -1,0 +1,203 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/patternProperties/%5E(Heavy%7CLight)DisulfidesIntra%7CFusionProtein(Heavy%7CLight)?Disulfides$",
+  "$comment": "Unit tests for the specified intra-chain disulfide pattern properties",
+  "tests": [
+    {
+      "description": "Valid entries including an optional isoform indicator",
+      "valid": true,
+      "$comment": "The schema currently allows this, but future updates will ensure that when the 'Isoform' sub-property is present in any item, it must also be present in at least one more item",
+      "data": [
+        {
+          "Instance": 2,
+          "Positions": [
+            [
+              154,
+              227
+            ]
+          ]
+        },
+        {
+          "Instance": 3,
+          "Isoform": "A",
+          "Positions": [
+            [
+              284,
+              358
+            ],
+            [
+              410,
+              466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Object instead of array is invalid even if the item is valid",
+      "valid": false,
+      "data": {
+        "Instance": 2,
+        "Positions": [
+          [
+            154,
+            227
+          ]
+        ]
+      }
+    },
+    {
+      "description": "Empty array is not allowed",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Duplicate items violate uniqueItems",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "Positions": [
+            [
+              154,
+              227
+            ]
+          ]
+        },
+        {
+          "Instance": 2,
+          "Positions": [
+            [
+              154,
+              227
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Instance' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Positions": [
+            [
+              154,
+              227
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Instance' must be a non-negative integer",
+      "valid": false,
+      "data": [
+        {
+          "Instance": -1,
+          "Positions": [
+            [
+              154,
+              227
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Positions' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2
+        }
+      ]
+    },
+    {
+      "description": "'Positions' must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "Positions": "not an array"
+        }
+      ]
+    },
+    {
+      "description": "Each positions entry must be an array of exactly two integers",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "Positions": [
+            [
+              154,
+              227,
+              228
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Each positions entry must be an array of exactly two integers",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "Positions": [
+            [
+              154
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Positions must contain positive integers",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "Positions": [
+            [
+              0,
+              227
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Isoform' must be a single capital letter when present",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "Isoform": "AA",
+          "Positions": [
+            [
+              154,
+              227
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "Positions": [
+            [
+              154,
+              227
+            ]
+          ],
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

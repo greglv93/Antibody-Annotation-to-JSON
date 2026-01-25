@@ -1,0 +1,140 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/patternProperties/%5EFusionProtein(Heavy%7CLight)?$",
+  "$comment": "Unit tests for fusion protein range pattern properties",
+  "tests": [
+    {
+      "description": "Valid example including an optional multimer annotation",
+      "valid": true,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 1,
+          "End": 525
+        },
+        {
+          "Instance": 2,
+          "Start": 443,
+          "End": 970,
+          "Multimer": "trimer"
+        }
+      ]
+    },
+    {
+      "description": "Object instead of array is invalid even if the item is valid",
+      "valid": false,
+      "data": {
+        "Instance": 1,
+        "Start": 1,
+        "End": 525
+      }
+    },
+    {
+      "description": "Empty array is not allowed",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Duplicate items violate uniqueItems",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 1,
+          "End": 525
+        },
+        {
+          "Instance": 1,
+          "Start": 1,
+          "End": 525
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Instance' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Start": 1,
+          "End": 525
+        }
+      ]
+    },
+    {
+      "description": "'Instance' must be a non-negative integer",
+      "valid": false,
+      "data": [
+        {
+          "Instance": -1,
+          "Start": 1,
+          "End": 525
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Start' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "End": 525
+        }
+      ]
+    },
+    {
+      "description": "'Start' must be at least 1",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 0,
+          "End": 525
+        }
+      ]
+    },
+    {
+      "description": "Missing 'End' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 1
+        }
+      ]
+    },
+    {
+      "description": "'End' must be at least 2",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 1,
+          "End": 1
+        }
+      ]
+    },
+    {
+      "description": "'Multimer' must match the allowed pattern when present",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 1,
+          "End": 525,
+          "Multimer": "trime"
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 1,
+          "End": 525,
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

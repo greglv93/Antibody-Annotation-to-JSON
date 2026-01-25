@@ -1,0 +1,190 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/properties/CDRSource",
+  "$comment": "Unit tests for the validation of the CDRSource property",
+  "tests": [
+    {
+      "description": "Valid entries covering single and dual instances with optional regions",
+      "valid": true,
+      "$comment": "The schema currently allows this even though the second item is nonsense - future schema updates will add conditional validation to ensure that if 'Regions' is present in any item, 'Instances' can only contain one item, and there must exist a complementary 'Regions' with the same 'Instances' in another item (although this part might be easier to validate another way e.g. python code)",
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Species": "Homo sapiens"
+        },
+        {
+          "Instances": [
+            0,
+            2
+          ],
+          "Regions": [
+            "L1",
+            "H2"
+          ],
+          "Species": "Oryctolagus cuniculus"
+        }
+      ]
+    },
+    {
+      "description": "Object instead of array is invalid even if it would be a valid item",
+      "valid": false,
+      "data": {
+        "Instances": [
+          1
+        ],
+        "Species": "Homo sapiens"
+      }
+    },
+    {
+      "description": "Empty array is not allowed",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Duplicate items violate the uniqueItems constraint",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Species": "Homo sapiens"
+        },
+        {
+          "Instances": [
+            1
+          ],
+          "Species": "Homo sapiens"
+        }
+      ]
+    },
+    {
+      "description": "Missing required 'Instances' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Species": "Homo sapiens"
+        }
+      ]
+    },
+    {
+      "description": "'Instances' must be an array (per multiInstances definition)",
+      "valid": false,
+      "data": [
+        {
+          "Instances": 1,
+          "Species": "Homo sapiens"
+        }
+      ]
+    },
+    {
+      "description": "'Instances' array cannot contain more than two items",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            0,
+            1,
+            2
+          ],
+          "Species": "Homo sapiens"
+        }
+      ]
+    },
+    {
+      "description": "'Instances' values must be non-negative integers",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            0,
+            -2
+          ],
+          "Species": "Homo sapiens"
+        }
+      ]
+    },
+    {
+      "description": "Missing required 'Species' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Species' must match the speciesBinomial pattern",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Species": "human"
+        }
+      ]
+    },
+    {
+      "description": "'Regions' values must come from the allowed enum",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Regions": [
+            "L1",
+            "L4"
+          ],
+          "Species": "Homo sapiens"
+        }
+      ]
+    },
+    {
+      "description": "'Regions' array must contain unique entries",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Regions": [
+            "H1",
+            "H1"
+          ],
+          "Species": "Homo sapiens"
+        }
+      ]
+    },
+    {
+      "description": "'Regions' array cannot be empty",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Regions": [],
+          "Species": "Homo sapiens"
+        }
+      ]
+    },
+    {
+      "description": "Additional properties inside an item are not allowed",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Species": "Homo sapiens",
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}
