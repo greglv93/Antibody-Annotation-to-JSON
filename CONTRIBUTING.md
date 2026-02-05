@@ -28,7 +28,7 @@ run `pre-commit run --files <file(s)>` for the desired files before staging and 
 
 *Note that the pre-commit package manager should already have been installed from the dev dependencies in pyproject.toml*
 
-To write the ./.git/hooks/pre-commit file and initialise the hook environments, run:
+To write your local *.git/hooks/pre-commit* file and initialise the hook environments, run:
 
 `pre-commit install --install-hooks`
 
