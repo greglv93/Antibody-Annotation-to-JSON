@@ -33,11 +33,11 @@ Features include:
 2. (Optional) Create a virtual environment to avoid cluttering your base environment and avoid conflicts with OS 
    package managers such as Homebrew:
 
-   Linux/macOS:
+   *Linux/macOS:*
    ```sh
    python -m venv .venv/ && source .venv/bin/activate
    ```
-   Windows:
+   *Windows:*
    ```sh
    python -m venv .venv\ && .venv\Scripts\activate
    ```
@@ -48,13 +48,13 @@ Features include:
    python -m pip install --upgrade pip
    ```
    
-   For a regular installation:
+   *Option 1*: For a regular installation:
    ```sh
    python -m pip install .
    ```
    *(`python -m pip install --upgrade .` needs to be run to update the installation with any changes to the source code)*
    
-   **For developers** who want an editable install with live feedback on changes to the code (also refer to the 
+   *Option 2*: **For developers** who want an editable install with live feedback on changes to the code (also refer to the 
    [CONTRIBUTING](./CONTRIBUTING.md) guidelines):
    
    ```sh
