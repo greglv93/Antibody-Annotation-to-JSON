@@ -37,9 +37,9 @@ LightDisulfidesIntra[1]: 23-88;
 LVGermline[1]: Homo sapiens IGKV1-5*01;
 LJGermline[1]: Homo sapiens IGKJ4*01;
 VLRange[1]: 1-112;
-CDRKabatL1[1]: QASESISSWLA (24-34);
-CDRKabatL2[1]: EASKLAS (50-56);
-CDRKabatL3[1]: QGYFYFISRTYVNS (89-102);
+CDRKabatL1[1]: QASESISSWLA (24-34)
+CDRKabatL2[1]: EASKLAS (50-56)
+CDRKabatL3[1]: QGYFYFISRTYVNS (89-102)
 
 Linker[1,2]: 113-132;
 
