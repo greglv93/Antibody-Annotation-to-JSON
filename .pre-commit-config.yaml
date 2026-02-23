@@ -56,7 +56,7 @@ repos:
         description: Test the JSON schema with valid and invalid instances as defined in the test suite directory
         entry: jsonschema test ./test/schema_tests/
         language: system
-        files: '(^doc/.*schema\.json|test/schema_tests/)'
+        files: '^(doc/.*schema\.json$|test/schema_tests/)'
         pass_filenames: false
 # TODO: move over the parse-samples and python-unittest hooks from .pre-commit-optional.yaml, once stable (expected to pass)
 # TODO: consider moving details of all local system hooks to a .pre-commit-hooks.yaml file
