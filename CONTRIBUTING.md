@@ -28,9 +28,11 @@ run `pre-commit run --files <file(s)>` for the desired files before staging and 
 
 *Note that the pre-commit package manager should already have been installed from the dev dependencies in pyproject.toml*
 
-To write the ./.git/hooks/pre-commit file and initialise the hook environments, run:
+To write the `./.git/hooks/pre-commit` file and initialise the hook environments, run:
 
-`pre-commit install --install-hooks`
+```sh
+pre-commit install --install-hooks
+```
 
 Now, all hooks in the [config file](./.pre-commit-config.yaml) will automatically run on changed files (or further 
 restricted to certain file patterns) whenever `git commit` is executed. If any hook fails (non-zero exit status), the 
@@ -47,28 +49,29 @@ manual fix must still pass the hook, unless the hook is suppressed in one of the
 
 ### Suppressing hooks
 
-If you don't like the changes made or suggested by a failing pre-commit hook and want to force the commit, there are 
-several options (after restoring any files with unwanted automatic fixes):
+Some hooks may need to be temporarily disabled within feature/update branches. In particular, the test and validation 
+hooks will need to be disabled during test-driven development (when the tests are expected to fail). In this case, the 
+relevant hook definitions can be moved from the [main configuration](.pre-commit-config.yaml) to the
+[optional configuration](.pre-commit-optional.yaml). These tests can then be run manually (without blocking any commits)
+as follows: `pre-commit run [hook_id] --config ./.pre-commit-optional.yaml`. The hooks should be moved back to the main
+pre-commit config before merging the feature/update branch with main.
 
-- Temporary local (not version-controlled) fixes that push decisions down the road. For any commits forced through 
-without the pre-commit checks, it would help to make other developers aware by appending a note to the commit message.
-    - Re-run `git commit` but with the `--no-verify` option, or
-    - 'Turn off' pre-commit by either running `pre-commit uninstall`, or
-    renaming the .git/hooks/pre-commit file e.g. by appending '-disabled'.
-    
-- Or move the relevant hook definition from the main configuration to .pre-commit-optional.yaml. 
-These hooks can be run manually with `pre-commit run [hook_id] --config ./.pre-commit-optional.yaml`
-
-- Or add one or more file exceptions to the hook definition in .pre-commit.config.yaml.
-This can be done with the 'exclude' keyword or by modifying the arguments in the 'entry' or 'args' line.
-
-- Or if only part(s) of a file should be ignored by a formatting hook, write `# fmt: skip` at the end off the line,
+Specific files or parts of files may also be temporarily (within a feature/update branch) or permanently (in the main 
+branch) protected from one or more hooks. File exceptions can be added to a hook definition in the pre-commit 
+configuration with the `exclude` keyword or by modifying the arguments in the `entry` or `args` line.
+Or if only part(s) of a file should be ignored by a formatting hook, write `# fmt: skip` at the end off the line,
 or `# fmt: off` and `# fmt: on` at the beginning and end of a section. For suppression of the ruff linter,
-use the `noqa` system (see https://docs.astral.sh/ruff/linter/#error-suppression)
+use the [`noqa` system](https://docs.astral.sh/ruff/linter/#error-suppression)
 
-The latter 3 options above involve committing changes to shared project files that are tracked by git, and so ideally 
-should be reserved for changes that make sense for all contributors, as opposed to bugs or issues that arise from one 
-contributor's specific environment.
+In case of bugs issues with one or more pre-commit hooks that arise from your local environment, there are a couple of 
+workarounds:
+   - Force through a `git commit` with the `--no-verify` option, or
+   - Uninstall all hooks by running `pre-commit uninstall` or disabling them by renaming the .git/hooks/pre-commit file 
+    e.g. by appending '-disabled'.
+Note that these are workarounds don't involve any changes to files that are tracked by git. However, the repercussions 
+(e.g. inconsistent code formatting) could affect files that are part of the shared repository. Therefore, they are 
+intended as temporary fixes that push decisions down the road. For any commits forced through without the pre-commit 
+checks, it would help to make other developers aware by appending a note to the commit message.
 
  
 ## Development Strategy
@@ -116,7 +119,7 @@ formats
 	- For JSON sub-properties, be guided by the description of each field in the documentation for the input data
 
 3.  i. [JSON Schema](./doc/INN_antibody_schema.json) to formally describe and define constraints for the desired output 
-data structure
+data structure (refer to the [JSON Schema website](https://json-schema.org/) for documentation and tutorials)
         - Consult the descriptions in the original format documentation
         - Also `grep` the sample input data to see what range of values should be possible for each property
 
@@ -155,13 +158,12 @@ be moved from the [optional config](./.pre-commit-optional.yaml) to the [default
 In addition, some of the output of the parser should be manually inspected as a sanity check.
 
 When the parser needs to be updated to handle new annotation fields or to change the output format of existing ones, 
-the appropriate changes should be made in the following places:
+the appropriate changes should be made in the following places (see the above [workflow](#workflow) for guidance):
     
 - mapping documentation,
-- JSON schema (refer to the [JSON Schema website](https://json-schema.org/) for documentation and tutorials),
-- schema tests,
-- Python unit tests,
-- (if applicable) expected and invalid complete json files (used by schema and unittest test cases).
+- JSON schema and tests,
+- parser source code (Python) and unit tests,
+- test input data.
 
 In any case, the 'cross-checking' between the parser, unit tests, and JSON schema validation will probably catch any 
 incompatible updates.
@@ -169,11 +171,11 @@ incompatible updates.
 The [test README](./test/README.md) includes a flowchart of the testing process and more information on how to edit or 
 add new schema tests and Python unittest tests.
 
-For ad hoc manual testing before committing local changes, use the ./input_data/ and ./json_files/ directories.
+For ad hoc manual testing before committing local changes, use the `./input_data/` and `./json_files/` directories.
 The contents of these directories are intended for local runs of the parser and are ignored by git.
-The ./test/input_data/ and ./test/json_files/ directories are reserved for automated testing and validation.
-The test directories are not ignored by git, so the output generated by the latest version of the parser can
-be inspected.
+The `./test/input_data/` and `./test/json_files/` directories are reserved for automated testing and validation.
+The test directories are not ignored by git, so the output generated by the latest version of the parser can be 
+inspected.
 
 ### Changes to the Project Configuration
 
