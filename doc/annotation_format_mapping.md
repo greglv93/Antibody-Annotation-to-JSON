@@ -72,7 +72,7 @@ Below is an example of the conversion of a complete annotation file for a
 fairly complicated antibody:
 
 - [original INN annotation for Request 12023](../test/input_data/12023.txt)
-- [corresponding JSON annotation format](../test/expected_json_files/12023.json)
+- [corresponding JSON annotation format](../test/expected_json_files/12023_expected.json)
 
 
 ## Overview of the mapping
