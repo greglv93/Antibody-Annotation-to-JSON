@@ -1,0 +1,196 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/properties/PDB",
+  "$comment": "Unit tests for the validation of the PDB property",
+  "tests": [
+    {
+      "description": "Valid example",
+      "valid": true,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "ID": "7ahv"
+        },
+        {
+          "Instances": [
+            2
+          ],
+          "ID": "7ahu",
+          "Note": "A note about this PDB entry"
+        }
+      ]
+    },
+    {
+      "description": "Empty array",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Non-unique array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "ID": "7ahv"
+        },
+        {
+          "Instances": [
+            1
+          ],
+          "ID": "7ahv"
+        }
+      ]
+    },
+    {
+      "description": "A single object, rather than an array (even though the object is a valid array item)",
+      "valid": false,
+      "data": {
+        "Instances": [
+          1
+        ],
+        "ID": "7ahv"
+      }
+    },
+    {
+      "description": "Missing 'Instances' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "ID": "7ahv"
+        },
+        {
+          "Instances": [
+            2
+          ],
+          "ID": "7ahu"
+        }
+      ]
+    },
+    {
+      "description": "Missing 'ID' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ]
+        },
+        {
+          "Instances": [
+            2
+          ],
+          "ID": "7ahu"
+        }
+      ]
+    },
+    {
+      "description": "'Instances' is a single number, but must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": 1,
+          "ID": "7ahv"
+        },
+        {
+          "Instances": [
+            2
+          ],
+          "ID": "7ahu"
+        }
+      ]
+    },
+    {
+      "description": "Empty 'Instances' array (minItems: 1)",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [],
+          "ID": "7ahv"
+        },
+        {
+          "Instances": [
+            2
+          ],
+          "ID": "7ahu"
+        }
+      ]
+    },
+    {
+      "description": "Empty string for 'ID' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "ID": ""
+        },
+        {
+          "Instances": [
+            2
+          ],
+          "ID": "7ahu"
+        }
+      ]
+    },
+    {
+      "description": "Invalid string for 'ID' sub-property (does not match the regex pattern)",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "ID": "7ah"
+        },
+        {
+          "Instances": [
+            2
+          ],
+          "ID": "7ahu"
+        }
+      ]
+    },
+    {
+      "description": "Invalid string for 'ID' sub-property (does not match the regex pattern)",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "ID": "7ahv7ahu"
+        },
+        {
+          "Instances": [
+            2
+          ],
+          "ID": "7ahu"
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "ID": "7ahv"
+        },
+        {
+          "Instances": [
+            2
+          ],
+          "ID": "7ahu",
+          "Note": "A note about this PDB entry",
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

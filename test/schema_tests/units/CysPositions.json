@@ -1,0 +1,329 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/properties/CysPositions",
+  "$comment": "Unit tests for the validation of the CysPositions property",
+  "tests": [
+    {
+      "description": "Valid example",
+      "valid": true,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Values": [
+            23,
+            92,
+            421
+          ]
+        },
+        {
+          "Instances": [
+            3,
+            4
+          ],
+          "Values": [
+            22,
+            96
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Empty array",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Non-unique array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Values": [
+            23,
+            92,
+            421
+          ]
+        },
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Values": [
+            23,
+            92,
+            421
+          ]
+        }
+      ]
+    },
+    {
+      "description": "A single object, rather than an array (even though the object is a valid array item)",
+      "valid": false,
+      "data": {
+        "Instances": [
+          1,
+          2
+        ],
+        "Values": [
+          23,
+          92,
+          421
+        ]
+      }
+    },
+    {
+      "description": "Missing 'Instances' sub-property in one array item",
+      "valid": false,
+      "data": [
+        {
+          "Values": [
+            23,
+            92,
+            421
+          ]
+        },
+        {
+          "Instances": [
+            3,
+            4
+          ],
+          "Values": [
+            22,
+            96
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Values' sub-property in one array item",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2
+          ]
+        },
+        {
+          "Instances": [
+            3,
+            4
+          ],
+          "Values": [
+            22,
+            96
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Instances' is a single number, but must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": 1,
+          "Values": [
+            23,
+            92,
+            421
+          ]
+        },
+        {
+          "Instances": [
+            3,
+            4
+          ],
+          "Values": [
+            22,
+            96
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Instances' array cannot be empty",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [],
+          "Values": [
+            23,
+            92,
+            421
+          ]
+        },
+        {
+          "Instances": [
+            3,
+            4
+          ],
+          "Values": [
+            22,
+            96
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Instances' array items must be non-negative numbers",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            -2
+          ],
+          "Values": [
+            23,
+            92,
+            421
+          ]
+        },
+        {
+          "Instances": [
+            3,
+            4
+          ],
+          "Values": [
+            22,
+            96
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Values' array cannot be empty",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Values": []
+        },
+        {
+          "Instances": [
+            3,
+            4
+          ],
+          "Values": [
+            22,
+            96
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Values' sub-property is a single number, but must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Values": 421
+        },
+        {
+          "Instances": [
+            3,
+            4
+          ],
+          "Values": [
+            22,
+            96
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Values' array items cannot be negative (must be positive integers)",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Values": [
+            -23,
+            92,
+            421
+          ]
+        },
+        {
+          "Instances": [
+            3,
+            4
+          ],
+          "Values": [
+            22,
+            96
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Values' array items cannot be zero (must be positive integers)",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Values": [
+            0,
+            92,
+            421
+          ]
+        },
+        {
+          "Instances": [
+            3,
+            4
+          ],
+          "Values": [
+            22,
+            96
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Values": [
+            23,
+            92,
+            421
+          ]
+        },
+        {
+          "Instances": [
+            3,
+            4
+          ],
+          "Values": [
+            22,
+            96
+          ],
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

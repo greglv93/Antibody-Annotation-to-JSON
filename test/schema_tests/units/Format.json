@@ -1,0 +1,26 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/properties/Format",
+  "$comment": "Unit tests for the validation of the Format property",
+  "tests": [
+    {
+      "description": "Valid example",
+      "valid": true,
+      "data": "murine monoclonal antibody scFv fusion with Shiga-like toxin 1 subunit A (stxA)"
+    },
+    {
+      "description": "Missing the source information (e.g. human, humanized, murine)",
+      "valid": false,
+      "data": "monoclonal antibody"
+    },
+    {
+      "description": "Missing 'monoclonal'",
+      "valid": false,
+      "data": "human antibody"
+    },
+    {
+      "description": "Missing 'antibody'",
+      "valid": false,
+      "data": "human monoclonal"
+    }
+  ]
+}

@@ -1,0 +1,287 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/properties/ConfirmedPTM",
+  "$comment": "Unit tests for the validation of the ConfirmedPTM property",
+  "tests": [
+    {
+      "description": "Valid example",
+      "valid": true,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Type": "formylglycine",
+          "Positions": [
+            59
+          ],
+          "PositionsPartial": [
+            75
+          ],
+          "PositionsRare": [
+            82
+          ]
+        },
+        {
+          "Instances": [
+            4,
+            5
+          ],
+          "Type": "hydroxylation",
+          "PositionsPartial": [
+            372,
+            377
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Empty array",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Non-unique array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            4,
+            5
+          ],
+          "Type": "hydroxylation",
+          "PositionsPartial": [
+            372,
+            377
+          ]
+        },
+        {
+          "Instances": [
+            4,
+            5
+          ],
+          "Type": "hydroxylation",
+          "PositionsPartial": [
+            372,
+            377
+          ]
+        }
+      ]
+    },
+    {
+      "description": "A single object, rather than an array (even though the object is a valid array item)",
+      "valid": false,
+      "data": {
+        "Instances": [
+          4,
+          5
+        ],
+        "Type": "hydroxylation",
+        "PositionsPartial": [
+          372,
+          377
+        ]
+      }
+    },
+    {
+      "description": "Missing 'Instances' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Type": "hydroxylation",
+          "PositionsPartial": [
+            372,
+            377
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Type' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            4,
+            5
+          ],
+          "PositionsPartial": [
+            372,
+            377
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing any of the 'Positions|PositionsPartial|PositionsRare' sub-properties",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            4,
+            5
+          ],
+          "Type": "hydroxylation"
+        }
+      ]
+    },
+    {
+      "description": "'Instances' is a single number, but must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": 4,
+          "Type": "hydroxylation",
+          "PositionsPartial": [
+            372,
+            377
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Instances' array must contain at least one item",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [],
+          "Type": "hydroxylation",
+          "PositionsPartial": [
+            372,
+            377
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Instances' array items must be non-negative numbers",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            -1,
+            2
+          ],
+          "Type": "hydroxylation",
+          "PositionsPartial": [
+            372,
+            377
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Empty string for 'Type' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            4,
+            5
+          ],
+          "Type": "",
+          "PositionsPartial": [
+            372,
+            377
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'PositionsPartial' sub-property is null, but must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            4,
+            5
+          ],
+          "Type": "hydroxylation",
+          "PositionsPartial": null
+        }
+      ]
+    },
+    {
+      "description": "'PositionsPartial' sub-property is a single number, but must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            4,
+            5
+          ],
+          "Type": "hydroxylation",
+          "PositionsPartial": 372
+        }
+      ]
+    },
+    {
+      "description": "'PositionsPartial' sub-property is an empty array, but must contain at least one item",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            4,
+            5
+          ],
+          "Type": "hydroxylation",
+          "PositionsPartial": []
+        }
+      ]
+    },
+    {
+      "description": "'PositionsPartial' sub-property array items are strings, but must be numbers",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            4,
+            5
+          ],
+          "Type": "hydroxylation",
+          "PositionsPartial": [
+            "372",
+            "377"
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'PositionsPartial' sub-property array cannot contain null type (must be numbers)",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            4,
+            5
+          ],
+          "Type": "hydroxylation",
+          "PositionsPartial": [
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Type": "formylglycine",
+          "Positions": [
+            59
+          ],
+          "PositionsPartial": [
+            75
+          ],
+          "PositionsRare": [
+            82
+          ],
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

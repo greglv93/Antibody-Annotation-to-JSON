@@ -1,0 +1,192 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/properties/Domains",
+  "$comment": "Unit tests for the validation of the Domains property",
+  "tests": [
+    {
+      "description": "Valid example",
+      "valid": true,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2,
+            3
+          ],
+          "Values": [
+            "OTHER",
+            "VH",
+            "VL"
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Empty array",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Non-unique array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2,
+            3
+          ],
+          "Values": [
+            "OTHER",
+            "VH",
+            "VL"
+          ]
+        },
+        {
+          "Instances": [
+            1,
+            2,
+            3
+          ],
+          "Values": [
+            "OTHER",
+            "VH",
+            "VL"
+          ]
+        }
+      ]
+    },
+    {
+      "description": "A single object, rather than an array (even though the object is a valid array item)",
+      "valid": false,
+      "data": {
+        "Instances": [
+          1,
+          2,
+          3
+        ],
+        "Values": [
+          "OTHER",
+          "VH",
+          "VL"
+        ]
+      }
+    },
+    {
+      "description": "Missing 'Instances' sub-property in one array item",
+      "valid": false,
+      "data": [
+        {
+          "Values": [
+            "OTHER",
+            "VH",
+            "VL"
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Values' sub-property in one array item",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Instances' is a single number, but must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": 1,
+          "Values": [
+            "OTHER",
+            "VH",
+            "VL"
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Instances' array cannot be empty (minItems: 1)",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [],
+          "Values": [
+            "OTHER",
+            "VH",
+            "VL"
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Values' array cannot be empty (minItems: 1)",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2,
+            3
+          ],
+          "Values": []
+        }
+      ]
+    },
+    {
+      "description": "'Values' sub-property must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            2
+          ],
+          "Values": "VH"
+        }
+      ]
+    },
+    {
+      "description": "'Values' array contains a disallowed string",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2,
+            3
+          ],
+          "Values": [
+            "OTHER",
+            "VH",
+            "unrecognised domain name"
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2,
+            3
+          ],
+          "Values": [
+            "OTHER",
+            "VH",
+            "VL"
+          ],
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/patternProperties/%5E(Heavy%7CLight)CysPositions$",
+  "$comment": "Unit tests for heavy/light chain cysteine positions pattern properties",
+  "tests": [
+    {
+      "description": "Valid entries with arrays of residue positions",
+      "valid": true,
+      "data": [
+        {
+          "Instance": 1,
+          "Values": [
+            23,
+            88
+          ]
+        },
+        {
+          "Instance": 5,
+          "Values": [
+            887,
+            952
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Object instead of array is invalid even if the item is valid",
+      "valid": false,
+      "data": {
+        "Instance": 1,
+        "Values": [
+          23,
+          88
+        ]
+      }
+    },
+    {
+      "description": "Empty array is not allowed",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Duplicate items violate uniqueItems",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Values": [
+            23,
+            88
+          ]
+        },
+        {
+          "Instance": 1,
+          "Values": [
+            23,
+            88
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Instance' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Values": [
+            23,
+            88
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Instance' must be a non-negative integer",
+      "valid": false,
+      "data": [
+        {
+          "Instance": -1,
+          "Values": [
+            23,
+            88
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Values' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1
+        }
+      ]
+    },
+    {
+      "description": "'Values' must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Values": 23
+        }
+      ]
+    },
+    {
+      "description": "'Values' array cannot be empty",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Values": []
+        }
+      ]
+    },
+    {
+      "description": "'Values' entries must be positive integers",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Values": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Values": [
+            23,
+            88
+          ],
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

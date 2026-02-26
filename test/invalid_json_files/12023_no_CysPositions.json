@@ -261,39 +261,6 @@
       "Confirmed": null
     }
   ],
-  "LightCysPositions": [
-    {
-      "Instance": 1,
-      "Values": [
-        23,
-        88
-      ]
-    },
-    {
-      "Instance": 5,
-      "Values": [
-        887,
-        952
-      ]
-    },
-    {
-      "Instance": 7,
-      "Values": [
-        1142,
-        1207
-      ]
-    },
-    {
-      "Instance": 8,
-      "Values": [
-        23,
-        88,
-        134,
-        194,
-        214
-      ]
-    }
-  ],
   "LightDisulfidesIntra": [
     {
       "Instance": 1,
@@ -554,47 +521,6 @@
       "Instance": 6,
       "Potential": null,
       "Confirmed": null
-    }
-  ],
-  "HeavyCysPositions": [
-    {
-      "Instance": 2,
-      "Values": [
-        154,
-        227
-      ]
-    },
-    {
-      "Instance": 3,
-      "Values": [
-        284,
-        358,
-        410,
-        466,
-        486,
-        492,
-        495,
-        527,
-        587,
-        633,
-        691
-      ]
-    },
-    {
-      "Instance": 4,
-      "Values": [
-        744,
-        758,
-        773,
-        820
-      ]
-    },
-    {
-      "Instance": 6,
-      "Values": [
-        1005,
-        1078
-      ]
     }
   ],
   "HeavyDisulfidesIntra": [

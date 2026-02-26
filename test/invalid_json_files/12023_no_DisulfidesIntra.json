@@ -294,48 +294,6 @@
       ]
     }
   ],
-  "LightDisulfidesIntra": [
-    {
-      "Instance": 1,
-      "Positions": [
-        [
-          23,
-          88
-        ]
-      ]
-    },
-    {
-      "Instance": 5,
-      "Positions": [
-        [
-          887,
-          952
-        ]
-      ]
-    },
-    {
-      "Instance": 7,
-      "Positions": [
-        [
-          1142,
-          1207
-        ]
-      ]
-    },
-    {
-      "Instance": 8,
-      "Positions": [
-        [
-          23,
-          88
-        ],
-        [
-          134,
-          194
-        ]
-      ]
-    }
-  ],
   "LVGermline": [
     {
       "Instance": 1,
@@ -594,60 +552,6 @@
       "Values": [
         1005,
         1078
-      ]
-    }
-  ],
-  "HeavyDisulfidesIntra": [
-    {
-      "Instance": 2,
-      "Positions": [
-        [
-          154,
-          227
-        ]
-      ]
-    },
-    {
-      "Instance": 3,
-      "Positions": [
-        [
-          284,
-          358
-        ],
-        [
-          410,
-          466
-        ],
-        [
-          527,
-          587
-        ],
-        [
-          633,
-          691
-        ]
-      ]
-    },
-    {
-      "Instance": 4,
-      "Positions": [
-        [
-          744,
-          820
-        ],
-        [
-          758,
-          773
-        ]
-      ]
-    },
-    {
-      "Instance": 6,
-      "Positions": [
-        [
-          1005,
-          1078
-        ]
       ]
     }
   ],

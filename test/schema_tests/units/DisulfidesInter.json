@@ -1,0 +1,252 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/properties/DisulfidesInter",
+  "$comment": "Unit tests for the validation of the DisulfidesInter property",
+  "tests": [
+    {
+      "description": "Valid entries including both populated and null positions arrays",
+      "valid": true,
+      "$comment": "The schema currently allows this, but future updates will ensure that if 'Isoform' appears in an item, there must be at least one alternative isoform represented in a separate item with the same 'InstanceX' and 'InstanceY'",
+      "data": [
+        {
+          "InstanceX": 1,
+          "InstanceY": 2,
+          "Positions": [
+            {
+              "X": 487,
+              "Y": 215
+            },
+            {
+              "X": 489,
+              "Y": 217
+            }
+          ]
+        },
+        {
+          "InstanceX": 3,
+          "InstanceY": 4,
+          "Isoform": "A",
+          "Positions": null
+        }
+      ]
+    },
+    {
+      "description": "Object instead of array is invalid even if it would be a valid item",
+      "valid": false,
+      "data": {
+        "InstanceX": 1,
+        "InstanceY": 2,
+        "Positions": [
+          {
+            "X": 487,
+            "Y": 215
+          }
+        ]
+      }
+    },
+    {
+      "description": "Empty array is not allowed",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Duplicate items violate the uniqueItems constraint",
+      "valid": false,
+      "data": [
+        {
+          "InstanceX": 1,
+          "InstanceY": 2,
+          "Positions": [
+            {
+              "X": 487,
+              "Y": 215
+            }
+          ]
+        },
+        {
+          "InstanceX": 1,
+          "InstanceY": 2,
+          "Positions": [
+            {
+              "X": 487,
+              "Y": 215
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing required 'InstanceX' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "InstanceY": 2,
+          "Positions": [
+            {
+              "X": 487,
+              "Y": 215
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'InstanceX' must be a non-negative integer",
+      "valid": false,
+      "data": [
+        {
+          "InstanceX": -1,
+          "InstanceY": 2,
+          "Positions": [
+            {
+              "X": 487,
+              "Y": 215
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing required 'InstanceY' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "InstanceX": 1,
+          "Positions": [
+            {
+              "X": 487,
+              "Y": 215
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'InstanceY' must be an integer",
+      "valid": false,
+      "data": [
+        {
+          "InstanceX": 1,
+          "InstanceY": "A",
+          "Positions": [
+            {
+              "X": 487,
+              "Y": 215
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing required 'Positions' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "InstanceX": 1,
+          "InstanceY": 2
+        }
+      ]
+    },
+    {
+      "description": "'Positions' must be either null or an array",
+      "valid": false,
+      "data": [
+        {
+          "InstanceX": 1,
+          "InstanceY": 2,
+          "Positions": "not an array"
+        }
+      ]
+    },
+    {
+      "description": "'Positions' array cannot be empty",
+      "valid": false,
+      "data": [
+        {
+          "InstanceX": 1,
+          "InstanceY": 2,
+          "Positions": []
+        }
+      ]
+    },
+    {
+      "description": "Each position entry must include both X and Y keys (Y is missing here)",
+      "valid": false,
+      "data": [
+        {
+          "InstanceX": 1,
+          "InstanceY": 2,
+          "Positions": [
+            {
+              "X": 487
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Each position entry must include both X and Y keys (X is missing here)",
+      "valid": false,
+      "data": [
+        {
+          "InstanceX": 1,
+          "InstanceY": 2,
+          "Positions": [
+            {
+              "Y": 215
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Position values must be positive integers",
+      "valid": false,
+      "data": [
+        {
+          "InstanceX": 1,
+          "InstanceY": 2,
+          "Positions": [
+            {
+              "X": 0,
+              "Y": 215
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Isoform' must be a single capital letter if present",
+      "valid": false,
+      "data": [
+        {
+          "InstanceX": 1,
+          "InstanceY": 2,
+          "Isoform": "AA",
+          "Positions": [
+            {
+              "X": 487,
+              "Y": 215
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "InstanceX": 1,
+          "InstanceY": 2,
+          "Positions": [
+            {
+              "X": 487,
+              "Y": 215
+            }
+          ],
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

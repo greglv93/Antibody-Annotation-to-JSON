@@ -1,0 +1,158 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/patternProperties/%5E(CH1%7CHinge%7CCH2%7CCH3%7CCH4%7CCL)Range$",
+  "$comment": "Unit tests for constant domain range pattern properties",
+  "tests": [
+    {
+      "description": "Valid entries with and without mutations",
+      "valid": true,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 127,
+          "End": 224,
+          "Mutations": [
+            "K156E",
+            "K222E"
+          ]
+        },
+        {
+          "Instance": 3,
+          "Start": 244,
+          "End": 260
+        }
+      ]
+    },
+    {
+      "description": "Object instead of array is invalid even if the item is valid",
+      "valid": false,
+      "data": {
+        "Instance": 1,
+        "Start": 127,
+        "End": 224
+      }
+    },
+    {
+      "description": "Empty array is not allowed",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Duplicate items violate uniqueItems",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 127,
+          "End": 224
+        },
+        {
+          "Instance": 1,
+          "Start": 127,
+          "End": 224
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Instance' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Start": 127,
+          "End": 224
+        }
+      ]
+    },
+    {
+      "description": "'Instance' must be non-negative integer",
+      "valid": false,
+      "data": [
+        {
+          "Instance": -1,
+          "Start": 127,
+          "End": 224
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Start' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "End": 224
+        }
+      ]
+    },
+    {
+      "description": "'Start' must be at least 1",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 0,
+          "End": 224
+        }
+      ]
+    },
+    {
+      "description": "Missing 'End' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 127
+        }
+      ]
+    },
+    {
+      "description": "'End' must be at least 2",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 127,
+          "End": 1
+        }
+      ]
+    },
+    {
+      "description": "'Mutations' must be an array when present",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 127,
+          "End": 224,
+          "Mutations": "C248S"
+        }
+      ]
+    },
+    {
+      "description": "'Mutations' entries must follow the allowed patterns",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 127,
+          "End": 224,
+          "Mutations": [
+            "K156",
+            "K222E"
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Start": 127,
+          "End": 224,
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

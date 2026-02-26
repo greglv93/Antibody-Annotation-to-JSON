@@ -1,0 +1,23 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/patternProperties/%5E(Heavy%7CLight)Source$",
+  "$comment": "Unit tests for heavy/light source pattern properties",
+  "tests": [
+    {
+      "description": "Valid source string",
+      "valid": true,
+      "data": "humanized"
+    },
+    {
+      "description": "String shorter than three characters is invalid",
+      "valid": false,
+      "data": "hu"
+    },
+    {
+      "description": "Non-string values are invalid",
+      "valid": false,
+      "data": [
+        "human"
+      ]
+    }
+  ]
+}

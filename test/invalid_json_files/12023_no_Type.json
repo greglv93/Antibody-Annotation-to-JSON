@@ -171,56 +171,6 @@
       "Value": 1230
     }
   ],
-  "Type": [
-    {
-      "Instances": [
-        1
-      ],
-      "Value": "Fv-kappa scFv"
-    },
-    {
-      "Instances": [
-        2
-      ],
-      "Value": "Fv-heavy scFv"
-    },
-    {
-      "Instances": [
-        3
-      ],
-      "Value": "IgG1-kappa"
-    },
-    {
-      "Instances": [
-        4
-      ],
-      "Value": "Fv-heavy scFv"
-    },
-    {
-      "Instances": [
-        5
-      ],
-      "Value": "Fv-kappa scFv"
-    },
-    {
-      "Instances": [
-        6
-      ],
-      "Value": "Fv-heavy scFv"
-    },
-    {
-      "Instances": [
-        7
-      ],
-      "Value": "Fv-kappa scFv"
-    },
-    {
-      "Instances": [
-        8
-      ],
-      "Value": "IgG1-kappa"
-    }
-  ],
   "LightChainClass": [
     {
       "Instance": 1,

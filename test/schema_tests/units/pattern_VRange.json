@@ -1,0 +1,127 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/patternProperties/%5E(VH%7CVL)Range$",
+  "$comment": "Unit tests for variable domain range pattern properties",
+  "tests": [
+    {
+      "description": "Valid example with two entries",
+      "valid": true,
+      "data": [
+        {
+          "Instance": 2,
+          "Start": 133,
+          "End": 252
+        },
+        {
+          "Instance": 3,
+          "Start": 263,
+          "End": 383
+        }
+      ]
+    },
+    {
+      "description": "Object instead of array is invalid even if the item is valid",
+      "valid": false,
+      "data": {
+        "Instance": 2,
+        "Start": 133,
+        "End": 252
+      }
+    },
+    {
+      "description": "Empty array is not allowed",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Duplicate items violate uniqueItems",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "Start": 133,
+          "End": 252
+        },
+        {
+          "Instance": 2,
+          "Start": 133,
+          "End": 252
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Instance' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Start": 133,
+          "End": 252
+        }
+      ]
+    },
+    {
+      "description": "'Instance' must be a non-negative integer",
+      "valid": false,
+      "data": [
+        {
+          "Instance": -1,
+          "Start": 133,
+          "End": 252
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Start' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "End": 252
+        }
+      ]
+    },
+    {
+      "description": "'Start' must be at least 1",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "Start": 0,
+          "End": 252
+        }
+      ]
+    },
+    {
+      "description": "Missing 'End' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "Start": 133
+        }
+      ]
+    },
+    {
+      "description": "'End' must be at least 2",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "Start": 133,
+          "End": 1
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "Start": 133,
+          "End": 252,
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

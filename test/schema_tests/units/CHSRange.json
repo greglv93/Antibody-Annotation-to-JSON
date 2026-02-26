@@ -1,0 +1,188 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/properties/CHSRange",
+  "$comment": "Unit tests for the validation of the CHSRange property",
+  "tests": [
+    {
+      "description": "Valid entries including null boundaries with required mutations",
+      "valid": true,
+      "data": [
+        {
+          "Instance": 3,
+          "Start": 448,
+          "End": 449,
+          "Mutations": [
+            "G448A"
+          ]
+        },
+        {
+          "Instance": 4,
+          "Start": null,
+          "End": null,
+          "Mutations": [
+            "G712del",
+            "K712del"
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Object instead of array is invalid even if it would be a valid item",
+      "valid": false,
+      "data": {
+        "Instance": 3,
+        "Start": 448,
+        "End": 449,
+        "Mutations": [
+          "G448A"
+        ]
+      }
+    },
+    {
+      "description": "Empty array is not allowed",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Duplicate items violate the uniqueItems constraint",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 3,
+          "Start": 448,
+          "End": 449,
+          "Mutations": [
+            "G448A"
+          ]
+        },
+        {
+          "Instance": 3,
+          "Start": 448,
+          "End": 449,
+          "Mutations": [
+            "G448A"
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing required 'Instance' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Start": 448,
+          "End": 449
+        }
+      ]
+    },
+    {
+      "description": "'Instance' must be a non-negative integer",
+      "valid": false,
+      "data": [
+        {
+          "Instance": -1,
+          "Start": 448,
+          "End": 449
+        }
+      ]
+    },
+    {
+      "description": "Missing required 'Start' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 3,
+          "End": 449
+        }
+      ]
+    },
+    {
+      "description": "'Start' must be at least 1 when provided",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 3,
+          "Start": 0,
+          "End": 449
+        }
+      ]
+    },
+    {
+      "description": "Missing required 'End' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 3,
+          "Start": 448
+        }
+      ]
+    },
+    {
+      "description": "'End' must be at least 2 when provided",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 3,
+          "Start": 448,
+          "End": 1
+        }
+      ]
+    },
+    {
+      "description": "'Mutations' array cannot contain more than two items",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 3,
+          "Start": 448,
+          "End": 449,
+          "Mutations": [
+            "G448A",
+            "K449E",
+            "G450del"
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Mutations' entries must match the allowed pattern",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 3,
+          "Start": 448,
+          "End": 449,
+          "Mutations": [
+            "G448"
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Mutations' entries must be unique",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 3,
+          "Start": 448,
+          "End": 449,
+          "Mutations": [
+            "G448A",
+            "G448A"
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 3,
+          "Start": 448,
+          "End": 449,
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

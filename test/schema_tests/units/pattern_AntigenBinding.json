@@ -1,0 +1,233 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/patternProperties/%5EAntigen%7CBinding$",
+  "$comment": "Unit tests for antigen/binding pattern properties",
+  "tests": [
+    {
+      "description": "Valid entries for two antigens",
+      "valid": true,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Species": "human",
+          "Names": "T-cell surface glycoprotein CD3 epsilon chain, T-cell surface antigen T3/Leu-4 epsilon chain, CD3e",
+          "Gene": "CD3E"
+        },
+        {
+          "Instances": [
+            3
+          ],
+          "Species": "human",
+          "Names": "Tumor necrosis factor ligand superfamily member 9, 4-1BB ligand, 4-1BBL",
+          "Gene": "TNFSF9"
+        }
+      ]
+    },
+    {
+      "description": "Object instead of array is invalid even if the item is valid",
+      "valid": false,
+      "data": {
+        "Instances": [
+          1,
+          2
+        ],
+        "Species": "human",
+        "Names": "T-cell surface glycoprotein CD3 epsilon chain, T-cell surface antigen T3/Leu-4 epsilon chain, CD3e",
+        "Gene": "CD3E"
+      }
+    },
+    {
+      "description": "Empty array is not allowed",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Duplicate items violate uniqueItems",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Species": "human",
+          "Names": "T-cell surface glycoprotein CD3 epsilon chain, T-cell surface antigen T3/Leu-4 epsilon chain, CD3e",
+          "Gene": "CD3E"
+        },
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Species": "human",
+          "Names": "T-cell surface glycoprotein CD3 epsilon chain, T-cell surface antigen T3/Leu-4 epsilon chain, CD3e",
+          "Gene": "CD3E"
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Instances' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Species": "human",
+          "Names": "T-cell surface glycoprotein CD3 epsilon chain, T-cell surface antigen T3/Leu-4 epsilon chain, CD3e",
+          "Gene": "CD3E"
+        }
+      ]
+    },
+    {
+      "description": "'Instances' must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": 1,
+          "Species": "human",
+          "Names": "T-cell surface glycoprotein CD3 epsilon chain, T-cell surface antigen T3/Leu-4 epsilon chain, CD3e",
+          "Gene": "CD3E"
+        }
+      ]
+    },
+    {
+      "description": "'Instances' array cannot be empty",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [],
+          "Species": "human",
+          "Names": "T-cell surface glycoprotein CD3 epsilon chain, T-cell surface antigen T3/Leu-4 epsilon chain, CD3e",
+          "Gene": "CD3E"
+        }
+      ]
+    },
+    {
+      "description": "'Instances' array cannot contain more than two items",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2,
+            3
+          ],
+          "Species": "human",
+          "Names": "T-cell surface glycoprotein CD3 epsilon chain, T-cell surface antigen T3/Leu-4 epsilon chain, CD3e",
+          "Gene": "CD3E"
+        }
+      ]
+    },
+    {
+      "description": "'Instances' values must be non-negative integers",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            -2
+          ],
+          "Species": "human",
+          "Names": "T-cell surface glycoprotein CD3 epsilon chain, T-cell surface antigen T3/Leu-4 epsilon chain, CD3e",
+          "Gene": "CD3E"
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Species' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Names": "T-cell surface glycoprotein CD3 epsilon chain, T-cell surface antigen T3/Leu-4 epsilon chain, CD3e",
+          "Gene": "CD3E"
+        }
+      ]
+    },
+    {
+      "description": "'Species' must be at least three characters",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Species": "hu",
+          "Names": "T-cell surface glycoprotein CD3 epsilon chain, T-cell surface antigen T3/Leu-4 epsilon chain, CD3e",
+          "Gene": "CD3E"
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Names' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Species": "human",
+          "Gene": "CD3E"
+        }
+      ]
+    },
+    {
+      "description": "'Names' must be at least three characters",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Species": "human",
+          "Names": "T-",
+          "Gene": "CD3E"
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Gene' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Species": "human",
+          "Names": "T-cell surface glycoprotein CD3 epsilon chain, T-cell surface antigen T3/Leu-4 epsilon chain, CD3e"
+        }
+      ]
+    },
+    {
+      "description": "'Gene' must match the allowed pattern",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Species": "human",
+          "Names": "T-cell surface glycoprotein CD3 epsilon chain, T-cell surface antigen T3/Leu-4 epsilon chain, CD3e",
+          "Gene": "Cd3E"
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Species": "human",
+          "Names": "T-cell surface glycoprotein CD3 epsilon chain, T-cell surface antigen T3/Leu-4 epsilon chain, CD3e",
+          "Gene": "CD3E",
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

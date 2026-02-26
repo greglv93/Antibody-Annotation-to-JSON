@@ -1,0 +1,354 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/patternProperties/%5E(Heavy%7CLight)NGlycos%7CHeavyOGlycos$",
+  "$comment": "Unit tests for heavy/light glycosylation pattern properties",
+  "tests": [
+    {
+      "description": "Valid entries including null values and optional occupancy arrays",
+      "valid": true,
+      "data": [
+        {
+          "Instance": 0,
+          "Potential": [
+            52,
+            306,
+            421
+          ],
+          "Confirmed": [
+            306
+          ],
+          "ConfirmedPartial": [
+            52
+          ],
+          "ConfirmedRare": [
+            421
+          ]
+        },
+        {
+          "Instance": 1,
+          "Potential": null,
+          "Confirmed": null
+        }
+      ]
+    },
+    {
+      "description": "Object instead of array is invalid even if it would be a valid array item",
+      "valid": false,
+      "data": {
+        "Instance": 0,
+        "Potential": [
+          52,
+          306,
+          421
+        ],
+        "Confirmed": [
+          306
+        ],
+        "ConfirmedPartial": [
+          52
+        ],
+        "ConfirmedRare": [
+          421
+        ]
+      }
+    },
+    {
+      "description": "Empty array is not allowed",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Duplicate items violate uniqueItems",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Potential": [
+            52,
+            306,
+            421
+          ],
+          "Confirmed": [
+            306
+          ],
+          "ConfirmedPartial": [
+            52
+          ],
+          "ConfirmedRare": [
+            421
+          ]
+        },
+        {
+          "Instance": 0,
+          "Potential": [
+            52,
+            306,
+            421
+          ],
+          "Confirmed": [
+            306
+          ],
+          "ConfirmedPartial": [
+            52
+          ],
+          "ConfirmedRare": [
+            421
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Instance' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Potential": [
+            52,
+            306,
+            421
+          ],
+          "Confirmed": [
+            306
+          ],
+          "ConfirmedPartial": [
+            52
+          ],
+          "ConfirmedRare": [
+            421
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Instance' must be a non-negative integer",
+      "valid": false,
+      "data": [
+        {
+          "Instance": -1,
+          "Potential": [
+            52,
+            306,
+            421
+          ],
+          "Confirmed": [
+            306
+          ],
+          "ConfirmedPartial": [
+            52
+          ],
+          "ConfirmedRare": [
+            421
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing required 'Potential' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Confirmed": [
+            306
+          ],
+          "ConfirmedPartial": [
+            52
+          ],
+          "ConfirmedRare": [
+            421
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Potential' must be either null or an array",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Potential": "52 306 421",
+          "Confirmed": [
+            306
+          ],
+          "ConfirmedPartial": [
+            52
+          ],
+          "ConfirmedRare": [
+            421
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Potential' entries must be positive integers",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Potential": [
+            0,
+            306,
+            421
+          ],
+          "Confirmed": [
+            306
+          ],
+          "ConfirmedPartial": [
+            52
+          ],
+          "ConfirmedRare": [
+            421
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing required 'Confirmed' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Potential": [
+            52,
+            306,
+            421
+          ],
+          "ConfirmedPartial": [
+            52
+          ],
+          "ConfirmedRare": [
+            421
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Confirmed' must be either null or an array",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Potential": [
+            52,
+            306,
+            421
+          ],
+          "Confirmed": 306,
+          "ConfirmedPartial": [
+            52
+          ],
+          "ConfirmedRare": [
+            421
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'ConfirmedPartial' must be an array when present",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Potential": [
+            52,
+            306,
+            421
+          ],
+          "Confirmed": [
+            306
+          ],
+          "ConfirmedPartial": 52,
+          "ConfirmedRare": [
+            421
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'ConfirmedPartial' cannot be null",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Potential": [
+            52,
+            306,
+            421
+          ],
+          "Confirmed": [
+            306
+          ],
+          "ConfirmedPartial": null,
+          "ConfirmedRare": [
+            421
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'ConfirmedRare' must be an array when present",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Potential": [
+            52,
+            306,
+            421
+          ],
+          "Confirmed": [
+            306
+          ],
+          "ConfirmedPartial": [
+            52
+          ],
+          "ConfirmedRare": 421
+        }
+      ]
+    },
+    {
+      "description": "'ConfirmedRare' cannot be null",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Potential": [
+            52,
+            306,
+            421
+          ],
+          "Confirmed": [
+            306
+          ],
+          "ConfirmedPartial": [
+            52
+          ],
+          "ConfirmedRare": null
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 0,
+          "Potential": [
+            52,
+            306,
+            421
+          ],
+          "Confirmed": [
+            306
+          ],
+          "ConfirmedPartial": [
+            52
+          ],
+          "ConfirmedRare": [
+            421
+          ],
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

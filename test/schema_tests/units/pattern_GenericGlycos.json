@@ -1,0 +1,317 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/patternProperties/%5E(N%7CO)Glycos$",
+  "$comment": "Unit tests for generic glycosylation pattern properties (applies to linkers and unassigned chains)",
+  "tests": [
+    {
+      "description": "Valid example including null values",
+      "valid": true,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Potential": [
+            293,
+            512
+          ],
+          "Confirmed": [
+            293
+          ],
+          "ConfirmedRare": [
+            512
+          ]
+        },
+        {
+          "Instances": [
+            3
+          ],
+          "Potential": null,
+          "Confirmed": null
+        }
+      ]
+    },
+    {
+      "description": "Object instead of array is invalid even if the item is valid",
+      "valid": false,
+      "data": {
+        "Instances": [
+          1,
+          2
+        ],
+        "Potential": [
+          293,
+          512
+        ],
+        "Confirmed": [
+          293
+        ],
+        "ConfirmedRare": [
+          512
+        ]
+      }
+    },
+    {
+      "description": "Empty array is not allowed",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Duplicate items violate uniqueItems",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Potential": [
+            293,
+            512
+          ],
+          "Confirmed": [
+            293
+          ],
+          "ConfirmedRare": [
+            512
+          ]
+        },
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Potential": [
+            293,
+            512
+          ],
+          "Confirmed": [
+            293
+          ],
+          "ConfirmedRare": [
+            512
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Instances' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Potential": [
+            293,
+            512
+          ],
+          "Confirmed": [
+            293
+          ],
+          "ConfirmedRare": [
+            512
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Instances' must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": 1,
+          "Potential": [
+            293,
+            512
+          ],
+          "Confirmed": [
+            293
+          ],
+          "ConfirmedRare": [
+            512
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Instances' array cannot be empty",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [],
+          "Potential": [
+            293,
+            512
+          ],
+          "Confirmed": [
+            293
+          ],
+          "ConfirmedRare": [
+            512
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Instances' values must be non-negative integers",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            -1,
+            2
+          ],
+          "Potential": [
+            293,
+            512
+          ],
+          "Confirmed": [
+            293
+          ],
+          "ConfirmedRare": [
+            512
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Potential' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Confirmed": [
+            293
+          ],
+          "ConfirmedRare": [
+            512
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Potential' must be either null or an array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Potential": "293 512",
+          "Confirmed": [
+            293
+          ],
+          "ConfirmedRare": [
+            512
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Confirmed' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Potential": [
+            293,
+            512
+          ],
+          "ConfirmedRare": [
+            512
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Confirmed' array entries must be positive integers",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Potential": [
+            293,
+            512
+          ],
+          "Confirmed": [
+            0
+          ],
+          "ConfirmedRare": [
+            512
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'ConfirmedRare' must be an array if provided",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Potential": [
+            293,
+            512
+          ],
+          "Confirmed": [
+            293
+          ],
+          "ConfirmedRare": 512
+        }
+      ]
+    },
+    {
+      "description": "'ConfirmedRare' cannot be null",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Potential": [
+            293,
+            512
+          ],
+          "Confirmed": [
+            293
+          ],
+          "ConfirmedRare": null
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2
+          ],
+          "Potential": [
+            293,
+            512
+          ],
+          "Confirmed": [
+            293
+          ],
+          "ConfirmedRare": [
+            512
+          ],
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/properties/LCGermline",
+  "$comment": "Unit tests for the validation of the LCGermline property",
+  "tests": [
+    {
+      "description": "Valid entries with and without the optional Domain sub-property",
+      "valid": true,
+      "data": [
+        {
+          "Instance": 8,
+          "Species": "Homo sapiens",
+          "GeneID": "IGKC*01",
+          "Domain": "CL"
+        },
+        {
+          "Instance": 5,
+          "Species": "Homo sapiens",
+          "GeneID": "IGKC*02"
+        }
+      ]
+    },
+    {
+      "description": "Object instead of array is invalid even if it would be a valid item",
+      "valid": false,
+      "data": {
+        "Instance": 8,
+        "Species": "Homo sapiens",
+        "GeneID": "IGKC*01",
+        "Domain": "CL"
+      }
+    },
+    {
+      "description": "Empty array is not allowed",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Duplicate items violate the uniqueItems constraint",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 8,
+          "Species": "Homo sapiens",
+          "GeneID": "IGKC*01"
+        },
+        {
+          "Instance": 8,
+          "Species": "Homo sapiens",
+          "GeneID": "IGKC*01"
+        }
+      ]
+    },
+    {
+      "description": "Missing required 'Instance' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Species": "Homo sapiens",
+          "GeneID": "IGKC*01"
+        }
+      ]
+    },
+    {
+      "description": "'Instance' must be a non-negative integer",
+      "valid": false,
+      "data": [
+        {
+          "Instance": -1,
+          "Species": "Homo sapiens",
+          "GeneID": "IGKC*01"
+        }
+      ]
+    },
+    {
+      "description": "Missing required 'Species' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 8,
+          "GeneID": "IGKC*01"
+        }
+      ]
+    },
+    {
+      "description": "'Species' must match the speciesBinomial pattern",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 8,
+          "Species": "human",
+          "GeneID": "IGKC*01"
+        }
+      ]
+    },
+    {
+      "description": "Missing required 'GeneID' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 8,
+          "Species": "Homo sapiens"
+        }
+      ]
+    },
+    {
+      "description": "'GeneID' must match the IMGT pattern",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 8,
+          "Species": "Homo sapiens",
+          "GeneID": "IGKC01"
+        }
+      ]
+    },
+    {
+      "description": "'Domain' must be 'CL' when present",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 8,
+          "Species": "Homo sapiens",
+          "GeneID": "IGKC*01",
+          "Domain": "VL"
+        }
+      ]
+    },
+    {
+      "description": "'Domain' must be a string when provided",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 8,
+          "Species": "Homo sapiens",
+          "GeneID": "IGKC*01",
+          "Domain": [
+            "CL"
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 8,
+          "Species": "Homo sapiens",
+          "GeneID": "IGKC*01",
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

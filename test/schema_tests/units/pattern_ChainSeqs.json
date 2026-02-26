@@ -1,0 +1,149 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/patternProperties/%5E(Heavy%7CLight)?Chain$",
+  "$comment": "Unit tests for chain sequence pattern properties",
+  "tests": [
+    {
+      "description": "Valid entries with multi-instance arrays and amino acid sequences (including one 'X' for a non-canonical AA)",
+      "valid": true,
+      "data": [
+        {
+          "Instances": [
+            1,
+            2,
+            3
+          ],
+          "Sequence": "EVQLVESGGGLVQPGGSLRLSCAASGFTFSSYAMSWVRQAPGKGLEWVG"
+        },
+        {
+          "Instances": [
+            4
+          ],
+          "Sequence": "XIQMTQSPSSLSASVGDRVTITCRASQSI"
+        }
+      ]
+    },
+    {
+      "description": "Object instead of array is invalid even if the item is valid",
+      "valid": false,
+      "data": {
+        "Instances": [
+          1
+        ],
+        "Sequence": "EVQLVESGGGLVQPGGSLRLSCAASGFTFSSYAMSWVRQAPGKGLEWVG"
+      }
+    },
+    {
+      "description": "Empty array is not allowed",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Duplicate items violate uniqueItems",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Sequence": "EVQLVESGGGLVQPGGSLRLSCAASGFTFSSYAMSWVRQAPGKGLEWVG"
+        },
+        {
+          "Instances": [
+            1
+          ],
+          "Sequence": "EVQLVESGGGLVQPGGSLRLSCAASGFTFSSYAMSWVRQAPGKGLEWVG"
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Instances' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Sequence": "EVQLVESGGGLVQPGGSLRLSCAASGFTFSSYAMSWVRQAPGKGLEWVG"
+        }
+      ]
+    },
+    {
+      "description": "'Instances' must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instances": 1,
+          "Sequence": "EVQLVESGGGLVQPGGSLRLSCAASGFTFSSYAMSWVRQAPGKGLEWVG"
+        }
+      ]
+    },
+    {
+      "description": "'Instances' array cannot be empty",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [],
+          "Sequence": "EVQLVESGGGLVQPGGSLRLSCAASGFTFSSYAMSWVRQAPGKGLEWVG"
+        }
+      ]
+    },
+    {
+      "description": "'Instances' values must be non-negative integers",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1,
+            -2
+          ],
+          "Sequence": "EVQLVESGGGLVQPGGSLRLSCAASGFTFSSYAMSWVRQAPGKGLEWVG"
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Sequence' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Sequence' must consist of valid amino acid single-letter codes ('B' is not allowed)",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Sequence": "BVQLVESGGGLVQPGGSLRLSCAASGFTFSSYAMSWVRQAPGKGLEWVG"
+        }
+      ]
+    },
+    {
+      "description": "'Sequence' cannot be empty",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Sequence": ""
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instances": [
+            1
+          ],
+          "Sequence": "EVQLVESGGGLVQPGGSLRLSCAASGFTFSSYAMSWVRQAPGKGLEWVG",
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

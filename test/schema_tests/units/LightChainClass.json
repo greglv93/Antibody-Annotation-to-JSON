@@ -1,0 +1,165 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/properties/LightChainClass",
+  "$comment": "Unit tests for the validation of the LightChainClass property",
+  "tests": [
+    {
+      "description": "Valid example",
+      "valid": true,
+      "data": [
+        {
+          "Instance": 1,
+          "Domain": "VL",
+          "Value": "kappa"
+        },
+        {
+          "Instance": 1,
+          "Domain": "CL",
+          "Value": "lambda"
+        }
+      ]
+    },
+    {
+      "description": "Empty array",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Non-unique array",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Domain": "VL",
+          "Value": "kappa"
+        },
+        {
+          "Instance": 1,
+          "Domain": "VL",
+          "Value": "kappa"
+        }
+      ]
+    },
+    {
+      "description": "A single object, rather than an array (even though the object is a valid array item)",
+      "valid": false,
+      "data": {
+        "Instance": 1,
+        "Domain": "VL",
+        "Value": "kappa"
+      }
+    },
+    {
+      "description": "Missing 'Instance' sub-property in one array item",
+      "valid": false,
+      "data": [
+        {
+          "Domain": "VL",
+          "Value": "kappa"
+        },
+        {
+          "Instance": 1,
+          "Domain": "CL",
+          "Value": "lambda"
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Value' sub-property in one array item",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Domain": "VL"
+        },
+        {
+          "Instance": 1,
+          "Domain": "CL",
+          "Value": "lambda"
+        }
+      ]
+    },
+    {
+      "description": "'Instance' is an array, but must be a single number",
+      "valid": false,
+      "data": [
+        {
+          "Instance": [
+            1
+          ],
+          "Domain": "VL",
+          "Value": "kappa"
+        },
+        {
+          "Instance": 1,
+          "Domain": "CL",
+          "Value": "lambda"
+        }
+      ]
+    },
+    {
+      "description": "Empty string for 'Value' sub-property of one array item",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Domain": "VL",
+          "Value": ""
+        },
+        {
+          "Instance": 1,
+          "Domain": "CL",
+          "Value": "lambda"
+        }
+      ]
+    },
+    {
+      "description": "'Value' is a disallowed string (edge case)",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Domain": "VL",
+          "Value": "kapp"
+        },
+        {
+          "Instance": 1,
+          "Domain": "CL",
+          "Value": "lambda"
+        }
+      ]
+    },
+    {
+      "description": "'Domain' is a disallowed string ('CH1')",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Domain": "CH1",
+          "Value": "kappa"
+        },
+        {
+          "Instance": 1,
+          "Domain": "CL",
+          "Value": "lambda"
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Domain": "VL",
+          "Value": "kappa"
+        },
+        {
+          "Instance": 1,
+          "Domain": "CL",
+          "Value": "lambda",
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

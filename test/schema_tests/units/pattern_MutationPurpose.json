@@ -1,0 +1,196 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/patternProperties/%5EMutation(H%7CL)?$",
+  "$comment": "Unit tests for mutation purpose pattern properties",
+  "tests": [
+    {
+      "description": "Valid example with two entries",
+      "valid": true,
+      "data": [
+        {
+          "Instance": 3,
+          "Mutations": [
+            "L500A",
+            "L501A"
+          ],
+          "Reason": "Reduce effector function"
+        },
+        {
+          "Instance": 3,
+          "Mutations": [
+            "G712del",
+            "K712del"
+          ],
+          "Reason": "Remove CHS"
+        }
+      ]
+    },
+    {
+      "description": "Object instead of array is invalid even if the item is valid",
+      "valid": false,
+      "data": {
+        "Instance": 3,
+        "Mutations": [
+          "L500A",
+          "L501A"
+        ],
+        "Reason": "Reduce effector function"
+      }
+    },
+    {
+      "description": "Empty array is not allowed",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Duplicate items violate uniqueItems",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 3,
+          "Mutations": [
+            "L500A",
+            "L501A"
+          ],
+          "Reason": "Reduce effector function"
+        },
+        {
+          "Instance": 3,
+          "Mutations": [
+            "L500A",
+            "L501A"
+          ],
+          "Reason": "Reduce effector function"
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Instance' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Mutations": [
+            "L500A",
+            "L501A"
+          ],
+          "Reason": "Reduce effector function"
+        }
+      ]
+    },
+    {
+      "description": "'Instance' must be a non-negative integer",
+      "valid": false,
+      "data": [
+        {
+          "Instance": -1,
+          "Mutations": [
+            "L500A",
+            "L501A"
+          ],
+          "Reason": "Reduce effector function"
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Mutations' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 3,
+          "Reason": "Reduce effector function"
+        }
+      ]
+    },
+    {
+      "description": "'Mutations' must be an array",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 3,
+          "Mutations": "L500A",
+          "Reason": "Reduce effector function"
+        }
+      ]
+    },
+    {
+      "description": "'Mutations' array cannot be empty",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 3,
+          "Mutations": [],
+          "Reason": "Reduce effector function"
+        }
+      ]
+    },
+    {
+      "description": "'Mutations' entries must match the allowed patterns",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 3,
+          "Mutations": [
+            "L500A",
+            "L501"
+          ],
+          "Reason": "Reduce effector function"
+        }
+      ]
+    },
+    {
+      "description": "'Mutations' entries must be unique",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 3,
+          "Mutations": [
+            "L500A",
+            "L500A"
+          ],
+          "Reason": "Reduce effector function"
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Reason' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 3,
+          "Mutations": [
+            "L500A",
+            "L501A"
+          ]
+        }
+      ]
+    },
+    {
+      "description": "'Reason' must be at least one character",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 3,
+          "Mutations": [
+            "L500A",
+            "L501A"
+          ],
+          "Reason": ""
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 3,
+          "Mutations": [
+            "L500A",
+            "L501A"
+          ],
+          "Reason": "Reduce effector function",
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

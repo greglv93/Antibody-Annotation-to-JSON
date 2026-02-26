@@ -1,0 +1,106 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/patternProperties/%5E(Heavy%7CLight)ChainLength$",
+  "$comment": "Unit tests for heavy/light chain length pattern properties",
+  "tests": [
+    {
+      "description": "Valid example",
+      "valid": true,
+      "data": [
+        {
+          "Instance": 1,
+          "Value": 448
+        },
+        {
+          "Instance": 2,
+          "Value": 446
+        }
+      ]
+    },
+    {
+      "description": "Object instead of array is invalid even if the item is valid",
+      "valid": false,
+      "data": {
+        "Instance": 1,
+        "Value": 448
+      }
+    },
+    {
+      "description": "Empty array is not allowed",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Duplicate items violate uniqueItems",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Value": 448
+        },
+        {
+          "Instance": 1,
+          "Value": 448
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Instance' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Value": 448
+        }
+      ]
+    },
+    {
+      "description": "'Instance' must be a non-negative integer",
+      "valid": false,
+      "data": [
+        {
+          "Instance": -1,
+          "Value": 448
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Value' sub-property",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1
+        }
+      ]
+    },
+    {
+      "description": "'Value' must be an integer",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Value": "448"
+        }
+      ]
+    },
+    {
+      "description": "'Value' must be at least 1",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Value": 0
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 1,
+          "Value": 448,
+          "Extra": true
+        }
+      ]
+    }
+  ]
+}

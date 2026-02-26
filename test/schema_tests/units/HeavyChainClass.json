@@ -1,0 +1,272 @@
+{
+  "target": "../../../doc/INN_antibody_schema.json#/properties/HeavyChainClass",
+  "$comment": "Unit tests for the validation of the HeavyChainClass property",
+  "tests": [
+    {
+      "description": "Valid example",
+      "valid": true,
+      "data": [
+        {
+          "Instance": 2,
+          "Domains": [
+            "CH1"
+          ],
+          "Value": "Gamma4"
+        },
+        {
+          "Instance": 2,
+          "Domains": [
+            "CH2",
+            "CH3"
+          ],
+          "Value": "Gamma1"
+        },
+        {
+          "Instance": 3,
+          "Value": null
+        }
+      ]
+    },
+    {
+      "description": "Empty array",
+      "valid": false,
+      "data": []
+    },
+    {
+      "description": "Non-unique array",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "Domains": [
+            "CH1"
+          ],
+          "Value": "Gamma4"
+        },
+        {
+          "Instance": 2,
+          "Domains": [
+            "CH1"
+          ],
+          "Value": "Gamma4"
+        },
+        {
+          "Instance": 3,
+          "Value": null
+        }
+      ]
+    },
+    {
+      "description": "A single object, rather than an array (even though the object is a valid array item)",
+      "valid": false,
+      "data": {
+        "Instance": 2,
+        "Domains": [
+          "CH1"
+        ],
+        "Value": "Gamma4"
+      }
+    },
+    {
+      "description": "Missing 'Instance' sub-property in one array item",
+      "valid": false,
+      "data": [
+        {
+          "Domains": [
+            "CH1"
+          ],
+          "Value": "Gamma4"
+        },
+        {
+          "Instance": 2,
+          "Domains": [
+            "CH2",
+            "CH3"
+          ],
+          "Value": "Gamma1"
+        },
+        {
+          "Instance": 3,
+          "Value": null
+        }
+      ]
+    },
+    {
+      "description": "Missing 'Value' sub-property in one array item",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "Domains": [
+            "CH1"
+          ]
+        },
+        {
+          "Instance": 2,
+          "Domains": [
+            "CH2",
+            "CH3"
+          ],
+          "Value": "Gamma1"
+        },
+        {
+          "Instance": 3,
+          "Value": null
+        }
+      ]
+    },
+    {
+      "description": "'Instance' is an array, but must be a single number",
+      "valid": false,
+      "data": [
+        {
+          "Instance": [
+            2
+          ],
+          "Domains": [
+            "CH1"
+          ],
+          "Value": "Gamma4"
+        },
+        {
+          "Instance": 2,
+          "Domains": [
+            "CH2",
+            "CH3"
+          ],
+          "Value": "Gamma1"
+        },
+        {
+          "Instance": 3,
+          "Value": null
+        }
+      ]
+    },
+    {
+      "description": "Empty string for 'Value' sub-property of one array item",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "Domains": [
+            "CH1"
+          ],
+          "Value": ""
+        },
+        {
+          "Instance": 2,
+          "Domains": [
+            "CH2",
+            "CH3"
+          ],
+          "Value": "Gamma1"
+        },
+        {
+          "Instance": 3,
+          "Value": null
+        }
+      ]
+    },
+    {
+      "description": "'Value' is a disallowed string (regex pattern edge case)",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "Domains": [
+            "CH1"
+          ],
+          "Value": "Gamma"
+        },
+        {
+          "Instance": 2,
+          "Domains": [
+            "CH2",
+            "CH3"
+          ],
+          "Value": "Gamma1"
+        },
+        {
+          "Instance": 3,
+          "Value": null
+        }
+      ]
+    },
+    {
+      "description": "'Domains' contains a disallowed string (VH)",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "Domains": [
+            "VH"
+          ],
+          "Value": "Gamma4"
+        },
+        {
+          "Instance": 2,
+          "Domains": [
+            "CH2",
+            "CH3"
+          ],
+          "Value": "Gamma1"
+        },
+        {
+          "Instance": 3,
+          "Value": null
+        }
+      ]
+    },
+    {
+      "description": "'Domains' contains a disallowed string (CL)",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "Domains": [
+            "CL"
+          ],
+          "Value": "Gamma4"
+        },
+        {
+          "Instance": 2,
+          "Domains": [
+            "CH2",
+            "CH3"
+          ],
+          "Value": "Gamma1"
+        },
+        {
+          "Instance": 3,
+          "Value": null
+        }
+      ]
+    },
+    {
+      "description": "Additional properties are not allowed in items",
+      "valid": false,
+      "data": [
+        {
+          "Instance": 2,
+          "Domains": [
+            "CH1"
+          ],
+          "Value": "Gamma4"
+        },
+        {
+          "Instance": 2,
+          "Domains": [
+            "CH2",
+            "CH3"
+          ],
+          "Value": "Gamma1",
+          "Extra": true
+        },
+        {
+          "Instance": 3,
+          "Value": null
+        }
+      ]
+    }
+  ]
+}

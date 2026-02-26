@@ -30,7 +30,9 @@ run `pre-commit run --files <file(s)>` for the desired files before staging and 
 
 To write your local `.git/hooks/pre-commit` file and initialise the hook environments, run:
 
-`pre-commit install --install-hooks`
+```sh
+pre-commit install --install-hooks
+```
 
 Now, all hooks in the [config file](./.pre-commit-config.yaml) will automatically run on changed files (or further 
 restricted to certain file patterns) whenever `git commit` is executed. If any hook fails (non-zero exit status), the 
@@ -47,24 +49,29 @@ manual fix must still pass the hook, unless the hook is suppressed in one of the
 
 ### Suppressing hooks
 
-If you don't like the changes made or suggested by a failing pre-commit hook and want to force the commit, there are 
-several options (after restoring any files with unwanted automatic fixes):
+Some hooks may need to be temporarily disabled within feature/update branches. In particular, the test and validation 
+hooks will need to be disabled during test-driven development (when the tests are expected to fail). In this case, the 
+relevant hook definitions can be moved from the [main configuration](.pre-commit-config.yaml) to the
+[optional configuration](.pre-commit-optional.yaml). These tests can then be run manually (without blocking any commits)
+as follows: `pre-commit run [hook_id] --config ./.pre-commit-optional.yaml`. The hooks should be moved back to the main
+pre-commit config before merging the feature/update branch with main.
 
-- Temporary local (not version-controlled) fixes that push decisions down the road. For any commits forced through 
-without the pre-commit checks, it would help to make other developers aware by appending a note to the commit message.
-    - Re-run `git commit` but with the `--no-verify` option, or
-    - 'Turn off' pre-commit by either running `pre-commit uninstall`, or
-    renaming the .git/hooks/pre-commit file e.g. by appending '-disabled'.
-    
-- Or move the relevant hook definition from the main configuration to .pre-commit-optional.yaml. 
-These hooks can be run manually with `pre-commit run [hook_id] --config ./.pre-commit-optional.yaml`
-
-- Or add one or more file exceptions to the hook definition in .pre-commit.config.yaml.
-This can be done with the 'exclude' keyword or by modifying the arguments in the 'entry' or 'args' line.
-
-- Or if only part(s) of a file should be ignored by a formatting hook, write `# fmt: skip` at the end off the line,
+Specific files or parts of files may also be temporarily (within a feature/update branch) or permanently (in the main 
+branch) protected from one or more hooks. File exceptions can be added to a hook definition in the pre-commit 
+configuration with the `exclude` keyword or by modifying the arguments in the `entry` or `args` line.
+Or if only part(s) of a file should be ignored by a formatting hook, write `# fmt: skip` at the end off the line,
 or `# fmt: off` and `# fmt: on` at the beginning and end of a section. For suppression of the ruff linter,
-use the `noqa` system (see https://docs.astral.sh/ruff/linter/#error-suppression)
+use the [`noqa` system](https://docs.astral.sh/ruff/linter/#error-suppression)
+
+In case of bugs issues with one or more pre-commit hooks that arise from your local environment, there are a couple of 
+workarounds:
+   - Force through a `git commit` with the `--no-verify` option, or
+   - Uninstall all hooks by running `pre-commit uninstall` or disabling them by renaming the .git/hooks/pre-commit file 
+    e.g. by appending '-disabled'.
+Note that these are workarounds don't involve any changes to files that are tracked by git. However, the repercussions 
+(e.g. inconsistent code formatting) could affect files that are part of the shared repository. Therefore, they are 
+intended as temporary fixes that push decisions down the road. For any commits forced through without the pre-commit 
+checks, it would help to make other developers aware by appending a note to the commit message.
 
  
 ## Development Strategy
@@ -105,19 +112,20 @@ formats
 2. [Annotation mapping](./doc/annotation_format_mapping.md)
     - Group the INN annotation fields based on the most sensible JSON data structure, e.g. single strings, 
 	arrays of objects, or single nested objects
-    - Ensure the input and output data is conceptually linked, with all input fields mapped to JSON properties
+    - Ensure the input and output data are conceptually linked, with all input fields mapped to JSON properties
         - `grep` the sample input files to find new fields not mentioned in the original documentation, e.g.
         `grep -ohP '^([^\[]+?)[\[\d,\]]*?:' ./test/input_data/* | grep -oP '^[^\[\(:]+' | sort -u` gives a sorted list 
         of all fields in the sample data
 	- For JSON sub-properties, be guided by the description of each field in the documentation for the input data
 
 3.  i. [JSON Schema](./doc/INN_antibody_schema.json) to formally describe and define constraints for the desired output 
-data structure
+data structure (refer to the [JSON Schema website](https://json-schema.org/) for documentation and tutorials)
         - Consult the descriptions in the original format documentation
         - Also `grep` the sample input data to see what range of values should be possible for each property
 
     ii. In parallel, write [test cases](./test/schema_tests) for each property in the schema, 
-    so the schema can be updated and maintained in a test-driven way
+    so the schema can be updated and maintained in a test-driven way. Refer to the 
+    [testing documentation](./test/README.md#json-schema-unit-testing-strategy) for guidance.
 
 4. Pseudocode for the parser
     - Describe the logic of how to step through an input file, including error handling
@@ -137,10 +145,10 @@ data structure
         - Tests will be configured in the [optional pre-commit config](./.pre-commit-optional.yaml) so they don't 
         automatically block commits
 
-Development won't necessarily always follow the exact order outlined above.
-For instance, writing and testing the Python code might lead to new realisations about the viability/efficiency
-of converting to the desired data structure, in which case the JSON schema and annotation mapping may have to be
-updated.
+Development won't necessarily follow the exact order outlined above in one single pass; rather, it is more likely to 
+involve an iterative cycle of changes. For instance, writing and testing the Python code might lead to new realisations 
+about the viability/efficiency of converting to the desired data structure, in which case the JSON schema and annotation
+mapping would have to be updated.
 
 ### Maintaining and Updating
 
@@ -150,13 +158,12 @@ be moved from the [optional config](./.pre-commit-optional.yaml) to the [default
 In addition, some of the output of the parser should be manually inspected as a sanity check.
 
 When the parser needs to be updated to handle new annotation fields or to change the output format of existing ones, 
-the appropriate changes should be made in the following places:
+the appropriate changes should be made in the following places (see the above [workflow](#workflow) for guidance):
     
 - mapping documentation,
-- JSON schema (refer to the [JSON Schema website](https://json-schema.org/) for documentation and tutorials),
-- schema tests,
-- Python unit tests,
-- (if applicable) expected and invalid complete json files (used by schema and unittest test cases).
+- JSON schema and tests,
+- parser source code (Python) and unit tests,
+- test input data.
 
 In any case, the 'cross-checking' between the parser, unit tests, and JSON schema validation will probably catch any 
 incompatible updates.
@@ -165,7 +172,7 @@ The [test README](./test/README.md) includes a flowchart of the testing process 
 add new schema tests and Python unittest tests.
 
 For ad hoc manual testing before committing local changes, use the `./input_data/` and `./json_files/` directories.
-The contents of these directories are empty here and ignored by git.
+The contents of these directories are intended for local runs of the parser and are ignored by git.
 The [./test/input_data/](./test/input_data/) and [./test/json_files/](./test/json_files/) directories are reserved for 
 automated testing and validation. The test directories are not ignored by git, so the output generated by the latest 
 version of the parser can be inspected.
