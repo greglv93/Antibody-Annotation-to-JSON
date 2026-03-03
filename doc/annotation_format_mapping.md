@@ -197,7 +197,7 @@ complete overview of how this project is tested.
 ## Details of the mapping for every INN annotation keyword
 
 
-| INN keyword (excluding optional <br>instance/domain/region/isoform indicators) | JSON property name | JSON array item subproperties <br>*() = non-mandatory* |
+| INN keyword (excluding optional <br />instance/domain/region/isoform indicators) | JSON property name | JSON array item subproperties <br />*() = non-mandatory* |
 |---|---|---|
 | Request | Request | N/A |
 | Format | Format | N/A |
@@ -205,9 +205,9 @@ complete overview of how this project is tested.
 | AbML | AbML | N/A |
 | HeavySource[^7] | HeavySource | N/A |
 | LightSource | LightSource | N/A |
-| Note <br>*(relating to any of the above keywords, except Format)* | \<keyword\>-Note <br>*(relating to any of the above keywords, except Format)* | N/A |
-| Note <br>*(relating to Format)* | Format-Note | Instances, Value |
-| Note <br>*(all other Note records)* | N/A <br>*(subsumed into related property)* | N/A |
+| Note <br />*(relating to any of the above keywords, except Format)* | \<keyword\>-Note <br />*(relating to any of the above keywords, except Format)* | N/A |
+| Note <br />*(relating to Format)* | Format-Note | Instances, Value |
+| Note <br />*(all other Note records)* | N/A <br />*(subsumed into related property)* | N/A |
 | Source | Source | Instances, Value, (Note) |
 | Fusion | Fusion | Instances, (Note) |
 | Linker | Linker | Instances, Start, End, (Note) |
@@ -222,11 +222,11 @@ complete overview of how this project is tested.
 | ChainLength | ChainLength | Instances, Value, (Note) |
 | LightChainClass | LightChainClass | Instance, (Domain), Value, (Note) |
 | LightChainLength | LightChainLength | Instance, Value, (Note) |
-| HeavyPotentialNGlycos <br>HeavyConfirmedNGlycos | HeavyNGlycos | Instance, Potential, Confirmed, (ConfirmedPartial), (ConfirmedRare), (Note) |
-| LightPotentialNGlycos <br>LightConfirmedNGlycos | LightNGlycos | Instance, Potential, Confirmed, (ConfirmedPartial), (ConfirmedRare), (Note) |
-| PotentialNGlycos <br>ConfirmedNGlycos | NGlycos | Instances, Potential, Confirmed, (ConfirmedPartial), (ConfirmedRare), (Note) |
-| HeavyPotentialOGlycos <br>HeavyConfirmedOGlycos | HeavyOGlycos | Instance, Potential, Confirmed, (ConfirmedPartial), (ConfirmedRare), (Note) |
-| PotentialOGlycos <br>ConfirmedOGlycos | OGlycos | Instances, Potential, Confirmed, (ConfirmedPartial), (ConfirmedRare), (Note) |
+| HeavyPotentialNGlycos <br />HeavyConfirmedNGlycos | HeavyNGlycos | Instance, Potential, Confirmed, (ConfirmedPartial), (ConfirmedRare), (Note) |
+| LightPotentialNGlycos <br />LightConfirmedNGlycos | LightNGlycos | Instance, Potential, Confirmed, (ConfirmedPartial), (ConfirmedRare), (Note) |
+| PotentialNGlycos <br />ConfirmedNGlycos | NGlycos | Instances, Potential, Confirmed, (ConfirmedPartial), (ConfirmedRare), (Note) |
+| HeavyPotentialOGlycos <br />HeavyConfirmedOGlycos | HeavyOGlycos | Instance, Potential, Confirmed, (ConfirmedPartial), (ConfirmedRare), (Note) |
+| PotentialOGlycos <br />ConfirmedOGlycos | OGlycos | Instances, Potential, Confirmed, (ConfirmedPartial), (ConfirmedRare), (Note) |
 | HeavyConfirmedPTM | HeavyConfirmedPTM | Instance, Type, Positions, (PositionsPartial), (PositionsRare), (Note) |
 | LightConfirmedPTM | LightConfirmedPTM | Instance, Type, Positions, (PositionsPartial), (PositionsRare), (Note) |
 | ConfirmedPTM | ConfirmedPTM | Instances, Type, Positions, (PositionsPartial), (PositionsRare), (Note) |
