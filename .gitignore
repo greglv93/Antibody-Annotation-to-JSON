@@ -12,8 +12,9 @@ __pycache__/
 venv/
 .venv/
 
-# Installation/Packaging/Distribution artifacts
+# Artifacts from installation, packaging, distribution, and website builds
 build/
+website/build/
 dist/
 *.egg-info/
 *.egg
