@@ -110,8 +110,8 @@ antibody-to-json --help
 
 ## More information
 
-Refer to the [documentation website](https://greglv93.github.io/Antibody-Annotation-to-JSON) or view the documentation 
-files [here](./doc).
+Refer to the documentation website (click the link in the sidebar of the repository's main page on GitHub) or view the 
+documentation files [here](./doc).
 Examples of the input data and corresponding JSON output produced and validated by the current version of the tool are 
 available to view [here](./test/input_data) and [here](./test/json_files).
 
