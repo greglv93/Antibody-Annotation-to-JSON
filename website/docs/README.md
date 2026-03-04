@@ -111,9 +111,9 @@ antibody-to-json --help
 ## More information
 
 Refer to the documentation website (click the link in the sidebar of the repository's main page on GitHub) or view the 
-documentation files [here](./doc).
+documentation files [here](https://github.com/greglv93/Antibody-Annotation-to-JSON/tree/feature/docusaurus-site/doc).
 Examples of the input data and corresponding JSON output produced and validated by the current version of the tool are 
-available to view [here](./test/input_data) and [here](./test/json_files).
+available to view [here](https://github.com/greglv93/Antibody-Annotation-to-JSON/tree/feature/docusaurus-site/test/input_data) and [here](https://github.com/greglv93/Antibody-Annotation-to-JSON/tree/feature/docusaurus-site/test/json_files).
 
 ---
 This project is licensed under the MIT License.

@@ -13,7 +13,7 @@ schema to see if it aligns with your expectations. For substantive changes to th
 ## Pre-commit Hooks
 
 Ideally, all contributors should set up the [pre-commit](https://pre-commit.com/) hooks defined in 
-[this config file](./.pre-commit-config.yaml).
+[this config file](https://github.com/greglv93/Antibody-Annotation-to-JSON/blob/feature/docusaurus-site/.pre-commit-config.yaml).
 Formatting and linting hooks ensure that all code is consistently formatted and structured throughout the project's 
 development and maintenance.
 This helps keep the version control diffs clean - minimising the 'noise' of inconsistent formatting, thus allowing 
@@ -34,7 +34,7 @@ To write your local `.git/hooks/pre-commit` file and initialise the hook environ
 pre-commit install --install-hooks
 ```
 
-Now, all hooks in the [config file](./.pre-commit-config.yaml) will automatically run on changed files (or further 
+Now, all hooks in the [config file](https://github.com/greglv93/Antibody-Annotation-to-JSON/blob/feature/docusaurus-site/.pre-commit-config.yaml) will automatically run on changed files (or further 
 restricted to certain file patterns) whenever `git commit` is executed. If any hook fails (non-zero exit status), the 
 commit is aborted. Some hooks (like formatting) may automatically fix files, while others require manual changes based 
 on inspection of the hook output. When the necessary fixes have been made, **re-stage** the file(s) and run `git commit` 
@@ -104,7 +104,7 @@ formats
 	- Develop a sense of the ontology of annotations in relation to different levels of the antibody structure 
 	(residue, domain, instance, chain, whole). Consult the following:
 		- Prof. Andrew Martin's [original format documentation](./doc/INN_annotation_format.pdf), 
-		- [Sample input annotation files](./test/input_data),
+		- [Sample input annotation files](https://github.com/greglv93/Antibody-Annotation-to-JSON/tree/feature/docusaurus-site/test/input_data),
 		- Domain structure diagrams can be generated with [abYdraw](http://www.bioinf.org.uk/software/abydraw/)
 		from AbML strings within the sample annotation files. This is useful for understanding complicated formats
 		e.g. 12120.txt, a "bispecific human/humanized monoclonal Fab-Fc/Fab-Fc-Fab antibody" with a domain-swapped Fab
@@ -123,14 +123,14 @@ data structure (refer to the [JSON Schema website](https://json-schema.org/) for
         - Consult the descriptions in the original format documentation
         - Also `grep` the sample input data to see what range of values should be possible for each property
 
-    ii. In parallel, write [test cases](./test/schema_tests) for each property in the schema, 
+    ii. In parallel, write [test cases](https://github.com/greglv93/Antibody-Annotation-to-JSON/tree/feature/docusaurus-site/test/schema_tests) for each property in the schema, 
     so the schema can be updated and maintained in a test-driven way. Refer to the 
     [testing documentation](./test/README.md#json-schema-unit-testing-strategy) for guidance.
 
 4. Pseudocode for the parser
     - Describe the logic of how to step through an input file, including error handling
 	- Consult the mapping and schema
-	- Add skeleton of empty classes and methods to the code in the [Python package](./antibody_annotation_to_json)
+	- Add skeleton of empty classes and methods to the code in the [Python package](https://github.com/greglv93/Antibody-Annotation-to-JSON/tree/feature/docusaurus-site/antibody_annotation_to_json)
 		- the ~80 annotation fields can be grouped and handled by ~20-30 methods, since many share the same 
 		information structure
 
@@ -138,11 +138,11 @@ data structure (refer to the [JSON Schema website](https://json-schema.org/) for
     - Consult mapping documentation and JSON schema when adding test cases for every unit in the Python code 
         skeleton
     
-    ii. Python code for the parser [package](./antibody_annotation_to_json)
+    ii. Python code for the parser [package](https://github.com/greglv93/Antibody-Annotation-to-JSON/tree/feature/docusaurus-site/antibody_annotation_to_json)
     - Fill in the skeleton of classes and methods
     - Consult the pseudocode, mapping and JSON schema
     - TDD: the tests will start off as failing (before all of the code is completed)
-        - Tests will be configured in the [optional pre-commit config](./.pre-commit-optional.yaml) so they don't 
+        - Tests will be configured in the [optional pre-commit config](https://github.com/greglv93/Antibody-Annotation-to-JSON/blob/feature/docusaurus-site/.pre-commit-optional.yaml) so they don't 
         automatically block commits
 
 Development won't necessarily follow the exact order outlined above in one single pass; rather, it is more likely to 
@@ -154,7 +154,7 @@ mapping would have to be updated.
 
 Once the parser has reached a stable, functional form (producing valid output and passing all or most tests),
 the pre-commit hooks for unit testing, running the parser on the sample input, and validating the output can
-be moved from the [optional config](./.pre-commit-optional.yaml) to the [default config](./.pre-commit-config.yaml).
+be moved from the [optional config](https://github.com/greglv93/Antibody-Annotation-to-JSON/blob/feature/docusaurus-site/.pre-commit-optional.yaml) to the [default config](https://github.com/greglv93/Antibody-Annotation-to-JSON/blob/feature/docusaurus-site/.pre-commit-config.yaml).
 In addition, some of the output of the parser should be manually inspected as a sanity check.
 
 When the parser needs to be updated to handle new annotation fields or to change the output format of existing ones, 
@@ -173,13 +173,13 @@ add new schema tests and Python unittest tests.
 
 For ad hoc manual testing before committing local changes, use the `./input_data/` and `./json_files/` directories.
 The contents of these directories are intended for local runs of the parser and are ignored by git.
-The [./test/input_data/](./test/input_data/) and [./test/json_files/](./test/json_files/) directories are reserved for 
+The [./test/input_data/](https://github.com/greglv93/Antibody-Annotation-to-JSON/tree/feature/docusaurus-site/test/input_data) and [./test/json_files/](https://github.com/greglv93/Antibody-Annotation-to-JSON/tree/feature/docusaurus-site/test/json_files) directories are reserved for 
 automated testing and validation. The test directories are not ignored by git, so the output generated by the latest 
 version of the parser can be inspected.
 
 ### Changes to the Project Configuration
 
-Whenever the [pyproject.toml](./pyproject.toml) file is updated, the project should be reinstalled for the changes to 
+Whenever the [pyproject.toml](https://github.com/greglv93/Antibody-Annotation-to-JSON/blob/feature/docusaurus-site/pyproject.toml) file is updated, the project should be reinstalled for the changes to 
 take effect. Use the following commands:
 
 ```
