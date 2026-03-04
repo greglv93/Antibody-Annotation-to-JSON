@@ -17,6 +17,11 @@ const isCI = Boolean(process.env.GITHUB_ACTIONS);
 const url = isCI ? `https://${organizationName}.github.io` : 'http://localhost:3000';
 const baseUrl = isCI ? `/${projectName}/` : '/';
 
+const primaryDocId = 'README';
+const contributingDocId = 'CONTRIBUTING';
+
+const docPath = (docId) => `/docs/${docId}`;
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Antibody Annotations in JSON',
@@ -47,7 +52,10 @@ const config = {
     locales: ['en'],
   },
 
-  themes: ["docusaurus-json-schema-plugin"],
+  themes: ["docusaurus-json-schema-plugin", "@docusaurus/theme-mermaid"],
+  markdown: {
+    mermaid: true,
+  },
 
   presets: [
     [
@@ -85,6 +93,12 @@ const config = {
         },
         items: [
           {
+            type: 'doc',
+            docId: primaryDocId,
+            position: 'left',
+            label: 'Overview',
+          },
+          {
             type: 'docSidebar',
             sidebarId: 'docsSidebar',
             position: 'left',
@@ -105,7 +119,11 @@ const config = {
             items: [
               {
                 label: 'Overview',
-                to: '/docs/README.md',
+                to: docPath(primaryDocId),
+              },
+              {
+                label: 'Contributing',
+                to: docPath(contributingDocId),
               },
             ],
           },
