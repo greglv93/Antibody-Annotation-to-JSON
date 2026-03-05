@@ -20,7 +20,11 @@ const baseUrl = isCI ? `/${projectName}/` : '/';
 const primaryDocId = 'README';
 const contributingDocId = 'CONTRIBUTING';
 
-const docPath = (docId) => `/docs/${docId}`;
+const docSlugOverrides = {
+  README: '/docs/',
+};
+
+const docPath = (docId) => docSlugOverrides[docId] || `/docs/${docId}`;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {

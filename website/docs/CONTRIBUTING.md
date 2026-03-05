@@ -3,7 +3,7 @@
 ## Getting Started
 
 1. Install the project as an editable install a.k.a. development mode (refer to [these 
-instructions](./README.md#installation))
+instructions](/docs/#installation))
 2. Install the [pre-commit hooks](#pre-commit-hooks)
 3. Consult the [development strategy](#development-strategy) outlined below. If the tool is already functional and the 
 data structure and mapping makes sense, you may want to simply add some more unit tests for the source code or JSON 
@@ -51,8 +51,8 @@ manual fix must still pass the hook, unless the hook is suppressed in one of the
 
 Some hooks may need to be temporarily disabled within feature/update branches. In particular, the test and validation 
 hooks will need to be disabled during test-driven development (when the tests are expected to fail). In this case, the 
-relevant hook definitions can be moved from the [main configuration](.pre-commit-config.yaml) to the
-[optional configuration](.pre-commit-optional.yaml). These tests can then be run manually (without blocking any commits)
+relevant hook definitions can be moved from the [main configuration](https://github.com/greglv93/Antibody-Annotation-to-JSON/blob/feature/docusaurus-site/.pre-commit-config.yaml) to the
+[optional configuration](https://github.com/greglv93/Antibody-Annotation-to-JSON/blob/feature/docusaurus-site/.pre-commit-optional.yaml). These tests can then be run manually (without blocking any commits)
 as follows: `pre-commit run [hook_id] --config ./.pre-commit-optional.yaml`. The hooks should be moved back to the main
 pre-commit config before merging the feature/update branch with main.
 
@@ -125,7 +125,7 @@ data structure (refer to the [JSON Schema website](https://json-schema.org/) for
 
     ii. In parallel, write [test cases](https://github.com/greglv93/Antibody-Annotation-to-JSON/tree/feature/docusaurus-site/test/schema_tests) for each property in the schema, 
     so the schema can be updated and maintained in a test-driven way. Refer to the 
-    [testing documentation](./test/README.md#json-schema-unit-testing-strategy) for guidance.
+    [testing documentation](/docs/#json-schema-unit-testing-strategy) for guidance.
 
 4. Pseudocode for the parser
     - Describe the logic of how to step through an input file, including error handling
@@ -168,7 +168,7 @@ the appropriate changes should be made in the following places (see the above [w
 In any case, the 'cross-checking' between the parser, unit tests, and JSON schema validation will probably catch any 
 incompatible updates.
 
-The [test README](./test/README.md) includes a flowchart of the testing process and more information on how to edit or 
+The [test README](/docs/) includes a flowchart of the testing process and more information on how to edit or 
 add new schema tests and Python unittest tests.
 
 For ad hoc manual testing before committing local changes, use the `./input_data/` and `./json_files/` directories.

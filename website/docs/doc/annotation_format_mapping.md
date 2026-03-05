@@ -190,7 +190,7 @@ semantic) changes, which are as follows:
 
 The integrity of the data as it is run through the parser will be
 verified with unit tests covering the full range of expected data and
-edge cases. See the [test/README page](../test/README.md) for a
+edge cases. See the [test/README page](/docs/) for a
 complete overview of how this project is tested.
 
 

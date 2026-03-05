@@ -206,7 +206,7 @@ invalid examples, each of which tests missing required properties or disallowed 
 
 ### Exploring the existing JSON schema or modifications/additions via manual testing
 
-A [dev install](../README.md#installation) will install the Sourcemeta jsonschema tool and make the `jsonschema` command
+A [dev install](/docs/#installation) will install the Sourcemeta jsonschema tool and make the `jsonschema` command
 available from the command line. 
 The [`test` subcommand](https://github.com/sourcemeta/jsonschema/blob/main/docs/test.markdown) can be used as follows:
 `jsonschema test path/to/tests/` or `jsonschema test path/to/test.json`, where the test file(s) may contain 
