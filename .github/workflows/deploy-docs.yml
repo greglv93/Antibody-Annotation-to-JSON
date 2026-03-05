@@ -24,26 +24,38 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-docs:
+    name: Build docs site
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+    steps:
+      # 1) Check out the repository at the PR's merge commit
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2) Set up Node.js with caching for faster installs
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: npm
+          cache-dependency-path: |
+            website/package-lock.json
+            website/package.json
 
+      # 3) Install website dependencies (includes Docusaurus + plugins)
       - name: Install dependencies
         run: npm ci
         working-directory: website
 
-      - name: Build website
+      # 4) Build the Docusaurus site
+      #    - This will also run the "sync-docs" step that's been wired into the "build" script in website/package.json
+      - name: Build docs
         run: npm run build
         working-directory: website
 
+      # 5) Uploads the website build as a Pages artifact, which the 'deploy' job can then use
+      #     - the build directory is never committed, which reduces repo bloat and commit history clutter
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
