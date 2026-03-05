@@ -1,0 +1,26 @@
+import CodeBlock from '@theme/CodeBlock';
+import Schema from "@site/docs/doc/INN_antibody_schema.json";
+import JSONSchemaViewer from "@theme/JSONSchemaViewer";
+
+
+export const PrettyValue = ({value}) => (
+  <CodeBlock language="json">
+    {JSON.stringify(value, null, 2)}
+  </CodeBlock>
+);
+
+
+# JSON Schema Viewer 
+
+<JSONSchemaViewer 
+  schema={ Schema }
+  resolverOptions={{ dereferenceInline: true }}
+  viewerOptions={{
+    showExamples: true,
+    ValueComponent: PrettyValue,
+  }}
+/>
+
+# Source :
+
+<CodeBlock language="json-schema">{JSON.stringify(Schema, null, 2)}</CodeBlock>

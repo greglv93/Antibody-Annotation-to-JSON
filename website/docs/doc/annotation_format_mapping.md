@@ -5,7 +5,7 @@ Antibody Annotation Format](./INN_annotation_format.pdf)” for antibody-
 based therapeutics and a new JSON data schema that is to be imported 
 into a MongoDB database and made accessible to queries through a web 
 front-end. The conversion from the INN format to the JSON format is 
-carried out using [this parser](../antibody_annotation_to_json/), and 
+carried out using [this parser](https://github.com/greglv93/Antibody-Annotation-to-JSON/tree/feature/docusaurus-site/antibody_annotation_to_json), and 
 the constraints of the output JSON data are defined in [this schema
 document](./INN_antibody_schema.json).
 
@@ -71,8 +71,8 @@ the array corresponding to a different instance.
 Below is an example of the conversion of a complete annotation file for a
 fairly complicated antibody:
 
-- [original INN annotation for Request 12023](../test/input_data/12023.txt)
-- [corresponding JSON annotation format](../test/expected_json_files/12023_expected.json)
+- [original INN annotation for Request 12023](https://github.com/greglv93/Antibody-Annotation-to-JSON/blob/feature/docusaurus-site/test/input_data/12023.txt)
+- [corresponding JSON annotation format](https://github.com/greglv93/Antibody-Annotation-to-JSON/blob/feature/docusaurus-site/test/expected_json_files/12023_expected.json)
 
 
 ## Overview of the mapping
@@ -148,7 +148,7 @@ whole-antibody properties (e.g. `ID`) become top-level JSON properties
 with the related keyword prepended with a hyphen (e.g. `ID-Note`). These
 notes contain single string values, except `Format-Note`, which can
 contain multiple notes for different instances (e.g. in request
-*[12155](../test/input_data/12155.txt)*), and so is an array of objects. All other `Note` records are
+*[12155](https://github.com/greglv93/Antibody-Annotation-to-JSON/blob/feature/docusaurus-site/test/input_data/12155.txt)*), and so is an array of objects. All other `Note` records are
 subsumed into their related properties.
 
 The grammar of the subproperty names indicates when to expect an array
@@ -190,7 +190,7 @@ semantic) changes, which are as follows:
 
 The integrity of the data as it is run through the parser will be
 verified with unit tests covering the full range of expected data and
-edge cases. See the [test/README page](../test/README.md) for a
+edge cases. See the [test/README page](/docs/) for a
 complete overview of how this project is tested.
 
 
@@ -284,7 +284,7 @@ complete overview of how this project is tested.
 As can be seen by the chosen JSON subproperty names, the 80+ annotation
 properties could be condensed into around 30 groups according to shared
 information structures. Each group can be handled by a single method in
-the [parser’s](../antibody_annotation_to_json/core.py)
+the [parser’s](https://github.com/greglv93/Antibody-Annotation-to-JSON/blob/feature/docusaurus-site/antibody_annotation_to_json/core.py)
 code. The grouping also informs much of the logic of the [JSON 
 schema’s](./INN_antibody_schema.json) modular construction (sharing 
 definitions for item subproperties, or grouping together identical schemas 
@@ -364,7 +364,7 @@ as a database and searchable website) may also need updating.
     > variable domains from different instances. It could also indicate
     > that the annotation applies to a linker between the two instances,
     > e.g. the `ConfirmedPTM[4,5]` record in request 
-	> *[12082](../test/input_data/12082.txt)*.
+	> *[12082](https://github.com/greglv93/Antibody-Annotation-to-JSON/blob/feature/docusaurus-site/test/input_data/12082.txt)*.
 
 [^6]:
     > `Domain` is used in `LightChainClass`, where it will only ever take
