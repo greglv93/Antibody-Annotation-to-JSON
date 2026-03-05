@@ -58,6 +58,10 @@ const copiedSourcePaths = new Set(
   fileMappings.map(({src}) => path.relative(repoRoot, src).replace(/\\/g, '/')),
 );
 
+const slugOverrides = new Map([
+  ['README.md', '/docs/'],
+]);
+
 const repoSlug = getRepoSlug();
 const repoBranch = getRepoBranch();
 const githubBlobBase = `https://github.com/${repoSlug}/blob/${repoBranch}`;
@@ -84,12 +88,22 @@ function shouldTransform(src) {
 }
 
 function rewriteRelativeLinks(content, sourceFile) {
-  const linkPattern = /(!?\[[^\]]*\])\((\.{1,2}\/[^)\s]+[^)]*)\)/g;
+  const linkPattern = /(!?\[[^\]]*\])\(([^)\s][^)]*)\)/g;
 
-  return content.replace(linkPattern, (match, label, target) => {
+  return content.replace(linkPattern, (match, label, rawTarget) => {
+    const target = rawTarget.trim();
+    if (!shouldRewriteTarget(target)) {
+      return match;
+    }
     const rewrittenTarget = transformTarget(target, sourceFile);
     return `${label}(${rewrittenTarget})`;
   });
+}
+
+const disallowedPrefixes = ['http://', 'https://', 'mailto:', 'tel:', '#', '/', '@site', '@theme'];
+
+function shouldRewriteTarget(target) {
+  return !disallowedPrefixes.some((prefix) => target.startsWith(prefix));
 }
 
 function transformTarget(target, sourceFile) {
@@ -100,6 +114,11 @@ function transformTarget(target, sourceFile) {
   const repoRelativePath = path
     .relative(repoRoot, absoluteTarget)
     .replace(/\\/g, '/');
+
+  const override = lookupSlugOverride(repoRelativePath);
+  if (override) {
+    return `${override}${hash}`;
+  }
 
   if (repoRelativePath.startsWith('..') || copiedSourcePaths.has(repoRelativePath)) {
     return target;
@@ -114,6 +133,20 @@ function transformTarget(target, sourceFile) {
 
   const baseUrl = isDirectory ? githubTreeBase : githubBlobBase;
   return `${baseUrl}/${repoRelativePath}${hash}`;
+}
+
+function lookupSlugOverride(repoRelativePath) {
+  if (slugOverrides.has(repoRelativePath)) {
+    return slugOverrides.get(repoRelativePath);
+  }
+
+  for (const [key, slug] of slugOverrides.entries()) {
+    if (repoRelativePath.endsWith(key)) {
+      return slug;
+    }
+  }
+
+  return null;
 }
 
 function getRepoSlug() {
