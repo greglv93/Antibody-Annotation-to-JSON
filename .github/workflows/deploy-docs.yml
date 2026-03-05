@@ -12,6 +12,8 @@ on:
       - 'doc/INN_antibody_schema.json'
       # Anything under the Docusaurus site
       - 'website/**'
+      # This workflow file
+      - '.github/workflows/deploy-docs.yml'
   workflow_dispatch: {}
 
 permissions:
