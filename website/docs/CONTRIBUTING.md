@@ -103,7 +103,7 @@ formats
 1. Explore and understand the input data
 	- Develop a sense of the ontology of annotations in relation to different levels of the antibody structure 
 	(residue, domain, instance, chain, whole). Consult the following:
-		- Prof. Andrew Martin's [original format documentation](./doc/INN_annotation_format.pdf), 
+		- Prof. Andrew Martin's [original format documentation](/files/INN_annotation_format.pdf), 
 		- [Sample input annotation files](https://github.com/greglv93/Antibody-Annotation-to-JSON/tree/feature/docusaurus-site/test/input_data),
 		- Domain structure diagrams can be generated with [abYdraw](http://www.bioinf.org.uk/software/abydraw/)
 		from AbML strings within the sample annotation files. This is useful for understanding complicated formats
@@ -125,7 +125,7 @@ data structure (refer to the [JSON Schema website](https://json-schema.org/) for
 
     ii. In parallel, write [test cases](https://github.com/greglv93/Antibody-Annotation-to-JSON/tree/feature/docusaurus-site/test/schema_tests) for each property in the schema, 
     so the schema can be updated and maintained in a test-driven way. Refer to the 
-    [testing documentation](/docs/#json-schema-unit-testing-strategy) for guidance.
+    [testing documentation](/docs/test/#json-schema-unit-testing-strategy) for guidance.
 
 4. Pseudocode for the parser
     - Describe the logic of how to step through an input file, including error handling
@@ -168,7 +168,7 @@ the appropriate changes should be made in the following places (see the above [w
 In any case, the 'cross-checking' between the parser, unit tests, and JSON schema validation will probably catch any 
 incompatible updates.
 
-The [test README](/docs/) includes a flowchart of the testing process and more information on how to edit or 
+The [test README](/docs/test/) includes a flowchart of the testing process and more information on how to edit or 
 add new schema tests and Python unittest tests.
 
 For ad hoc manual testing before committing local changes, use the `./input_data/` and `./json_files/` directories.

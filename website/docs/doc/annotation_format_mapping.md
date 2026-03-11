@@ -1,13 +1,14 @@
 # INN Antibody Annotation Format → JSON Format
 
 This document describes a mapping between Prof. Andrew Martin’s “[INN
-Antibody Annotation Format](./INN_annotation_format.pdf)” for antibody-
+Antibody Annotation Format](/files/INN_annotation_format.pdf)” for antibody-
 based therapeutics and a new JSON data schema that is to be imported 
 into a MongoDB database and made accessible to queries through a web 
 front-end. The conversion from the INN format to the JSON format is 
 carried out using [this parser](https://github.com/greglv93/Antibody-Annotation-to-JSON/tree/feature/docusaurus-site/antibody_annotation_to_json), and 
 the constraints of the output JSON data are defined in [this schema
-document](./INN_antibody_schema.json).
+document](./INN_antibody_schema.json), which is viewable in interactive 
+form on the github.io domain associated with this repository.
 
 The original INN annotation format is flat text and consists of
 `keyword[i]: value;` tuples, where the keyword often has one or more
@@ -15,7 +16,7 @@ instance numbers appended in square brackets. These instances represent
 different chains (or single-origin portions of a fused chain) that
 require separate annotations for the same attribute. Some keywords may
 also be followed by domain, region or isoform indicators in parentheses.
-See [here](./INN_annotation_format.pdf) for more detail on the INN 
+See [here](/files/INN_annotation_format.pdf) for more detail on the INN 
 annotation format.
 
 Below is the terminology used in this documentation for roughly
@@ -109,8 +110,8 @@ with the whole antibody:
 1.  Single annotations for the whole antibody. The JSON value is a
     string and is unchanged from the original annotation. The only
     properties in this group are `Request`, `Format`, `ID`, `AbML`,
-    `HeavySource`, `LightSource`, and some notes (see
-    *[below](#a-note-on-notes)*).
+    `HeavySource`, `LightSource`, and 
+    [most notes that relate to these properties](#a-note-on-notes).
 
 2.  The vast majority are instance-specific: they can – but don’t
     necessarily always – apply to one or more of the instances or chains
@@ -142,14 +143,14 @@ with the whole antibody:
 	  fields into single properties, e.g. `Confirmed` and `Potential` in
 	  the `*NGlycos` and `*OGlycos` fields.
 
-<a name="a-note-on-notes"></a>`Note` records are treated differently
-depending on their associated record. Those that relate to
-whole-antibody properties (e.g. `ID`) become top-level JSON properties
-with the related keyword prepended with a hyphen (e.g. `ID-Note`). These
-notes contain single string values, except `Format-Note`, which can
+<span id="a-note-on-notes"></span>
+`Note` records are treated differently depending on their associated record. 
+Those that relate to whole-antibody properties (e.g. `ID`) become top-level 
+JSON properties with the related keyword prepended with a hyphen (e.g. `ID-Note`). 
+These notes contain single string values, except `Format-Note`, which can 
 contain multiple notes for different instances (e.g. in request
-*[12155](https://github.com/greglv93/Antibody-Annotation-to-JSON/blob/feature/docusaurus-site/test/input_data/12155.txt)*), and so is an array of objects. All other `Note` records are
-subsumed into their related properties.
+*[12155](https://github.com/greglv93/Antibody-Annotation-to-JSON/blob/feature/docusaurus-site/test/input_data/12155.txt)*), and so is an array of objects. All 
+other `Note` records are subsumed into their related properties.
 
 The grammar of the subproperty names indicates when to expect an array
 of values. It can be different between properties but is consistent
@@ -190,7 +191,7 @@ semantic) changes, which are as follows:
 
 The integrity of the data as it is run through the parser will be
 verified with unit tests covering the full range of expected data and
-edge cases. See the [test/README page](/docs/) for a
+edge cases. See the [test/README page](/docs/test/) for a
 complete overview of how this project is tested.
 
 
