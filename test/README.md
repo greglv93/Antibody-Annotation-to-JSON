@@ -198,7 +198,8 @@ follow a broadly similar pattern:
     subschemas)
 - for each array item sub-property:
     - missing from the item (only if required)
-    - violations of each constraint for each sub-property separately
+    - violations of each constraint for each sub-property separately.
+
 In addition, there is a [full schema test case](./schema_tests/full_schema.json) that imports a 
 ['golden example'](./expected_json_files/12023_expected.json) of what the converted JSON output should look like for the 
 annotation file for the therapeutic antibody with "Request" code 12023. The valid example is modified to produce several 
