@@ -1,39 +1,68 @@
+import React from 'react';
 import clsx from 'clsx';
+import CodeBlock from '@theme/CodeBlock';
 import Heading from '@theme/Heading';
+import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
-const FeatureList = [
-  {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
-  },
-];
+const rawInputExample =
+  require('!!raw-loader!@site/static/examples/sample_input.txt').default;
+const rawOutputExample =
+  require('!!raw-loader!@site/static/examples/sample_output.json').default;
 
-function Feature({Svg, title, description}) {
+function Feature({title, description, language, content}) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+    <div className={styles.featureColumn}>
+      <Heading as="h3" className={styles.featureHeading}>
+        {title}
+      </Heading>
+      <p className={styles.featureDescription}>{description}</p>
+      <div className={styles.exampleWindow}>
+        <CodeBlock language={language} showLineNumbers>
+          {content}
+        </CodeBlock>
       </div>
     </div>
   );
 }
 
 export default function HomepageFeatures() {
+  const innFormatPdfUrl = useBaseUrl('/files/INN_annotation_format.pdf');
+  const jsonSchemaViewerUrl = useBaseUrl('/docs/doc/json-schema');
+
+  const FeatureList = [
+    {
+      title: 'Before parsing (original flat text format)',
+      description: (
+        <>
+          It follows this format specification:{' '}
+          <a href={innFormatPdfUrl} target="_blank" rel="noopener noreferrer">
+            INN annotation PDF
+          </a>
+          .
+        </>
+      ),
+      language: 'text',
+      content: rawInputExample.trim(),
+    },
+    {
+      title: 'After parsing to JSON',
+      description: (
+        <>
+          It follows this JSON schema:{' '}
+          <Link to={jsonSchemaViewerUrl}>interactive JSON schema viewer</Link>.
+        </>
+      ),
+      language: 'json',
+      content: rawOutputExample.trim(),
+    },
+  ];
+
   return (
     <section className={styles.features}>
-      <div className="container">
-        <div className="row">
+      <div className={clsx('container', styles.examplesContainer)}>
+        <div className={styles.examplesRow}>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}

@@ -18,17 +18,17 @@ const url = isCI ? `https://${organizationName}.github.io` : 'http://localhost:3
 const baseUrl = isCI ? `/${projectName}/` : '/';
 
 const primaryDocId = 'README';
-const contributingDocId = 'CONTRIBUTING';
 
 const docSlugOverrides = {
   README: '/docs/',
+  'test/README': '/docs/test/',
 };
 
 const docPath = (docId) => docSlugOverrides[docId] || `/docs/${docId}`;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Antibody Annotations in JSON',
+  title: 'JSON Antibody Annotations',
   tagline: 'Documentation for a parser that converts INN antibody annotations into a JSON format',
   favicon: 'img/favicon.ico',
 
@@ -56,7 +56,10 @@ const config = {
     locales: ['en'],
   },
 
-  themes: ["docusaurus-json-schema-plugin", "@docusaurus/theme-mermaid"],
+  themes: [
+    "docusaurus-json-schema-plugin",
+    "@docusaurus/theme-mermaid"
+  ],
   markdown: {
     mermaid: true,
   },
@@ -67,7 +70,9 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: './sidebars.js',
+          // to re-enable the sidebar, uncomment this line and remove the 'false' line
+          // sidebarPath: './sidebars.js',
+          sidebarPath: false,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -84,16 +89,15 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/favicon.ico',
       colorMode: {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'My Site',
+        title: 'Home',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Site Logo',
+          src: 'img/favicon.svg',
         },
         items: [
           {
@@ -103,11 +107,37 @@ const config = {
             label: 'Overview',
           },
           {
+            type: 'doc',
+            docId: 'doc/annotation_format_mapping',
+            position: 'left',
+            label: 'Annotation Format Mapping'
+          },
+          {
+            type: 'doc',
+            docId: 'doc/json-schema',
+            position: 'left',
+            label: 'JSON schema'
+          },
+          {
+            type: 'doc',
+            docId: 'CONTRIBUTING',
+            position: 'left',
+            label: 'Contributing'
+          },
+          {
+            type: 'doc',
+            docId: 'test/README',
+            position: 'left',
+            label: 'Testing'
+          },
+          /*
+          {
             type: 'docSidebar',
             sidebarId: 'docsSidebar',
             position: 'left',
-            label: 'Documentation',
+            label: 'Contributing',
           },
+          */
           {
             href: `https://github.com/${organizationName}/${projectName}/`,
             label: 'GitHub',
@@ -126,8 +156,20 @@ const config = {
                 to: docPath(primaryDocId),
               },
               {
+                label: 'Annotation Format Mapping',
+                to: docPath('doc/annotation_format_mapping'),
+              },
+              {
+                label: 'JSON schema',
+                to: docPath('doc/json-schema'),
+              },
+              {
                 label: 'Contributing',
-                to: docPath(contributingDocId),
+                to: docPath('CONTRIBUTING'),
+              },
+              {
+                label: 'Testing',
+                to: docPath('test/README'),
               },
             ],
           },
@@ -135,8 +177,8 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
+                label: 'GitHub Discussions',
+                href: `https://github.com/${organizationName}/${projectName}/discussions/`,
               },
             ],
           },
@@ -144,7 +186,7 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'GitHub',
+                label: 'GitHub Repo Home',
                 href: `https://github.com/${organizationName}/${projectName}/`,
               },
             ],

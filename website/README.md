@@ -7,11 +7,13 @@ as an artifact from this workflow, and the artifact is deployed to the GitHub Pa
 repository and cluttering the commit history with a website build directory.
 
 *__Note__: docs under `website/docs` are generated automatically from the root docs, so don't edit them directly.*
-The documentation files (e.g. `README.md`, `CONTRIBUTING.md`, `test/README.md`, `doc/annnotation_format_mapping.md`, and
-`doc/INN_antibody_annotations.json`) used in the website are copied from the project root into `website/docs/` using a 
-['sync docs' script](./scripts/sync-docs.cjs), which is [configured here](package.json) to run automatically before 
-every build or start-up of a local development server.
-The reason for this is mainly to ensure that relative links inside the markdown docs don't break.
+The documentation files (e.g. `README.md`, `CONTRIBUTING.md`, `test/README.md`, and `doc/*`) used in the website are 
+copied from the project root into `website/docs/` using a ['sync-docs' script](./scripts/sync-docs.cjs), which is 
+[configured here](package.json) to run automatically before every build or start-up of a local development server.
+The purpose of the sync-docs script is mainly to ensure that relative links inside the markdown docs don't break. The 
+script preserves the directory structure of the selected files and rewrites URLs either to match the path of the slug in 
+the final website build (for links to other files in the copied group) or to link out to the GitHub URL (for files that 
+are not included in the group for the Docusaurus website). 
 
 ## Installation
 

@@ -14,6 +14,7 @@ const websiteDir = path.resolve(scriptDir, '..');        // .../website
 const repoRoot   = path.resolve(scriptDir, '..', '..');  // repo root
 
 const docsDir          = path.join(websiteDir, 'docs');
+const staticDir        = path.join(websiteDir, 'static');
 
 // Map of source -> destination files
 const fileMappings = [
@@ -47,19 +48,39 @@ const fileMappings = [
     dest: path.join(docsDir, 'doc', 'INN_antibody_schema.json'),
   },
   {
-    // Original INN annotation format PDF
+    // Sample INN text input used on the homepage
+    src: path.join(repoRoot, 'test', 'input_data', '12023.txt'),
+    dest: path.join(staticDir, 'examples', 'sample_input.txt'),
+  },
+  {
+    // Sample JSON output used on the homepage
+    src: path.join(repoRoot, 'test', 'expected_json_files', '12023_expected.json'),
+    dest: path.join(staticDir, 'examples', 'sample_output.json'),
+  },
+];
+
+const staticMappings = [
+  {
+    // Original INN annotation format PDF served from /assets/files/
     src: path.join(repoRoot, 'doc', 'INN_annotation_format.pdf'),
-    dest: path.join(docsDir, 'doc', 'INN_annotation_format.pdf'),
+    dest: path.join(staticDir, 'files', 'INN_annotation_format.pdf'),
   },
 ];
 
 const markdownExtensions = new Set(['.md', '.mdx']);
-const copiedSourcePaths = new Set(
-  fileMappings.map(({src}) => path.relative(repoRoot, src).replace(/\\/g, '/')),
+const docsSourcePaths = new Set(
+  fileMappings
+    .filter(({dest}) => dest.startsWith(docsDir))
+    .map(({src}) => path.relative(repoRoot, src).replace(/\\/g, '/')),
 );
 
 const slugOverrides = new Map([
   ['README.md', '/docs/'],
+  ['test/README.md', '/docs/test/'],
+]);
+
+const staticAssetMap = new Map([
+  [path.join('doc', 'INN_annotation_format.pdf').replace(/\\/g, '/'), '/files/INN_annotation_format.pdf'],
 ]);
 
 const repoSlug = getRepoSlug();
@@ -77,7 +98,7 @@ async function copyFileWithDirs(src, dest) {
   } else {
     await fsp.copyFile(src, dest);
   }
-  // Nice, short log for humans
+  // Short log for humans
   console.log(
     `Copied ${path.relative(repoRoot, src)} -> ${path.relative(websiteDir, dest)}`
   );
@@ -120,7 +141,12 @@ function transformTarget(target, sourceFile) {
     return `${override}${hash}`;
   }
 
-  if (repoRelativePath.startsWith('..') || copiedSourcePaths.has(repoRelativePath)) {
+  const staticAsset = staticAssetMap.get(repoRelativePath);
+  if (staticAsset) {
+    return `${staticAsset}${hash}`;
+  }
+
+  if (repoRelativePath.startsWith('..') || docsSourcePaths.has(repoRelativePath)) {
     return target;
   }
 
@@ -136,17 +162,7 @@ function transformTarget(target, sourceFile) {
 }
 
 function lookupSlugOverride(repoRelativePath) {
-  if (slugOverrides.has(repoRelativePath)) {
-    return slugOverrides.get(repoRelativePath);
-  }
-
-  for (const [key, slug] of slugOverrides.entries()) {
-    if (repoRelativePath.endsWith(key)) {
-      return slug;
-    }
-  }
-
-  return null;
+  return slugOverrides.get(repoRelativePath) ?? null;
 }
 
 function getRepoSlug() {
@@ -212,6 +228,9 @@ async function main() {
 
     await Promise.all(
       fileMappings.map(({ src, dest }) => copyFileWithDirs(src, dest))
+    );
+    await Promise.all(
+      staticMappings.map(({src, dest}) => copyFileWithDirs(src, dest))
     );
 
     console.log('Doc sync complete.');

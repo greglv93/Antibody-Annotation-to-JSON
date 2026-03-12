@@ -27,7 +27,8 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.9.2",
     "@docusaurus/types": "3.9.2",
-    "docusaurus-json-schema-plugin": "^1.15.0"
+    "docusaurus-json-schema-plugin": "^1.15.0",
+    "raw-loader": "^4.0.2"
   },
   "browserslist": {
     "production": [
