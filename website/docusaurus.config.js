@@ -20,11 +20,11 @@ const baseUrl = isCI ? `/${projectName}/` : '/';
 const primaryDocId = 'README';
 
 const docSlugOverrides = {
-  README: '/docs/',
+  'README': '/docs/',
   'test/README': '/docs/test/',
 };
 
-const docPath = (docId) => docSlugOverrides[docId] || `/docs/${docId}`;
+const resolveDocLink = (docId) => docSlugOverrides[docId] || `/docs/${docId}`;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -75,8 +75,8 @@ const config = {
           sidebarPath: false,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            `https://github.com/${organizationName}/${projectName}/`,
+          editUrl: ({docPath}) =>
+            `https://github.com/${organizationName}/${projectName}/blob/main/${docPath}`,
         },
         blog: false,
         theme: {
@@ -153,23 +153,23 @@ const config = {
             items: [
               {
                 label: 'Overview',
-                to: docPath(primaryDocId),
+                to: resolveDocLink(primaryDocId),
               },
               {
                 label: 'Annotation Format Mapping',
-                to: docPath('doc/annotation_format_mapping'),
+                to: resolveDocLink('doc/annotation_format_mapping'),
               },
               {
                 label: 'JSON schema',
-                to: docPath('doc/json-schema'),
+                to: resolveDocLink('doc/json-schema'),
               },
               {
                 label: 'Contributing',
-                to: docPath('CONTRIBUTING'),
+                to: resolveDocLink('CONTRIBUTING'),
               },
               {
                 label: 'Testing',
-                to: docPath('test/README'),
+                to: resolveDocLink('test/README'),
               },
             ],
           },
